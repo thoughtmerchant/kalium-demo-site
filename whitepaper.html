@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium — Aligned Equity White Paper</title>
+  <style>
+    :root {
+      --ink: #0B1F3A;
+      --paper: #ffffff;
+      --muted: rgba(11, 31, 58, 0.48);
+      --rule: rgba(11, 31, 58, 0.85);
+      --rule-soft: rgba(11, 31, 58, 0.18);
+      --rule-mid: rgba(11, 31, 58, 0.28);
+      --body: rgba(11, 31, 58, 0.9);
+      --page-max: 920px;
+      --pad-x: clamp(22px, 4.5vw, 48px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100svh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(11, 31, 58, 0.35);
+    }
+
+    a:hover {
+      text-decoration-color: var(--ink);
+    }
+
+    a:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 48px) var(--pad-x) 64px;
+    }
+
+    /* —— Form header (full-bleed paper band) —— */
+    .form-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.55em;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-bottom: clamp(40px, 7vh, 72px);
+      padding-inline: max(var(--pad-x), calc(50vw - var(--page-max) / 2 + var(--pad-x)));
+      background: var(--paper);
+    }
+
+    .brand {
+      font-size: clamp(22px, 2.4vw, 28px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .brand-rule {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: var(--rule);
+      margin-top: 0.12em;
+    }
+
+    /* —— Meta —— */
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px 28px;
+      margin-bottom: clamp(36px, 6vh, 56px);
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .field label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .field .value {
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid var(--rule-mid);
+      padding: 0 0 6px;
+      min-height: 1.4em;
+    }
+
+    /* —— Title block —— */
+    .doc-title {
+      margin-bottom: clamp(40px, 7vh, 64px);
+      max-width: 72ch;
+    }
+
+    .doc-title .kicker {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .doc-title h1 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .doc-title .lede {
+      font-size: clamp(15px, 1.7vw, 18px);
+      line-height: 1.5;
+      color: var(--body);
+      max-width: 58ch;
+    }
+
+    /* —— TOC —— */
+    .toc {
+      margin-bottom: clamp(48px, 8vh, 72px);
+      padding: 20px 0;
+      border-top: 1px solid var(--rule-soft);
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .toc .label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .toc a:hover { color: var(--ink); }
+
+    .toc .num {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      min-width: 2.2em;
+    }
+
+    /* —— Prose —— */
+    .prose {
+      max-width: none;
+    }
+
+    /* Keep readable measure on copy; allow full-bleed children (e.g. tables). */
+    .prose > *:not(.table-wrap) {
+      max-width: 68ch;
+    }
+
+    .prose > * + * {
+      margin-top: 1.15em;
+    }
+
+    .section {
+      margin-bottom: clamp(48px, 8vh, 80px);
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .section-head .roman {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    h3 {
+      font-size: clamp(17px, 2vw, 20px);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.3;
+      margin-top: 2.2em;
+      margin-bottom: 0.7em;
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-top: 1.8em;
+      margin-bottom: 0.55em;
+    }
+
+    p, li {
+      font-size: 15px;
+      color: var(--body);
+    }
+
+    .prose ul, .prose ol {
+      padding-left: 1.25em;
+    }
+
+    .prose li + li {
+      margin-top: 0.55em;
+    }
+
+    .pull {
+      margin: 2em 0;
+      padding: 18px 0 18px 20px;
+      border-left: 1px solid var(--rule);
+      max-width: 48ch;
+      font-size: clamp(16px, 1.9vw, 19px);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .pathway {
+      margin-top: 1.6em;
+      padding-top: 1.2em;
+      border-top: 1px solid var(--rule-soft);
+    }
+
+    .pathway h4 {
+      margin-top: 0;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .pathway p {
+      margin-top: 0.45em;
+    }
+
+    /* —— Table —— */
+    .table-wrap {
+      margin: 2em 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.45;
+      min-width: 640px;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 12px 14px 12px 0;
+      border-bottom: 1px solid var(--rule-soft);
+      color: var(--body);
+    }
+
+    th {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--muted);
+      border-bottom-color: var(--rule-mid);
+    }
+
+    th:first-child,
+    td:first-child {
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      padding-right: 18px;
+    }
+
+    /* —— Notes —— */
+    .notes {
+      margin-top: clamp(48px, 8vh, 80px);
+      padding-top: 28px;
+      border-top: 1px solid var(--rule-soft);
+    }
+
+    .notes h2 {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .notes ol {
+      list-style: none;
+      counter-reset: note;
+      display: grid;
+      gap: 14px;
+    }
+
+    .notes li {
+      counter-increment: note;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+      padding-left: 2.2em;
+      position: relative;
+      max-width: 72ch;
+    }
+
+    .notes li::before {
+      content: counter(note);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      opacity: 0.55;
+    }
+
+    .notes em { font-style: italic; }
+
+    /* —— Footer —— */
+    .form-foot {
+      margin-top: clamp(48px, 8vh, 72px);
+      padding-top: 20px;
+      border-top: 1px solid var(--rule-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-foot a {
+      text-decoration: none;
+    }
+
+    .form-foot a:hover {
+      color: var(--ink);
+    }
+
+    .fn {
+      font-size: 0.75em;
+      vertical-align: super;
+      line-height: 0;
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .fn:hover { color: var(--ink); }
+
+    @media (max-width: 720px) {
+      .meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pull {
+        padding-left: 14px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="form-head" aria-label="Document header">
+      <a class="brand" href="form.html">Kalium</a>
+      <span class="brand-rule" aria-hidden="true"></span>
+    </header>
+
+    <section class="meta" aria-label="Document metadata">
+      <div class="field">
+        <label>Document</label>
+        <div class="value">White paper</div>
+      </div>
+      <div class="field">
+        <label>Status</label>
+        <div class="value">External draft</div>
+      </div>
+      <div class="field">
+        <label>Subject</label>
+        <div class="value">Aligned equity</div>
+      </div>
+      <div class="field">
+        <label>Year</label>
+        <div class="value">2026</div>
+      </div>
+    </section>
+
+    <header class="doc-title">
+      <p class="kicker">Kalium Investments</p>
+      <h1>Aligned equity: public goods at the point of formation</h1>
+      <p class="lede">
+        A new asset class in which the investor’s financial return is capped by agreement,
+        and enterprise value beyond that cap is directed toward defined public goods.
+      </p>
+    </header>
+
+    <nav class="toc" aria-label="Contents">
+      <p class="label">Contents</p>
+      <ol>
+        <li><a href="#i-introduction"><span class="num">I</span> Introduction</a></li>
+        <li><a href="#ii-aligned-equity"><span class="num">II</span> Aligned equity</a></li>
+        <li><a href="#examples"><span class="num">II.1</span> Illustrative examples</a></li>
+        <li><a href="#directing-surplus"><span class="num">II.2</span> Directing surplus</a></li>
+        <li><a href="#kalium"><span class="num">II.3</span> Aligned equity pilot: Kalium Investments</a></li>
+        <li><a href="#iii-appendix"><span class="num">III</span> Appendix</a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== I ===================== -->
+    <article class="section" id="i-introduction">
+      <header class="section-head">
+        <span class="roman">Part I</span>
+        <h2>Introduction</h2>
+      </header>
+
+      <div class="prose">
+        <h3>The state of public goods</h3>
+        <p>
+          We are in a crisis of how public goods get created. The crisis is not only economic
+          but conceptual. We’ve lost a working account of what public goods are, who pays for
+          them, and what they owe us.
+        </p>
+        <p>
+          Centuries of economic theory define public goods by two properties inherent to the
+          good itself. Non-rivalry: one person's consumption does not diminish what is available
+          to anyone else. Non-excludability: the supplier cannot prevent non-payers from consuming.
+          The definition is precise and useful, but it describes the conditions under which a
+          market fails to reliably supply a good. It does not describe what the good does, why
+          it matters, or who should provide it.
+        </p>
+        <p>
+          To say we are in a crisis of how public goods get created is an argument about
+          institutional design and incentives rather than a moral or strictly economic one.
+        </p>
+
+        <h3>What we mean by public goods</h3>
+        <p>
+          This paper does not interrogate the economic argument of public goods exclusively.
+          When we use the phrase, we mean goods, services, and utilities that support overall
+          societal health and wellbeing — be it clean air provisions, a cure for Alzheimer's,
+          wealth-generating opportunities for employees, or the correction of externalities an
+          enterprise has itself produced.
+        </p>
+        <p>
+          We recognize that the public should ideally hold authorship over that definition.
+          Our scope is deliberately limited as to not opine on authorship or decisions of allocation.
+        </p>
+        <p>
+          What we do intend to explore is the mechanism itself. The instrument we present later
+          in this paper generates public goods in three ways: by creating something net new, by
+          changing where upside flows — sharing profit with stakeholders or subsidizing access —
+          or by working against externalities the enterprise generates. The instrument is specific
+          in design and flexible in outcome.
+        </p>
+
+        <h3>The settlement that assumed automatic aggregation</h3>
+        <p>
+          Through the middle of the twentieth century, the state was the primary funder, and at
+          times direct provider, of public goods through taxation and expanded welfare systems.<a class="fn" href="#n1" id="r1">1</a>
+          Charitable capital was expected to play a residual role: funding experimental or minority
+          causes that the government was structurally unable to support, and gap-filling where the
+          state and market did not reach.<a class="fn" href="#n2" id="r2">2</a> Corporations created private economic value,
+          and their contribution to the public was assumed to flow indirectly — through wages,
+          taxes paid, and the goods and services they sold.
+        </p>
+        <p>
+          Beneath the whole arrangement sat one load-bearing assumption: automatic aggregation.
+          Private value creation, plus redistributive taxation, plus charitable topping-up, would
+          net out to a fair society.
+        </p>
+        <p>
+          That settlement broke because the intermediation faltered.<a class="fn" href="#n3" id="r3">3</a>
+          As public capacity has thinned and confidence in it has waned,<a class="fn" href="#n4" id="r4">4</a>
+          and as wealth has concentrated in private hands at a scale without precedent,<a class="fn" href="#n5" id="r5">5</a>
+          private power has been left holding the position those public institutions used to occupy —
+          controlling the resources whose deployment now determines whether public goods get made —
+          without having chosen that role or built the means to exercise it.<a class="fn" href="#n6" id="r6">6</a>
+        </p>
+        <p>
+          Philanthropy, meanwhile, has been asked to carry weight it was never built to bear.
+          Philanthropy’s defensible role is to promote pluralism and discovery — decentralizing
+          who gets to define a good and funding long-horizon experiments that neither electorates
+          nor markets can afford. Philanthropy was never designed to supply public goods at scale,
+          and expecting it to do so has contributed to this breakdown.
+        </p>
+        <p>
+          It has proven insufficient not by the measure of its own activity, which is at record
+          levels, but by the measure that matters: capital has accumulated inside the philanthropic
+          system faster than the problems it was meant to address have improved.<a class="fn" href="#n7" id="r7">7</a>
+          Because the tax benefit is realized at the moment of contribution, the public benefit is
+          optional and can be indefinitely deferred — by design.<a class="fn" href="#n8" id="r8">8</a>
+          And the professional apparatus guiding great wealth is compensated on assets under
+          advisement rather than on gifts granted, so the default counsel is to preserve and grow
+          capital rather than to move it.
+        </p>
+        <p>
+          The deeper issue is structural, not one of volume. The institutions that philanthropy
+          funds — foundations, nonprofits — are built for service delivery and for acting on value
+          after it has been created, extracted, and privatized. They operate at the altitude of the
+          symptom, with no leverage over the capital structures, governance, or incentives of the
+          enterprises that actually generate the value, and the harm, upstream.
+        </p>
+
+        <h3>Public goods in the 21st century</h3>
+        <p>
+          The institution now best equipped to produce public goods is neither the agency nor
+          the foundation. It is the corporation.
+        </p>
+        <p>
+          The corporation’s capacity to organize talent, compound expertise, distribute at scale,
+          and convert resources into outcomes efficiently has no rival among the institutions we
+          have traditionally charged with the public good; in this moment, the corporate form is
+          simply the most effective public-goods-producing technology available to us.
+        </p>
+        <p>
+          The shift has already happened. The mechanisms built today determining the wellbeing
+          and protection of the public — AI, biotech, national security, energy generation and
+          storage, grid infrastructure, healthcare distribution — are already being built by
+          private companies with private capital. In each, the choice of what gets built, and for
+          whom, is made inside a private firm.
+        </p>
+        <p>
+          That this is so is not a triumph but a symptom — a measure of how far the public
+          institutions we built for the purpose have been allowed to erode. And it is a claim
+          about capability, not authority: the corporation is the best engine we have, not the
+          best steer. Left to its own logic it will aim that capacity wherever profit points.
+        </p>
+
+        <h3>The result</h3>
+        <p>
+          The result is a double bind. The institutions with the capacity to create public value
+          at scale — operating private enterprises, with their expertise, distribution, talent,
+          and capital efficiency — are governed by a default mandate that treats public benefit
+          as a leakage of the returns they seek to produce. The institutions with the mandate to
+          create public goods — foundations and nonprofits — lack the capital, scale, and market
+          discipline of enterprises.
+        </p>
+
+        <blockquote class="pull">
+          Capacity without mandate on one side; mandate without capacity on the other.
+        </blockquote>
+
+        <p>
+          Large pools of capital sit disconnected from the institutions best positioned to deliver
+          public goods, at the precise moment those goods are most needed — not by accident of
+          circumstance, but by the design of the system that routes value between them.
+        </p>
+
+        <h3>Public goods at the point of formation</h3>
+        <p>
+          What enterprises lack, then, is not the capability to produce public goods but the
+          license to — a mandate that permits it and capital that asks it to turn that capacity
+          toward public ends. The direction has to come from capital holders deliberately choosing
+          the kind of return they want. But discretion exercised once — by one capital holder or
+          one founder — is not a scalable structure, as it has to be continuously rebuilt alongside
+          each bespoke scenario.<a class="fn" href="#n9" id="r9">9</a>
+        </p>
+        <p>
+          The missing infrastructure is not a better philanthropy or a more disciplined impact
+          fund. It is the connective tissue between public-minded capital and the corporate form
+          itself — the mechanisms and intermediaries that let asset holders direct capital into
+          enterprises <em>as enterprises</em>, harnessing the very engine that makes them formidable,
+          to produce public goods on purpose rather than by accident.
+        </p>
+        <p>
+          Public benefit is an afterthought in every existing vehicle because it is decided
+          downstream of value: created, accumulated, and only then, optionally, transferred to
+          the public. With the design of a new instrument, the correction can sit at formation —
+          before the value exists, an obligation can be made by agreement rather than intention.
+        </p>
+        <p>
+          Private allocation of public goods is already occurring — it is just unstructured.
+          An agreement built at formation is more accountable and efficient than discretion
+          exercised later, if at all.
+        </p>
+      </div>
+    </article>
+
+    <!-- ===================== II ===================== -->
+    <article class="section" id="ii-aligned-equity">
+      <header class="section-head">
+        <span class="roman">Part II</span>
+        <h2>Aligned equity</h2>
+      </header>
+
+      <div class="prose">
+        <p>
+          We propose a new asset class — <em>aligned equity</em> — in which the financial return
+          to the investor is capped by agreement, and the enterprise value generated beyond that
+          cap is directed, by the same agreement, toward defined public goods connected to — or
+          produced by — the company’s operations.
+        </p>
+
+        <p>
+          Public benefit here can span four modes, which fall into two families. The first is the
+          enterprise's effect on the world beyond it: creating a net-new public good — the R&amp;D
+          pipeline of a pharmaceutical company, say — or reducing a negative externality it would
+          otherwise impose, such as the carbon intensity of its operations. The second is the
+          distribution of the value the enterprise creates: sharing its upside with the workers
+          and communities who help produce it, or lowering the cost of goods and services to those
+          who depend on them. The instrument is indifferent to which mode a given company pursues;
+          what it fixes is that some defined portion of surplus is directed to one of them rather
+          than to uncapped private return.
+        </p>
+        <p>
+          The mechanism is deliberately conventional. It requires no new legal entity, no change
+          in corporate law, and no departure from how enterprises are built, financed, or run.
+          An aligned equity investor takes an ordinary equity or equity-like position on standard
+          terms for the stage and sector. To those terms is attached a single addition — a public
+          good annex — that specifies three things: the ceiling on the investor's financial return,
+          the definition of the public good the surplus is intended to fund, and the governance by
+          which that commitment is held over time. Below the cap, the instrument behaves like any
+          other investment. Above it, value that would ordinarily accrue to the investor is
+          redirected to public ends the parties agreed to in advance.
+        </p>
+
+        <p>
+          This design resolves the double bind directly. The capital operates inside the enterprise
+          rather than being routed out to a lower-capacity vehicle, so the company's expertise,
+          distribution, and efficiency — the capacities that make it the most effective producer of
+          public goods available — are the very things put to work. The redirection of surplus to
+          public benefit is fixed by contract from the outset, even where the specific benefit can
+          be defined broadly and sharpened as the enterprise matures depending on the stage of
+          investment. And the investor chooses the shape of their return at the outset — how much
+          financial, how much public — without exiting the capital system to do it.
+        </p>
+        <p>
+          Aligned equity moves the redirection of value upstream, before it ever becomes a matter
+          of discretionary choice at all — embedded contractually at the point where value is
+          created, rather than relying on a downstream collective of individuals to identify a
+          problem and successfully deploy capital against it for public benefit. It depends on no
+          one’s individual temperament because it asks for no change in behavior, only that the
+          contract exists and the agreement be honored. And it avoids the absorption bottleneck
+          because capital flows to enterprise capacity that already exists rather than into a
+          philanthropic system that was never built to hold it.
+        </p>
+        <p>
+          Aligned equity is novel but not new. Its components — return caps, dual-purpose ownership,
+          contractual redirection of surplus — already exist and have been assembled, bespoke and
+          one enterprise at a time, in cases like Novo Nordisk, Bosch, and Patagonia.<a class="fn" href="#n10" id="r10">10</a>
+          What has never existed is the infrastructure to make the arrangement standard and
+          accessible by design: templated, replicable, and available to investors in a manner
+          compatible with conventional capital.
+        </p>
+      </div>
+    </article>
+
+    <!-- ===================== II.1 ===================== -->
+    <article class="section" id="examples">
+      <header class="section-head">
+        <span class="roman">Part II · 1</span>
+        <h2>Illustrative examples</h2>
+      </header>
+
+      <div class="prose">
+        <h4>Illustrative example #1 — early stage</h4>
+        <p>
+          Aligned equity enters an early-stage round exactly like conventional venture capital:
+          same equity, same risk, and same assumed timeline. The aligned equity instrument adds
+          nothing to the negotiation — the only distinction is the creation of a public good annex,
+          whose agreement comes into effect at the moment of liquidity. The agreed cap is measured
+          against the proceeds of the eventual liquidity event: an acquisition, an IPO, or a later
+          round that lets the position exit. For example, if an enterprise compounds toward an exit
+          8–10 years out, the conventional capital distributes pro-rata ownership returns indefinitely,
+          while the aligned equity returns stop at the 3.0× cap. Every dollar of value the position
+          would otherwise have captured is redirected to the public good annex.
+        </p>
+
+        <h4>Illustrative example #2 — growth stage enterprise</h4>
+        <p>
+          At the growth stage, aligned equity sits alongside conventional growth capital, both
+          funding expansion mechanisms. Both positions behave identically until returns are
+          realized — through acquisition, IPO, or refinancing.
+        </p>
+        <p>
+          This scenario best demonstrates aligned equity's clearest case for scale — the checks
+          are large enough and enterprises durable enough that even a single liquidity event can
+          fund a public good in the hundreds of millions.
+        </p>
+
+        <h4>Illustrative example #3 — mature enterprise, recapitalization</h4>
+        <p>
+          With a recapitalization, the business is mature and generating cash. The aligned equity
+          investor’s return comes mainly from the ongoing distributions the operations continue to
+          create rather than expectation of significant appreciation like that of an early investment.
+          Therefore, the path to the assigned cap is shorter and the multiple is likely correspondingly
+          lower than early-stage risk. The conventional capital continues to draw distributions from
+          the business indefinitely. The aligned equity capital stops at the cap, with the surplus
+          above that flowing to the public good as specified in the transaction’s agreement.
+        </p>
+        <p>
+          This is the case that best shows aligned equity doesn't require a funding need or a growth
+          story to be employed — it can invest in an ownership transfer and still commit the business's
+          future cash flow to public purpose.
+        </p>
+      </div>
+    </article>
+
+    <!-- ===================== II.2 ===================== -->
+    <article class="section" id="directing-surplus">
+      <header class="section-head">
+        <span class="roman">Part II · 2</span>
+        <h2>Directing surplus</h2>
+      </header>
+
+      <div class="prose">
+        <p>
+          Where an enterprise continues to operate, its public goods are produced through its core
+          operations, as defined above. The question addressed here is narrower: when an investment
+          reaches liquidity and the operating company is absorbed, the surplus value above the
+          investor's cap must be carried to something that outlasts the enterprise itself. The
+          pathways below map how that surplus can be directed.
+        </p>
+        <p>
+          The forms the redirected surplus might take are illustrated below. They are presented as
+          illustrative rather than prescriptive: the appropriate structure for any given investment
+          depends on the nature of the enterprise, the shape of the liquidity event, and a tax
+          analysis specific to the transaction. What follows maps the design space; it does not
+          specify a mechanism, and every pathway described here would be subject to structuring and
+          tax review before use.
+        </p>
+
+        <div class="pathway">
+          <h4>Restricted mission or charitable vehicle</h4>
+          <p>
+            The surplus flows into an earmarked vehicle — a purpose trust, a restricted account,
+            or a charitable entity — established to hold and deploy it toward a defined public benefit.
+          </p>
+        </div>
+
+        <div class="pathway">
+          <h4>Public-interest sidecar for intellectual property or data</h4>
+          <p>
+            Rather than moving cash, a nonprofit or public-interest entity holds or licenses the
+            enterprise's intellectual property, model, or dataset, so that an asset a profit-maximizing
+            acquirer would otherwise enclose remains available to the public. Precedents exist across
+            software, data, and patents, from foundation-held applications to open-data trusts and
+            patent pledges. What distinguishes this pathway is that it produces a structural public
+            good rather than a pool of money — it preserves the asset itself.
+          </p>
+        </div>
+
+        <div class="pathway">
+          <h4>Covenants that run with the asset</h4>
+          <p>
+            In place of moving value into a separate vehicle, the terms of the transaction bind the
+            acquirer directly: an essential good remains accessible, a price stays below a defined
+            threshold, a model or dataset stays open. The public benefit is embedded in the asset as
+            a restriction that survives the transaction, requiring no external holding entity at all.
+            This is the most direct answer to the durability question — the benefit survives because
+            it is welded to the thing being transferred.
+          </p>
+        </div>
+
+        <div class="pathway">
+          <h4>Shared with stakeholders</h4>
+          <p>
+            The surplus is directed to those who helped create the value — an employee liquidity pool,
+            a community trust, or benefit to suppliers or customers.
+          </p>
+        </div>
+
+        <div class="pathway">
+          <h4>Advance market commitment or pull mechanism</h4>
+          <p>
+            The surplus funds an advance market commitment, prize, or similar instrument that pulls
+            forward a specific public good — a proven mechanism in domains such as vaccine and
+            essential-medicine markets. It directs capital not at an institution but at an outcome,
+            paying for a defined result once delivered, and can incorporate the speed and execution
+            discipline of the private sector into the production of a public good.
+          </p>
+        </div>
+
+        <div class="pathway">
+          <h4>Recycling into an aligned equity capital pool</h4>
+          <p>
+            The surplus does not exit the system. It flows into a pool that redeploys into the next
+            generation of public goods enterprises, so that each liquidity event replenishes the
+            capital available to the next. This pathway turns individual exits into self-propagating
+            infrastructure — capital structured for public benefit funding the creation of more of
+            the same.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===================== II.3 ===================== -->
+    <article class="section" id="kalium">
+      <header class="section-head">
+        <span class="roman">Part II · 3</span>
+        <h2>Aligned equity pilot: Kalium Investments</h2>
+      </header>
+
+      <div class="prose">
+        <p>
+          Kalium is an investment platform focused on capital innovation — on better directing
+          resources towards the creation of public goods. Kalium’s purpose is to prove aligned
+          equity at scale by creating — and publicly resourcing — the core infrastructure to
+          support these initial aligned equity investments and liquidity events.
+        </p>
+        <p>
+          Founded in 2026, Kalium makes the case for aligned equity through three core activities.
+          First, coalescing public-minded asset holders and offering a model for them to more fully
+          express their values beyond financial returns. Second, using that pool of public-minded
+          capital to take conventional LP positions in early stage VC funds in effort to build the
+          operational infrastructure and network trust needed to attract competitive founders.
+          Finally, by making direct investments into founders.
+        </p>
+        <p>
+          We are going to market with early-stage investments not because aligned equity is suited
+          only to inception investing, but because this is where the most room for experimentation
+          exists and where early trust with GPs and founders meaningfully compounds. That trust
+          carries forward as the same networks build companies at later stages. As we bring together
+          more public minded asset holders, the increased capital pool, established investment
+          infrastructure, and proven founder network will allow us to move up market and demonstrate
+          aligned equity’s potential for public good creation at all stages of company development.
+        </p>
+        <p>
+          Kalium intentionally holds no proprietary rights to the aligned equity investment structure
+          itself, rather seeks to demonstrate its potential as a method of investing that any public
+          minded asset holder or investment allocator can deploy. Kalium’s success hinges on developing
+          technical expertise — templatizing the legal resources, establishing best governance practices,
+          and navigating seminal liquidity events — and demonstrating the potential of aligned equity
+          through narrative and network development at scale.
+        </p>
+      </div>
+    </article>
+
+    <!-- ===================== III ===================== -->
+    <article class="section" id="iii-appendix">
+      <header class="section-head">
+        <span class="roman">Part III</span>
+        <h2>Appendix</h2>
+      </header>
+
+      <div class="prose">
+        <h3>Appendix A — Wealth concentration trend</h3>
+        <p>
+          Wealth concentration is not new, but its trajectory over the past three decades is
+          unprecedented. Global billionaire wealth reached $18.3 trillion in 2025, up 16%
+          year-over-year and 81% since 2020. The top 0.001% now hold 6.1% of global wealth, up
+          from 3.7% in 1995 — a share now three times larger than that held by the bottom half
+          of humanity combined.<a class="fn" href="#n11" id="r11">11</a>
+        </p>
+
+        <h3>Appendix B — The AI liquidity event</h3>
+        <p>
+          The structural trends of wealth concentration explain the scale we’re working with, but
+          the case for building this infrastructure now rests on a particular market urgency: AI
+          driven value creation is compressing what would ordinarily unfold over decades into a
+          small number of discrete, near-simultaneous liquidity events. This is a large opportunity,
+          and we have a narrow window.
+        </p>
+        <p>
+          Within roughly a twelve-month span: SpaceX completed its IPO at a $1.77 trillion valuation
+          in June 2026 — the largest IPO in history. Anthropic's Series H valued the company at
+          $965 billion in May 2026, up from $183 billion just nine months earlier. OpenAI's
+          confidential IPO filing in June 2026 targets a valuation of $852 billion to over $1 trillion.
+          Combined, these three companies are targeting $3.6–3.8 trillion in enterprise value through
+          their anticipated 2026 IPOs alone.<a class="fn" href="#n12" id="r12">12</a>
+        </p>
+        <p>
+          That concentration of liquidity events implies a corresponding concentration of potential
+          philanthropic liquidity. One independent analyst estimates $370 billion in philanthropic
+          capital becoming liquid as a direct result of these transactions — including $220 billion
+          tied to the OpenAI Foundation, $90 billion in pledged wealth from Anthropic's founders,
+          and $60 billion held in Anthropic employee DAFs — which, if fully deployed, would represent
+          a $37–100 billion annual increase in new giving, a 6–17% increase over all current US
+          philanthropy.<a class="fn" href="#n13" id="r13">13</a>
+        </p>
+        <p>
+          Liquidity does not necessitate distribution. As the DAF data earlier in this paper shows,
+          capital that becomes liquid without a structure obligating its redirection tends to sit
+          without incentive to move. Absent a mechanism that captures this surplus contractually,
+          there is no assurance that this wave of AI-driven wealth will behave differently than the
+          DAF assets already accumulating faster than they're granted out.
+        </p>
+
+        <h3>Appendix C — Structural case studies</h3>
+        <p>
+          The below case studies demonstrate that novel public-benefit mechanisms can work at real
+          commercial scale, but each example remains bespoke because no infrastructure exists to
+          templatize and deploy them beyond the single company that built them. Incentive misalignment
+          keeps these solutions bespoke, as no single company captures enough of the benefit itself
+          to justify building that infrastructure alone. Additionally, capital deployment plans
+          typically get built reactively, at the moment of a liquidity event, rather than being
+          embedded into a company's capital structure from formation.
+        </p>
+        <p>
+          Closing this gap requires both technical assets (legal templates, governance structures)
+          and field-shaping work (compelling examples, narrative shift). That is the explicit design
+          target of aligned equity: the standardized infrastructure that lets any stage or sector of
+          a company adopt this infrastructure at scale.
+        </p>
+
+        <div class="table-wrap" role="region" aria-label="Structural case studies" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Novo Nordisk</th>
+                <th>Patagonia</th>
+                <th>Bosch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Structure</td>
+                <td>Dual-class share structure — the Novo Nordisk Foundation holds a controlling stake and governance control as a nonprofit foundation-shareholder.</td>
+                <td>Full ownership transfer — Patagonia Purpose Trust holds 100% of voting stock. The Holdfast Collective (a 501(c)(4)) holds 100% of nonvoting stock.</td>
+                <td>Robert Bosch Stiftung (an industrial trust) holds voting rights as permanent steward of founder intent. The foundation holds economic benefit and directs profits to public purposes.</td>
+              </tr>
+              <tr>
+                <td>Capital scale</td>
+                <td>Market cap has ranged $166B–$212B through 2026 (down from a 2024 peak near $400–615B). Revenue: $47.7B in 2025.</td>
+                <td>$1.5B in annual revenue.</td>
+                <td>€91.0B in 2025 revenue, one of the largest privately held companies globally.</td>
+              </tr>
+              <tr>
+                <td>Public benefit generated</td>
+                <td>Novo Nordisk Foundation is among the largest philanthropic foundations globally by assets, with $1.4B in grant commitments in 2023, concentrated in biomedical research, diabetes care access, and green transition.</td>
+                <td>Full profit surplus after reinvestment flows to Holdfast Collective for climate advocacy, estimated $100M/year.</td>
+                <td>Foundation funds hundreds of millions annually across health, education, international relations, and civil society.</td>
+              </tr>
+              <tr>
+                <td>How impact is measured</td>
+                <td>Research output, health-outcome metrics tied to care-access programs, foundation's own independent reporting.</td>
+                <td>Environmental outcomes tracked and reported internally by Holdfast Collective.</td>
+                <td>Program-level outcomes tracked internally by the foundation; no standardized cross-sector framework.</td>
+              </tr>
+              <tr>
+                <td>Replicable vs bespoke</td>
+                <td>The dual-class voting mechanism is legally replicable and common; the specific institutional history and regulatory environment are not.</td>
+                <td>The 501(c)(4)/Purpose Trust split is structurally innovative but was only possible because Chouinard held 100% ownership at time of transfer, making it difficult to replicate with dispersed shareholders.</td>
+                <td>The separation of voting control — with the trust — from economic ownership — with the foundation — is legally replicable. Operating for over 60 years, this structure demonstrates durability at scale.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <section class="notes" aria-label="Notes">
+      <h2>Notes</h2>
+      <ol>
+        <li id="n1">
+          In the US, New Deal institutions set in motion federal relief programs in 1933, social
+          insurance in 1935, collective bargaining law in 1935, and minimum wage regulation in 1938,
+          culminating in the Employment Act of 1946, which established federal policy responsibility
+          for economic conditions. Simultaneously in the UK, the 1945 Attlee government combined
+          nationalized industry with a new welfare state. Ira Katznelson, <em>Fear Itself: The New Deal
+          and the Origins of Our Time</em> (New York: W.W. Norton, 2013); Nicholas Timmins,
+          <em>The Five Giants: A Biography of the Welfare State</em> (London: HarperCollins, 1995).
+          <a href="#r1">↩</a>
+        </li>
+        <li id="n2">
+          Rob Reich presents the pluralism and discovery arguments for philanthropy’s residual role.
+          Rob Reich, <em>Just Giving: Why Philanthropy Is Failing Democracy and How It Can Do Better</em>
+          (Princeton, NJ: Princeton University Press, 2018).
+          <a href="#r2">↩</a>
+        </li>
+        <li id="n3">
+          As the government retreated in response to policies causing erosion of the postwar settlement,
+          it began outsourcing public goods and services to private entities as policy strategy, then
+          subjected those entities to administrative rules that left them chronically underfunded and
+          structurally vulnerable. This is the same capacity constraint the paper argues philanthropy
+          can't outgrow — the sector was built to be dependent, not resourced to lead. LPE Project,
+          "The Origins of the Nonprofit Industrial Complex" (December 2023).
+          <a href="#r3">↩</a>
+        </li>
+        <li id="n4">
+          Only 39% of Americans say the federal government has a positive impact on "people like me,”
+          and 56% consider it "wasteful and inefficient." Capacity has contracted alongside public
+          perception: the federal civilian workforce fell roughly 10% in 2025 — the largest peacetime
+          reduction on record — with grant disbursements slowing and research output down due to staffing
+          cuts. David E. Lewis, "State Capacity and American Power," Carnegie Endowment (2026);
+          GAO-26-108583 (2026).
+          <a href="#r4">↩</a>
+        </li>
+        <li id="n5">
+          Global billionaire wealth reached $18.3 trillion in 2025, up 16% year-over-year and 81%
+          since 2020. Oxfam International, "Resisting the Rule of the Rich" (January 2026).
+          <a href="#r5">↩</a>
+        </li>
+        <li id="n6">
+          Private industry now funds 69.6% of U.S. domestic R&amp;D expenditure, versus 18.9% from all
+          levels of government combined — a reversal from the early 1980s, when public and private R&amp;D
+          funding were roughly equal. American Association for the Advancement of Science, "Research
+          on R&amp;D Funding: The Different Functions of Public and Private R&amp;D" (September 2025),
+          citing OECD data.
+          <a href="#r6">↩</a>
+        </li>
+        <li id="n7">
+          Total private foundation assets grew 15% to $1.68 trillion in 2025, driven by market gains
+          rather than increased giving. DAF Research Collaborative, <em>Annual DAF Report 2025</em>
+          (Dec. 2025). Total DAF assets hit $326.45B in 2024, up 27.5% from FY2023. Chronicle of
+          Philanthropy, "Foundation Coffers Are Full as Pressure Mounts to Increase Giving" (Oct. 2025);
+          Center for Effective Philanthropy, cited in Forbes, "Whose Money Are Foundations Sitting On"
+          (July 2026).
+          <a href="#r7">↩</a>
+        </li>
+        <li id="n8">
+          DAFs receive more favorable tax treatment than private foundations because donors get an
+          immediate deduction on contribution, independent of when — or whether — the funds ever reach
+          a working charity. Unlike foundations' 5% mandatory annual payout, DAFs face no distribution
+          requirement and can hold funds indefinitely. A foundation can also satisfy its own 5%
+          requirement by donating into a DAF, moving money from a regulated vehicle into an unregulated
+          one. DAF Research Collaborative, <em>Annual DAF Report 2025</em> (Dec. 2025); Institute for
+          Policy Studies (April 2025).
+          <a href="#r8">↩</a>
+        </li>
+        <li id="n9">
+          Friedman's own objection to only people having social responsibility weakens precisely as
+          ownership concentrates: a founder with majority control is spending resources they alone
+          direct, which by Friedman's own logic should make room for exactly this kind of discretion.
+          What's missing isn't permission to align with social responsibility, it's a vehicle that
+          makes that decision binding and not just personal.
+          <a href="#r9">↩</a>
+        </li>
+        <li id="n10">
+          Analysis of 600+ companies finds values-led structural decisions — ownership design, capped
+          returns, stakeholder-directed surplus — are more common in practice than commonly assumed,
+          though they remain ad hoc rather than standardized. That gap — between existence and
+          infrastructure — is precisely what aligned equity is built to close. Transform Finance,
+          <em>Hiding in Plain Sight</em> (2026).
+          <a href="#r10">↩</a>
+        </li>
+        <li id="n11">
+          Oxfam International, "Resisting the Rule of the Rich" (January 2026); World Inequality Lab,
+          World Inequality Report 2026.
+          <a href="#r11">↩</a>
+        </li>
+        <li id="n12">
+          SpaceX S-1 filing (May 20, 2026); Bloomberg, CNBC coverage (June 2026). Anthropic,
+          "Anthropic raises $65B Series H" (May 2026); CNBC (Feb. 2026). CNBC, "OpenAI confidentially
+          files for IPO" (June 8, 2026).
+          <a href="#r12">↩</a>
+        </li>
+        <li id="n13">
+          Nan Ransohoff, "The Third Wave of American Philanthropy" (May 19, 2026); Giving USA Foundation,
+          Giving USA 2026 (Indianapolis: Indiana University Lilly Family School of Philanthropy, 2026).
+          <a href="#r13">↩</a>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="form-foot">
+      <span>Kalium · White paper · External draft</span>
+      <span>
+        <a href="story.html">Story</a>
+        <span aria-hidden="true"> · </span>
+        <a href="form.html">Form concept</a>
+      </span>
+    </footer>
+  </main>
+</body>
+</html>

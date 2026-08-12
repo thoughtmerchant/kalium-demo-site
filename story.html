@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium — Introducing</title>
+  <style>
+    :root {
+      --paper: #FAF9F7;
+      --ink: #22304C;
+      --muted: #8A93A6;
+      --hair: #C9CFD9;
+      --loaded-red: #C8362B;
+      --font: Arial, "Helvetica Neue", sans-serif;
+      --page-max: 1080px;
+      --pad-x: clamp(22px, 4.5vw, 48px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100svh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 48px) var(--pad-x) 0;
+    }
+
+    /* —— Chrome (full-bleed paper band) —— */
+    .form-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.55em;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--paper);
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: 14px max(var(--pad-x), calc(50vw - var(--page-max) / 2 + var(--pad-x))) 10px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-rule {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: var(--ink);
+      opacity: 0.85;
+      margin-top: 0.12em;
+    }
+
+    /* —— Scenes —— */
+    .scene {
+      padding: clamp(48px, 10vh, 96px) 0;
+    }
+
+    .scene-abstract {
+      padding: clamp(28px, 5vh, 52px) 0 clamp(24px, 4.5vh, 44px);
+    }
+
+    .scene-abstract .statement {
+      max-width: 20ch;
+      font-weight: 500;
+    }
+
+    .hero-links {
+      margin-top: clamp(20px, 3vh, 28px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .hero-link {
+      font-size: clamp(15px, 1.25vw, 17px);
+      line-height: 1.4;
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 3px;
+      text-decoration: none;
+    }
+
+    .hero-link:hover {
+      border-bottom-color: var(--muted);
+    }
+
+    .story-divider {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: clamp(8px, 2vh, 20px) 0 clamp(4px, 1vh, 12px);
+      scroll-margin-top: 64px;
+    }
+
+    .story-divider::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: var(--hair);
+    }
+
+    .story-divider span {
+      position: relative;
+      z-index: 1;
+      background: var(--paper);
+      padding: 0 14px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    @media (min-width: 721px) {
+      .first-fold {
+        min-height: calc(100svh - 56px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .first-fold .scene-abstract {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: clamp(16px, 3vh, 36px);
+        padding-bottom: clamp(20px, 4vh, 40px);
+      }
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: minmax(100px, 140px) minmax(0, 1fr);
+      gap: 20px clamp(28px, 4vw, 48px);
+      align-items: start;
+    }
+
+    .rail {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.35em;
+      line-height: 1.4;
+    }
+
+    .scene-main {
+      min-width: 0;
+      max-width: 720px;
+    }
+
+    .scene-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .annotation {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .statement {
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 16ch;
+    }
+
+    .statement-xl {
+      font-size: clamp(40px, 6.2vw, 64px);
+      max-width: 14ch;
+    }
+
+    .body {
+      font-size: clamp(16px, 1.35vw, 18px);
+      line-height: 1.5;
+      max-width: 58ch;
+      color: var(--ink);
+    }
+
+    .body + .body,
+    .statement + .body {
+      margin-top: 18px;
+    }
+
+    .afterline {
+      margin-top: 18px;
+      font-size: clamp(16px, 1.35vw, 18px);
+      line-height: 1.5;
+      max-width: 58ch;
+      color: var(--muted);
+    }
+
+    .underline-term {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      text-decoration-color: var(--ink);
+    }
+
+    .figure {
+      margin-top: clamp(28px, 5vh, 48px);
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    /* —— Option field (orbit) —— */
+    .figure-option {
+      max-width: 640px;
+    }
+
+    .figure-option svg {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .of-node {
+      cursor: pointer;
+      outline: none;
+      transition: opacity 180ms ease;
+    }
+
+    .of-node .of-hit {
+      fill: transparent;
+      stroke: none;
+      pointer-events: all;
+    }
+
+    .of-node .of-ring {
+      fill: var(--paper);
+      stroke: var(--ink);
+      stroke-width: 1.25;
+      transition: stroke-width 180ms ease;
+    }
+
+    .of-node .of-label {
+      fill: var(--ink);
+      stroke: none;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-anchor: middle;
+      dominant-baseline: central;
+      pointer-events: none;
+    }
+
+    .of-node:hover .of-ring,
+    .of-node:focus-visible .of-ring,
+    .of-node.is-active .of-ring {
+      stroke-width: 1.5;
+    }
+
+    .of-node:focus-visible .of-ring {
+      outline: 1px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .figure-option.is-paused .of-node:not(.is-active) {
+      opacity: 0.35;
+    }
+
+    .of-caption {
+      display: block;
+      margin-top: 14px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .of-detail {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--hair);
+      min-height: 5.5em;
+    }
+
+    .of-detail-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .of-detail-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 2.2em;
+    }
+
+    .of-detail-title {
+      font-size: clamp(16px, 1.35vw, 18px);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .of-detail-desc {
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--muted);
+      max-width: 52ch;
+    }
+
+    .of-detail.is-idle .of-detail-title {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .of-fallback {
+      display: none;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--hair);
+    }
+
+    .no-js .of-fallback {
+      display: block;
+    }
+
+    .no-js .of-detail {
+      display: none;
+    }
+
+    .of-fallback ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .of-fallback li {
+      display: grid;
+      grid-template-columns: 2.4em 1fr;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .of-fallback .n {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .of-fallback strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .of-fallback span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .figure-option.is-paused .of-node:not(.is-active) {
+        opacity: 0.45;
+      }
+    }
+
+    .scene-amendment {
+      min-height: 88svh;
+      display: flex;
+      align-items: center;
+    }
+
+    .scene-amendment .scene-grid {
+      width: 100%;
+    }
+
+    .scene-classify .scene-main {
+      padding: 28px 0;
+      border-top: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair);
+    }
+
+    /* —— Loaded band —— */
+    .loaded-wrap {
+      margin: clamp(40px, 8vh, 72px) 0 0;
+    }
+
+    .loaded {
+      position: relative;
+      background: var(--ink);
+      color: var(--paper);
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      min-height: min(92vh, 920px);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .loaded-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      display: block;
+      z-index: 0;
+    }
+
+    .loaded-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to top,
+          rgba(34, 48, 76, 0.82) 0%,
+          rgba(34, 48, 76, 0.45) 38%,
+          rgba(34, 48, 76, 0.12) 62%,
+          rgba(34, 48, 76, 0.28) 100%
+        );
+    }
+
+    .loaded-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--page-max);
+      margin: 0 auto;
+      min-height: inherit;
+      padding: clamp(28px, 5vh, 48px) var(--pad-x) clamp(40px, 7vh, 64px);
+      display: grid;
+      grid-template-columns: minmax(100px, 140px) minmax(0, 1fr);
+      gap: 20px clamp(28px, 4vw, 48px);
+      align-items: end;
+    }
+
+    .loaded .rail {
+      color: rgba(250, 249, 247, 0.72);
+      align-self: start;
+      padding-top: 2px;
+    }
+
+    .loaded-copy {
+      max-width: 22ch;
+    }
+
+    .loaded-statement {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--paper);
+      max-width: 18ch;
+      margin-bottom: 28px;
+      text-shadow: 0 1px 18px rgba(34, 48, 76, 0.35);
+    }
+
+    .loaded-link {
+      font-size: 16px;
+      color: var(--paper);
+      border-bottom: 1px solid rgba(250, 249, 247, 0.45);
+      padding-bottom: 4px;
+      display: inline-block;
+    }
+
+    .loaded-link:hover {
+      border-bottom-color: var(--paper);
+    }
+
+    .loaded a:focus-visible {
+      outline-color: var(--paper);
+    }
+
+    /* —— Close / CTAs —— */
+    .cta-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 32px;
+      margin-top: clamp(32px, 6vh, 48px);
+      max-width: 520px;
+    }
+
+    .cta-field label {
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .cta-field a {
+      display: block;
+      font-size: 16px;
+      color: var(--ink);
+      border-bottom: 1px solid var(--hair);
+      padding: 0 0 8px;
+    }
+
+    .cta-field a:hover {
+      border-bottom-color: var(--ink);
+    }
+
+    .story-foot {
+      margin-top: clamp(48px, 10vh, 88px);
+      padding: 20px 0 40px;
+      border-top: 1px solid var(--hair);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .story-foot a:hover {
+      color: var(--ink);
+    }
+
+    /* —— Catalog (horizon) —— */
+    .catalog {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 22px;
+      margin-top: clamp(28px, 5vh, 40px);
+      align-items: flex-end;
+    }
+
+    .catalog-item {
+      width: 72px;
+    }
+
+    .catalog-item svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0.85;
+    }
+
+    .catalog-num {
+      display: block;
+      margin-top: 6px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* —— Motion defaults (readable without JS) —— */
+    .rise,
+    .terminal,
+    .draw,
+    .waterline,
+    .annex-box {
+      /* final state visible */
+    }
+
+    .js .rise {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .js .is-visible .rise {
+      opacity: 1;
+      transform: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .js .draw {
+      transition: stroke-dashoffset 900ms ease;
+    }
+
+    .js .is-visible .draw {
+      stroke-dashoffset: 0 !important;
+    }
+
+    .js .terminal {
+      opacity: 0;
+      transform: scale(0.55);
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .js .is-visible .terminal {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 180ms ease, transform 180ms ease;
+      transition-delay: calc(var(--d, 0) * 60ms);
+    }
+
+    .js .waterline {
+      transition: transform 1100ms ease;
+      transform-origin: bottom;
+      transform: scaleY(0.15);
+    }
+
+    .js .is-visible .waterline {
+      transform: scaleY(1);
+    }
+
+    .js .annex-box {
+      opacity: 0;
+    }
+
+    .js .is-visible .annex-box {
+      opacity: 1;
+      transition: opacity 400ms ease 700ms;
+    }
+
+    .js .annex-bracket {
+      transition: stroke-dashoffset 700ms ease 450ms;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      .js .rise,
+      .js .is-visible .rise,
+      .js .terminal,
+      .js .is-visible .terminal,
+      .js .annex-box,
+      .js .is-visible .annex-box,
+      .js .waterline,
+      .js .is-visible .waterline {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .js .draw,
+      .js .annex-bracket {
+        stroke-dashoffset: 0 !important;
+        transition: none !important;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .scene-grid,
+      .loaded-inner {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .rail {
+        padding-top: 0;
+      }
+
+      .annotation {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .cta-row {
+        grid-template-columns: 1fr;
+      }
+
+      .statement,
+      .statement-xl {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="form-head" aria-label="Document header">
+      <a class="brand" href="story.html">Kalium</a>
+      <span class="brand-rule" aria-hidden="true"></span>
+    </header>
+
+    <main>
+      <div class="first-fold">
+        <!-- HERO — ABSTRACT -->
+        <section class="scene scene-abstract" aria-labelledby="rail-abstract" data-scene="abstract">
+          <div class="scene-grid">
+            <p class="rail" id="rail-abstract">Abstract</p>
+            <div class="scene-main">
+              <h1 class="statement rise">Dynamic equity creates private returns and public goods.</h1>
+              <p class="body rise">
+                Kalium is an investment platform piloting a new kind of investment. It works like any other — same terms, same rigor, alongside conventional capital — with one addition: an agreed cap on our financial return. Above the cap, surplus value builds public goods through the company itself, defined with the founder at the start. Below it, nothing is different.
+              </p>
+              <p class="afterline rise">Private returns, capped. Public goods, built in.</p>
+              <div class="hero-links rise">
+                <a class="hero-link" href="whitepaper.html">Read the white paper →</a>
+                <a class="hero-link" href="#story">Or take the long way — the story ↓</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- STORY DIVIDER -->
+      <div class="story-divider" id="story" role="separator" aria-label="The story">
+        <span>The Story · Fig. 01–10</span>
+      </div>
+
+      <!-- SCENE 1 — PREMISE -->
+      <section class="scene" aria-labelledby="rail-premise" data-scene="1">
+        <div class="scene-grid">
+          <p class="rail" id="rail-premise">Premise</p>
+          <div class="scene-main">
+            <h2 class="statement rise">Capitalism works.</h2>
+            <p class="body rise">
+              It is the best machine anyone has ever built for turning ideas into value.
+              We are not here to fix it. We are here because of what we keep doing with it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 2 — SEQUENCE -->
+      <section class="scene" aria-labelledby="rail-sequence" data-scene="2">
+        <div class="scene-grid">
+          <p class="rail" id="rail-sequence">Sequence</p>
+          <div class="scene-main">
+            <div class="scene-head">
+              <span class="annotation rise">Value → Private Wealth · 01–02</span>
+            </div>
+            <p class="body rise">
+              A company creates value. The value flows out. It becomes private wealth.
+            </p>
+            <div class="figure" aria-hidden="false">
+              <svg viewBox="0 0 640 220" fill="none" role="img" aria-labelledby="fig2-title fig2-desc">
+                <title id="fig2-title">Value flows to private wealth</title>
+                <desc id="fig2-desc">A small square company node connected by a ray with tick marks to a large circle labeled private wealth.</desc>
+                <g stroke="#22304C" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <!-- ray -->
+                  <line class="draw" x1="120" y1="100" x2="430" y2="100"/>
+                  <!-- ticks -->
+                  <g opacity="0.55">
+                    <line class="draw" x1="200" y1="94" x2="200" y2="106"/><line class="draw" x1="194" y1="100" x2="206" y2="100"/>
+                    <line class="draw" x1="275" y1="94" x2="275" y2="106"/><line class="draw" x1="269" y1="100" x2="281" y2="100"/>
+                    <line class="draw" x1="350" y1="94" x2="350" y2="106"/><line class="draw" x1="344" y1="100" x2="356" y2="100"/>
+                  </g>
+                  <!-- node 01 square -->
+                  <g class="terminal" style="--d:0">
+                    <rect x="88" y="84" width="32" height="32" fill="none"/>
+                    <circle cx="104" cy="100" r="11" fill="none"/>
+                    <text x="104" y="104" text-anchor="middle" stroke="none" font-size="10">01</text>
+                  </g>
+                  <!-- node 02 circle -->
+                  <g class="terminal" style="--d:1">
+                    <circle cx="490" cy="100" r="48" fill="none"/>
+                    <circle cx="490" cy="100" r="12" fill="none"/>
+                    <text x="490" y="104" text-anchor="middle" stroke="none" font-size="10">02</text>
+                  </g>
+                  <text x="104" y="160" text-anchor="middle" stroke="none" font-size="10" letter-spacing="0.22em">COMPANY</text>
+                  <text x="490" y="180" text-anchor="middle" stroke="none" font-size="10" letter-spacing="0.18em">PRIVATE WEALTH</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 3 — THE RETURN TRIP -->
+      <section class="scene" aria-labelledby="rail-return" data-scene="3">
+        <div class="scene-grid">
+          <p class="rail" id="rail-return">Sequence, Cont.</p>
+          <div class="scene-main">
+            <p class="body rise">
+              Years later — sometimes decades — some of it travels back as philanthropy,
+              to repair problems the same companies were best positioned to prevent.
+              We <span class="underline-term">pay twice</span>: once to extract, once to repair.
+            </p>
+            <div class="figure">
+              <svg viewBox="0 0 680 320" fill="none" role="img" aria-labelledby="fig3-title fig3-desc">
+                <title id="fig3-title">The return trip</title>
+                <desc id="fig3-desc">Private wealth returns along a dashed arc to a problems node, with year ticks at plus five, ten, and twenty.</desc>
+                <g stroke="#22304C" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <line class="draw" x1="100" y1="90" x2="380" y2="90"/>
+                  <g opacity="0.55">
+                    <line class="draw" x1="180" y1="84" x2="180" y2="96"/><line class="draw" x1="174" y1="90" x2="186" y2="90"/>
+                    <line class="draw" x1="250" y1="84" x2="250" y2="96"/><line class="draw" x1="244" y1="90" x2="256" y2="90"/>
+                    <line class="draw" x1="320" y1="84" x2="320" y2="96"/><line class="draw" x1="314" y1="90" x2="326" y2="90"/>
+                  </g>
+                  <g class="terminal" style="--d:0">
+                    <rect x="68" y="74" width="32" height="32" fill="none"/>
+                    <circle cx="84" cy="90" r="11" fill="none"/>
+                    <text x="84" y="94" text-anchor="middle" stroke="none" font-size="10">01</text>
+                  </g>
+                  <g class="terminal" style="--d:1">
+                    <circle cx="440" cy="90" r="44" fill="none"/>
+                    <circle cx="440" cy="90" r="11" fill="none"/>
+                    <text x="440" y="94" text-anchor="middle" stroke="none" font-size="10">02</text>
+                  </g>
+                  <!-- return arc -->
+                  <path class="draw" d="M 484 90 C 620 90, 640 220, 300 250" stroke-dasharray="3 4" fill="none"/>
+                  <!-- year ticks on arc -->
+                  <g opacity="0.7" stroke="none" font-size="9" letter-spacing="0.08em">
+                    <text x="560" y="118">+5</text>
+                    <text x="590" y="178">+10</text>
+                    <text x="480" y="248">+20</text>
+                  </g>
+                  <g class="terminal" style="--d:2">
+                    <circle cx="260" cy="250" r="14" fill="none"/>
+                    <text x="260" y="254" text-anchor="middle" stroke="none" font-size="10">03</text>
+                  </g>
+                  <text x="84" y="140" text-anchor="middle" stroke="none" font-size="10" letter-spacing="0.22em">COMPANY</text>
+                  <text x="440" y="160" text-anchor="middle" stroke="none" font-size="10" letter-spacing="0.18em">PRIVATE WEALTH</text>
+                  <text x="260" y="292" text-anchor="middle" stroke="none" font-size="10" letter-spacing="0.18em">THE PROBLEMS</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 4 — THE RESERVOIR -->
+      <section class="scene" aria-labelledby="rail-reservoir" data-scene="4">
+        <div class="scene-grid">
+          <p class="rail" id="rail-reservoir">Reservoir</p>
+          <div class="scene-main">
+            <div class="scene-head">
+              <span class="annotation rise">Parked Capital · $326B</span>
+            </div>
+            <p class="body rise">
+              Right now, more than $326 billion sits parked in donor-advised funds —
+              committed to the public, under no obligation ever to move.
+              The intention is real. The structure is the problem.
+            </p>
+            <div class="figure">
+              <svg viewBox="0 0 680 220" fill="none" role="img" aria-labelledby="fig4-title fig4-desc">
+                <title id="fig4-title">Parked capital reservoir</title>
+                <desc id="fig4-desc">A wide rectangle filled to eighty percent with a closed valve at the bottom center.</desc>
+                <g stroke="#22304C" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <rect class="draw" x="40" y="30" width="600" height="140" fill="none"/>
+                  <!-- water volume dashes -->
+                  <g class="waterline" opacity="0.45">
+                    <line x1="48" y1="58" x2="632" y2="58"/>
+                    <g stroke-dasharray="2 5">
+                      <line x1="56" y1="72" x2="624" y2="72"/>
+                      <line x1="56" y1="86" x2="624" y2="86"/>
+                      <line x1="56" y1="100" x2="624" y2="100"/>
+                      <line x1="56" y1="114" x2="624" y2="114"/>
+                      <line x1="56" y1="128" x2="624" y2="128"/>
+                      <line x1="56" y1="142" x2="624" y2="142"/>
+                      <line x1="56" y1="156" x2="624" y2="156"/>
+                    </g>
+                  </g>
+                  <!-- closed valve: outer translate survives CSS .terminal { transform: scale(...) } override -->
+                  <g transform="translate(340 170)">
+                    <g class="terminal" style="--d:0">
+                      <circle r="10" fill="#FAF9F7"/>
+                      <line x1="-5" y1="-5" x2="5" y2="5"/>
+                      <line x1="5" y1="-5" x2="-5" y2="5"/>
+                    </g>
+                  </g>
+                  <text x="340" y="200" text-anchor="middle" stroke="none" font-size="10" letter-spacing="0.2em" opacity="0.7">VALVE CLOSED</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 5 — THE INSTRUCTION -->
+      <section class="scene" aria-labelledby="rail-instruction" data-scene="5">
+        <div class="scene-grid">
+          <p class="rail" id="rail-instruction">Instruction</p>
+          <div class="scene-main">
+            <p class="body rise">
+              The corporation is the most effective public-goods-producing machine we have.
+              It simply runs on a single instruction — return value to its owners.
+              That instruction is not a law of nature. It is a term in an agreement.
+              And terms can change.
+            </p>
+            <div class="figure">
+              <svg viewBox="0 0 560 260" fill="none" role="img" aria-labelledby="fig5-title fig5-desc">
+                <title id="fig5-title">Single instruction</title>
+                <desc id="fig5-desc">A stack of form underlines with one line carrying the instruction return value to its owners.</desc>
+                <g stroke="#22304C" stroke-width="1" stroke-linecap="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <line class="draw" x1="40" y1="40" x2="520" y2="40" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="72" x2="480" y2="72" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="104" x2="500" y2="104" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="136" x2="520" y2="136"/>
+                  <text x="40" y="126" stroke="none" font-size="12" letter-spacing="0.18em">RETURN VALUE TO ITS OWNERS</text>
+                  <line class="draw" x1="40" y1="168" x2="460" y2="168" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="200" x2="500" y2="200" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="232" x2="420" y2="232" opacity="0.35"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 6 — THE ONE CHANGE -->
+      <section class="scene scene-amendment" aria-labelledby="rail-amendment" data-scene="6">
+        <div class="scene-grid">
+          <p class="rail" id="rail-amendment">Amendment</p>
+          <div class="scene-main">
+            <p class="statement statement-xl rise">So we changed one term. One.</p>
+            <div class="figure">
+              <svg viewBox="0 0 640 300" fill="none" role="img" aria-labelledby="fig6-title fig6-desc">
+                <title id="fig6-title">Public good annex</title>
+                <desc id="fig6-desc">A document stack with a bracket pointing to an appended public good annex box.</desc>
+                <g stroke="#22304C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <line class="draw" x1="40" y1="48" x2="360" y2="48" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="80" x2="320" y2="80" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="112" x2="340" y2="112" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="144" x2="300" y2="144"/>
+                  <line class="draw" x1="40" y1="176" x2="330" y2="176" opacity="0.35"/>
+                  <line class="draw" x1="40" y1="208" x2="280" y2="208" opacity="0.35"/>
+                  <!-- bracket -->
+                  <path class="draw annex-bracket" d="M 310 144 L 380 144 L 380 200" fill="none"/>
+                  <line class="draw annex-bracket" x1="372" y1="200" x2="388" y2="200"/>
+                  <!-- annex box -->
+                  <g class="annex-box">
+                    <rect x="400" y="168" width="200" height="72" fill="none"/>
+                    <text x="500" y="200" text-anchor="middle" stroke="none" font-size="11" letter-spacing="0.16em">PUBLIC GOOD</text>
+                    <text x="500" y="218" text-anchor="middle" stroke="none" font-size="11" letter-spacing="0.16em">ANNEX</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 7 — MECHANISM -->
+      <section class="scene" aria-labelledby="rail-mechanism" data-scene="7">
+        <div class="scene-grid">
+          <p class="rail" id="rail-mechanism">Mechanism</p>
+          <div class="scene-main">
+            <div class="scene-head">
+              <span class="annotation rise">Fig. A–C</span>
+            </div>
+            <p class="body rise">
+              Dynamic equity creates private returns and public goods.
+              It works like any investment — the same rooms, the same rigor,
+              side by side with conventional capital. One addition: an agreed cap
+              on our financial return. Below the cap, nothing is different.
+              Above it, the surplus builds public goods through the company itself —
+              defined together with the founder, at the start, in writing.
+            </p>
+            <div class="figure">
+              <svg viewBox="0 0 720 260" fill="none" role="img" aria-labelledby="fig7-title fig7-desc">
+                <title id="fig7-title">Dynamic equity mechanism</title>
+                <desc id="fig7-desc">Three panels: conventional versus dynamic columns, an agreed cap on the dynamic column, and surplus flowing to a public good terminal.</desc>
+                <g stroke="#22304C" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <!-- (a) -->
+                  <g class="terminal" style="--d:0">
+                    <circle cx="28" cy="28" r="11" fill="none"/>
+                    <text x="28" y="32" text-anchor="middle" stroke="none" font-size="10">a</text>
+                  </g>
+                  <rect class="draw" x="60" y="60" width="36" height="140" fill="none"/>
+                  <rect class="draw" x="116" y="60" width="36" height="140" fill="none"/>
+                  <text x="78" y="230" text-anchor="middle" stroke="none" font-size="9" letter-spacing="0.12em">CONVENTIONAL</text>
+                  <text x="134" y="246" text-anchor="middle" stroke="none" font-size="9" letter-spacing="0.12em">DYNAMIC</text>
+
+                  <!-- (b) -->
+                  <g class="terminal" style="--d:1">
+                    <circle cx="240" cy="28" r="11" fill="none"/>
+                    <text x="240" y="32" text-anchor="middle" stroke="none" font-size="10">b</text>
+                  </g>
+                  <rect class="draw" x="280" y="60" width="36" height="140" fill="none"/>
+                  <line class="draw" x1="268" y1="110" x2="340" y2="110" stroke-dasharray="3 3"/>
+                  <g class="terminal" style="--d:2">
+                    <circle cx="348" cy="110" r="5" fill="none"/>
+                  </g>
+                  <text x="360" y="114" stroke="none" font-size="10" letter-spacing="0.16em">AGREED CAP</text>
+
+                  <!-- (c) -->
+                  <g class="terminal" style="--d:3">
+                    <circle cx="480" cy="28" r="11" fill="none"/>
+                    <text x="480" y="32" text-anchor="middle" stroke="none" font-size="10">c</text>
+                  </g>
+                  <rect class="draw" x="520" y="60" width="36" height="140" fill="none"/>
+                  <line class="draw" x1="508" y1="100" x2="556" y2="100" stroke-dasharray="3 3"/>
+                  <line class="draw" x1="556" y1="100" x2="620" y2="70"/>
+                  <g opacity="0.55">
+                    <line class="draw" x1="586" y1="81" x2="592" y2="87"/><line class="draw" x1="592" y1="81" x2="586" y2="87"/>
+                  </g>
+                  <g class="terminal" style="--d:4">
+                    <circle cx="640" cy="62" r="14" fill="none"/>
+                    <text x="640" y="66" text-anchor="middle" stroke="none" font-size="9">PG</text>
+                  </g>
+                  <text x="640" y="100" text-anchor="middle" stroke="none" font-size="10" letter-spacing="0.14em">PUBLIC GOOD</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 9 — OPTION FIELD / STRUCTURE -->
+      <section class="scene" aria-labelledby="rail-option" data-scene="9">
+        <div class="scene-grid">
+          <p class="rail" id="rail-option">Structure</p>
+          <div class="scene-main">
+            <div class="scene-head">
+              <span class="annotation rise">Power → Option Field · 01–09</span>
+            </div>
+            <p class="body rise">
+              What does giving one thing away buy? Options.
+              The founder chooses what the surplus builds —
+              one of nine terminals in the field below.
+              The asset holder chooses what their capital means.
+              Power becomes an option field.
+            </p>
+            <div class="figure figure-option" id="option-field">
+              <svg viewBox="0 0 640 480" fill="none" role="img" aria-labelledby="fig9-title fig9-desc">
+                <title id="fig9-title">Power to option field</title>
+                <desc id="fig9-desc">Nine numbered terminals orbit a central power hub. Hover or focus a terminal to read its option.</desc>
+                <g stroke="#22304C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <!-- Orbit guide -->
+                  <circle class="draw of-orbit-ring" cx="320" cy="250" r="155"
+                          fill="none" stroke-dasharray="1.2 3.2" opacity="0.4"/>
+
+                  <!-- POWER hub -->
+                  <g transform="translate(320 250)">
+                    <circle class="draw" r="72" stroke-dasharray="1.2 3.2" opacity="0.35" fill="none"/>
+                    <circle class="draw" r="52" fill="none"/>
+                    <circle class="draw" r="38" fill="none"/>
+                    <circle class="draw" r="24" fill="none"/>
+                    <circle class="draw" r="12" fill="none"/>
+                    <circle r="3" stroke="none"/>
+                    <g opacity="0.65">
+                      <line class="draw" x1="0" y1="-52" x2="0" y2="-45"/>
+                      <line class="draw" x1="0" y1="45" x2="0" y2="52"/>
+                      <line class="draw" x1="-52" y1="0" x2="-45" y2="0"/>
+                      <line class="draw" x1="45" y1="0" x2="52" y2="0"/>
+                    </g>
+                    <text x="0" y="-88" text-anchor="middle" stroke="none" font-size="11" letter-spacing="0.28em">POWER</text>
+                    <line class="draw" x1="0" y1="-78" x2="0" y2="-66" opacity="0.7"/>
+                  </g>
+
+                  <!-- Orbiting terminals 01–09 (static ring positions; JS advances angle) -->
+                  <g class="of-nodes" id="of-nodes">
+                    <g class="of-node" data-option="1" tabindex="0" role="button" aria-label="01: New research for everyone" transform="translate(320 95)">
+                      <g class="terminal of-face" style="--d:0"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">01</text></g>
+                    </g>
+                    <g class="of-node" data-option="2" tabindex="0" role="button" aria-label="02: A smaller footprint" transform="translate(419.6 131.3)">
+                      <g class="terminal of-face" style="--d:1"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">02</text></g>
+                    </g>
+                    <g class="of-node" data-option="3" tabindex="0" role="button" aria-label="03: Upside shared with the people who built it" transform="translate(472.6 223.1)">
+                      <g class="terminal of-face" style="--d:2"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">03</text></g>
+                    </g>
+                    <g class="of-node" data-option="4" tabindex="0" role="button" aria-label="04: Essential things kept affordable" transform="translate(454.2 327.5)">
+                      <g class="terminal of-face" style="--d:3"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">04</text></g>
+                    </g>
+                    <g class="of-node" data-option="5" tabindex="0" role="button" aria-label="05: A model or dataset that stays open" transform="translate(373 395.7)">
+                      <g class="terminal of-face" style="--d:4"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">05</text></g>
+                    </g>
+                    <g class="of-node" data-option="6" tabindex="0" role="button" aria-label="06: A promise welded to the asset" transform="translate(267 395.7)">
+                      <g class="terminal of-face" style="--d:5"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">06</text></g>
+                    </g>
+                    <g class="of-node" data-option="7" tabindex="0" role="button" aria-label="07: Paying for an outcome, not an institution" transform="translate(185.8 327.5)">
+                      <g class="terminal of-face" style="--d:6"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">07</text></g>
+                    </g>
+                    <g class="of-node" data-option="8" tabindex="0" role="button" aria-label="08: A purpose trust" transform="translate(167.4 223.1)">
+                      <g class="terminal of-face" style="--d:7"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">08</text></g>
+                    </g>
+                    <g class="of-node" data-option="9" tabindex="0" role="button" aria-label="09: Seeding the next one" transform="translate(220.4 131.3)">
+                      <g class="terminal of-face" style="--d:8"><circle class="of-hit" r="22"/><circle class="of-ring" r="15" fill="none"/><text class="of-label" y="0.5">09</text></g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <span class="of-caption">Option field</span>
+
+              <div class="of-detail is-idle" id="of-detail" aria-live="polite">
+                <div class="of-detail-meta">
+                  <span class="of-detail-num" id="of-detail-num">—</span>
+                  <p class="of-detail-title" id="of-detail-title">Hover a terminal</p>
+                </div>
+                <p class="of-detail-desc" id="of-detail-desc">Nine options for what surplus can build — chosen by the founder.</p>
+              </div>
+
+              <div class="of-fallback">
+                <ol>
+                  <li>
+                    <span class="n">01</span>
+                    <div>
+                      <strong>New research for everyone</strong>
+                      <span>A pharmaceutical company's R&amp;D pipeline as a net-new public good.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">02</span>
+                    <div>
+                      <strong>A smaller footprint</strong>
+                      <span>Cutting the carbon intensity of the company's own operations.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">03</span>
+                    <div>
+                      <strong>Upside shared with the people who built it</strong>
+                      <span>Workers and communities who help create the value share in it (employee liquidity pool, community trust).</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">04</span>
+                    <div>
+                      <strong>Essential things kept affordable</strong>
+                      <span>Lowering the cost of goods and services for the people who depend on them.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">05</span>
+                    <div>
+                      <strong>A model or dataset that stays open</strong>
+                      <span>A nonprofit holds or licenses the company's IP so an acquirer can't enclose it (open-data trusts and patent pledges as precedent).</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">06</span>
+                    <div>
+                      <strong>A promise welded to the asset</strong>
+                      <span>Covenants that bind the acquirer: the price stays below a set threshold, access survives the sale.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">07</span>
+                    <div>
+                      <strong>Paying for an outcome, not an institution</strong>
+                      <span>Surplus funds a commitment that pulls a specific good into existence, proven in vaccine and essential-medicine markets (advance market commitment).</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">08</span>
+                    <div>
+                      <strong>A purpose trust</strong>
+                      <span>Surplus lands in a restricted vehicle built to fund one defined public benefit.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="n">09</span>
+                    <div>
+                      <strong>Seeding the next one</strong>
+                      <span>Surplus recycles into the next generation of public-goods companies; each exit funds more of the same ("self-propagating infrastructure").</span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 10 — CLASSIFICATION -->
+      <section class="scene scene-classify" aria-labelledby="rail-class" data-scene="10">
+        <div class="scene-grid">
+          <p class="rail" id="rail-class">Classification</p>
+          <div class="scene-main">
+            <p class="body rise">
+              This is not impact investing. It is not concessionary.
+              Nothing here asks a founder to build differently, or an investor to accept less rigor.
+              Watch the returns.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 11 — PILOT -->
+      <section class="scene" aria-labelledby="rail-pilot" data-scene="11">
+        <div class="scene-grid">
+          <p class="rail" id="rail-pilot">Pilot</p>
+          <div class="scene-main">
+            <div class="scene-head">
+              <span class="annotation rise">Templates · Public</span>
+            </div>
+            <p class="body rise">
+              We are piloting now, at early stage, and publishing the documents as we go —
+              the templates, the governance, the lessons. Copy us. Being copied is the point.
+            </p>
+            <div class="figure">
+              <svg viewBox="0 0 640 240" fill="none" role="img" aria-labelledby="fig11-title fig11-desc">
+                <title id="fig11-title">Publishing templates</title>
+                <desc id="fig11-desc">A document outline duplicates along a dashed ray into three successive copies numbered 01, 02, and 03.</desc>
+                <g stroke="#22304C" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica Neue, sans-serif" fill="#22304C">
+                  <line class="draw" x1="130" y1="120" x2="520" y2="120" stroke-dasharray="3 4" opacity="0.55"/>
+                  <g class="terminal" style="--d:0">
+                    <rect x="40" y="60" width="90" height="120" fill="none"/>
+                    <line x1="56" y1="88" x2="114" y2="88" opacity="0.4"/>
+                    <line x1="56" y1="108" x2="108" y2="108" opacity="0.4"/>
+                    <line x1="56" y1="128" x2="114" y2="128" opacity="0.4"/>
+                    <circle cx="85" cy="196" r="10" fill="none"/>
+                    <text x="85" y="200" text-anchor="middle" stroke="none" font-size="9">01</text>
+                  </g>
+                  <g class="terminal" style="--d:1" opacity="0.7">
+                    <rect x="230" y="70" width="78" height="100" fill="none"/>
+                    <line x1="244" y1="94" x2="292" y2="94" opacity="0.4"/>
+                    <line x1="244" y1="110" x2="286" y2="110" opacity="0.4"/>
+                    <circle cx="269" cy="186" r="10" fill="none"/>
+                    <text x="269" y="190" text-anchor="middle" stroke="none" font-size="9">02</text>
+                  </g>
+                  <g class="terminal" style="--d:2" opacity="0.45">
+                    <rect x="400" y="80" width="66" height="84" fill="none"/>
+                    <line x1="412" y1="100" x2="452" y2="100" opacity="0.4"/>
+                    <line x1="412" y1="114" x2="446" y2="114" opacity="0.4"/>
+                    <circle cx="433" cy="180" r="10" fill="none"/>
+                    <text x="433" y="184" text-anchor="middle" stroke="none" font-size="9">03</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 12 — HORIZON -->
+      <section class="scene" aria-labelledby="rail-horizon" data-scene="12">
+        <div class="scene-grid">
+          <p class="rail" id="rail-horizon">Horizon</p>
+          <div class="scene-main">
+            <p class="body rise">
+              In five years this should not be a movement.
+              It should be a checkbox at the largest asset managers in the world.
+              The goal is not to be special. It is to be standard.
+            </p>
+            <div class="catalog rise" aria-label="Figure catalog">
+              <div class="catalog-item">
+                <svg viewBox="0 0 80 48" fill="none" aria-hidden="true">
+                  <g stroke="#22304C" stroke-width="1">
+                    <rect x="8" y="16" width="12" height="12"/>
+                    <line x1="24" y1="22" x2="48" y2="22"/>
+                    <circle cx="60" cy="22" r="10"/>
+                  </g>
+                </svg>
+                <span class="catalog-num">02</span>
+              </div>
+              <div class="catalog-item">
+                <svg viewBox="0 0 80 48" fill="none" aria-hidden="true">
+                  <g stroke="#22304C" stroke-width="1">
+                    <rect x="6" y="8" width="68" height="28"/>
+                    <line x1="10" y1="16" x2="70" y2="16"/>
+                    <circle cx="66" cy="36" r="5"/>
+                  </g>
+                </svg>
+                <span class="catalog-num">04</span>
+              </div>
+              <div class="catalog-item">
+                <svg viewBox="0 0 80 48" fill="none" aria-hidden="true">
+                  <g stroke="#22304C" stroke-width="1">
+                    <rect x="18" y="8" width="12" height="32"/>
+                    <rect x="38" y="8" width="12" height="32"/>
+                    <line x1="34" y1="18" x2="58" y2="18" stroke-dasharray="2 2"/>
+                  </g>
+                </svg>
+                <span class="catalog-num">07</span>
+              </div>
+              <div class="catalog-item">
+                <svg viewBox="0 0 80 48" fill="none" aria-hidden="true">
+                  <g stroke="#22304C" stroke-width="1">
+                    <circle cx="32" cy="24" r="8"/>
+                    <circle cx="32" cy="24" r="14"/>
+                    <circle cx="32" cy="24" r="2" fill="#22304C"/>
+                    <line x1="48" y1="24" x2="68" y2="24"/>
+                  </g>
+                </svg>
+                <span class="catalog-num">08</span>
+              </div>
+              <div class="catalog-item">
+                <svg viewBox="0 0 80 48" fill="none" aria-hidden="true">
+                  <g stroke="#22304C" stroke-width="1">
+                    <circle cx="16" cy="24" r="8"/>
+                    <line x1="26" y1="18" x2="58" y2="8"/>
+                    <line x1="26" y1="24" x2="62" y2="24"/>
+                    <line x1="26" y1="30" x2="58" y2="40"/>
+                    <circle cx="62" cy="8" r="2"/><circle cx="66" cy="24" r="2"/><circle cx="62" cy="40" r="2"/>
+                  </g>
+                </svg>
+                <span class="catalog-num">09</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 13 — LOADED -->
+      <section class="loaded-wrap" aria-labelledby="rail-loaded" data-scene="13">
+        <div class="loaded">
+          <img
+            class="loaded-cover"
+            src="assets/loaded-cover.png"
+            alt="Mockup of LOADED magazine Issue 01 on a wood table: cream cover with bold red LOADED masthead and a detailed technical illustration titled The Internal Combustion Economy."
+            width="1200"
+            height="1800"
+            decoding="async"
+          >
+          <div class="loaded-scrim" aria-hidden="true"></div>
+          <div class="loaded-inner">
+            <p class="rail" id="rail-loaded">From the Publication</p>
+            <div class="loaded-copy">
+              <p class="loaded-statement rise">What’s all this money for?</p>
+              <a class="loaded-link rise" href="#">Read Loaded →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 14 — CLOSE -->
+      <section class="scene" aria-labelledby="rail-summary" data-scene="14">
+        <div class="scene-grid">
+          <p class="rail" id="rail-summary">Summary</p>
+          <div class="scene-main">
+            <p class="statement rise">More is possible.</p>
+            <p class="afterline rise">
+              Dynamic equity creates private returns and public goods.
+              Private returns, capped. Public goods, built in.
+            </p>
+            <div class="cta-row rise">
+              <div class="cta-field">
+                <label>Document</label>
+                <a href="whitepaper.html">Read the white paper</a>
+              </div>
+              <div class="cta-field">
+                <label>Next</label>
+                <a href="mailto:hello@kalium.example">Start a conversation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="story-foot">
+          <span>© 2026 Kalium · Not impact investing. Not concessionary.</span>
+          <span>
+            <a href="form.html">Form</a>
+            <span aria-hidden="true"> · </span>
+            <a href="whitepaper.html">White paper</a>
+          </span>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.remove('no-js');
+      root.classList.add('js');
+
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var scenes = Array.prototype.slice.call(document.querySelectorAll('[data-scene]'));
+
+      function prepareDraw(scene) {
+        var draws = scene.querySelectorAll('.draw');
+        Array.prototype.forEach.call(draws, function (el) {
+          if (typeof el.getTotalLength !== 'function') return;
+          var len = el.getTotalLength();
+          var existing = el.getAttribute('stroke-dasharray');
+          // Preserve intentional dash patterns (dashed arcs) by measuring path length only for offset
+          if (!existing) {
+            el.style.strokeDasharray = String(len);
+          } else {
+            // For pre-dashed paths, animate via a temporary solid dash covering full length
+            el.setAttribute('data-dash', existing);
+            el.style.strokeDasharray = String(len);
+          }
+          el.style.strokeDashoffset = String(len);
+          if (reduce) {
+            el.style.strokeDashoffset = '0';
+            if (el.getAttribute('data-dash')) {
+              el.style.strokeDasharray = el.getAttribute('data-dash');
+            }
+          }
+        });
+      }
+
+      function restoreDashes(scene) {
+        Array.prototype.forEach.call(scene.querySelectorAll('.draw[data-dash]'), function (el) {
+          // After draw-in completes, restore original dash pattern
+          window.setTimeout(function () {
+            el.style.strokeDasharray = el.getAttribute('data-dash');
+            el.style.strokeDashoffset = '0';
+          }, reduce ? 0 : 950);
+        });
+      }
+
+      scenes.forEach(prepareDraw);
+
+      if (reduce) {
+        scenes.forEach(function (scene) {
+          scene.classList.add('is-visible');
+          restoreDashes(scene);
+        });
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        scenes.forEach(function (scene) {
+          scene.classList.add('is-visible');
+          restoreDashes(scene);
+        });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var scene = entry.target;
+          if (scene.classList.contains('is-visible')) return;
+          scene.classList.add('is-visible');
+          restoreDashes(scene);
+          io.unobserve(scene);
+        });
+      }, { threshold: 0.28, rootMargin: '0px 0px -8% 0px' });
+
+      scenes.forEach(function (scene) { io.observe(scene); });
+    })();
+
+    /* Option-field orbit — scoped to #option-field only */
+    (function () {
+      var stage = document.getElementById('option-field');
+      if (!stage) return;
+
+      var fallback = stage.querySelector('.of-fallback');
+      if (fallback) fallback.setAttribute('hidden', '');
+
+      var OPTIONS = [
+        {
+          id: 1,
+          title: 'New research for everyone',
+          desc: 'A pharmaceutical company\'s R&D pipeline as a net-new public good.'
+        },
+        {
+          id: 2,
+          title: 'A smaller footprint',
+          desc: 'Cutting the carbon intensity of the company\'s own operations.'
+        },
+        {
+          id: 3,
+          title: 'Upside shared with the people who built it',
+          desc: 'Workers and communities who help create the value share in it (employee liquidity pool, community trust).'
+        },
+        {
+          id: 4,
+          title: 'Essential things kept affordable',
+          desc: 'Lowering the cost of goods and services for the people who depend on them.'
+        },
+        {
+          id: 5,
+          title: 'A model or dataset that stays open',
+          desc: 'A nonprofit holds or licenses the company\'s IP so an acquirer can\'t enclose it (open-data trusts and patent pledges as precedent).'
+        },
+        {
+          id: 6,
+          title: 'A promise welded to the asset',
+          desc: 'Covenants that bind the acquirer: the price stays below a set threshold, access survives the sale.'
+        },
+        {
+          id: 7,
+          title: 'Paying for an outcome, not an institution',
+          desc: 'Surplus funds a commitment that pulls a specific good into existence, proven in vaccine and essential-medicine markets (advance market commitment).'
+        },
+        {
+          id: 8,
+          title: 'A purpose trust',
+          desc: 'Surplus lands in a restricted vehicle built to fund one defined public benefit.'
+        },
+        {
+          id: 9,
+          title: 'Seeding the next one',
+          desc: 'Surplus recycles into the next generation of public-goods companies; each exit funds more of the same ("self-propagating infrastructure").'
+        }
+      ];
+
+      var CX = 320;
+      var CY = 250;
+      var R = 155;
+      var STEP = 360 / OPTIONS.length;
+      var SPEED = 360 / 72; // deg/sec — slow continuous orbit
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var nodes = Array.prototype.slice.call(stage.querySelectorAll('.of-node'));
+      var detail = document.getElementById('of-detail');
+      var detailNum = document.getElementById('of-detail-num');
+      var detailTitle = document.getElementById('of-detail-title');
+      var detailDesc = document.getElementById('of-detail-desc');
+
+      var angle = -90; // start with 01 at top
+      var paused = false;
+      var activeId = null;
+      var last = performance.now();
+
+      function pad(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+
+      function placeNodes() {
+        nodes.forEach(function (node, i) {
+          var a = (angle + i * STEP) * Math.PI / 180;
+          var x = CX + R * Math.cos(a);
+          var y = CY + R * Math.sin(a);
+          node.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ')');
+        });
+      }
+
+      function showOption(id) {
+        var opt = OPTIONS[id - 1];
+        if (!opt || !detail) return;
+        activeId = id;
+        paused = true;
+        stage.classList.add('is-paused');
+        nodes.forEach(function (node) {
+          var nid = Number(node.getAttribute('data-option'));
+          node.classList.toggle('is-active', nid === id);
+        });
+        detail.classList.remove('is-idle');
+        detailNum.textContent = pad(opt.id);
+        detailTitle.textContent = opt.title;
+        detailDesc.textContent = opt.desc;
+      }
+
+      function clearOption() {
+        activeId = null;
+        paused = false;
+        stage.classList.remove('is-paused');
+        nodes.forEach(function (node) { node.classList.remove('is-active'); });
+        if (!detail) return;
+        detail.classList.add('is-idle');
+        detailNum.textContent = '—';
+        detailTitle.textContent = 'Hover a terminal';
+        detailDesc.textContent = 'Nine options for what surplus can build — chosen by the founder.';
+      }
+
+      nodes.forEach(function (node) {
+        var id = Number(node.getAttribute('data-option'));
+        node.addEventListener('mouseenter', function () { showOption(id); });
+        node.addEventListener('mouseleave', function () {
+          if (document.activeElement !== node) clearOption();
+        });
+        node.addEventListener('focus', function () { showOption(id); });
+        node.addEventListener('blur', function () { clearOption(); });
+        node.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showOption(id);
+          }
+        });
+      });
+
+      placeNodes();
+
+      if (reduce) return;
+
+      function tick(now) {
+        var dt = Math.min(0.05, (now - last) / 1000);
+        last = now;
+        if (!paused) {
+          angle = (angle + SPEED * dt) % 360;
+          placeNodes();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" fill="none" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Power to Option Field</title>
+  <desc id="diagram-desc">Nineteen rays leave a power hub and terminate at numbered option-field endpoints 01 through 19.</desc>
+
+  <g stroke="#0B1F3A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+    <!-- POWER hub -->
+    <g transform="translate(160 270)">
+      <circle r="82" stroke-dasharray="1.2 3.2" opacity="0.4"/>
+      <circle r="56"/>
+      <circle r="40"/>
+      <circle r="26"/>
+      <circle r="14"/>
+      <circle r="3.2" fill="#0B1F3A" stroke="none"/>
+
+      <g opacity="0.65">
+        <line x1="0" y1="-56" x2="0" y2="-49"/>
+        <line x1="0" y1="49" x2="0" y2="56"/>
+        <line x1="-56" y1="0" x2="-49" y2="0"/>
+        <line x1="49" y1="0" x2="56" y2="0"/>
+        <line x1="-39.6" y1="-39.6" x2="-34.5" y2="-34.5"/>
+        <line x1="39.6" y1="-39.6" x2="34.5" y2="-34.5"/>
+        <line x1="-39.6" y1="39.6" x2="-34.5" y2="34.5"/>
+        <line x1="39.6" y1="39.6" x2="34.5" y2="34.5"/>
+      </g>
+
+      <line x1="-92" y1="0" x2="92" y2="0" opacity="0.5"/>
+      <line x1="0" y1="-92" x2="0" y2="92" opacity="0.5"/>
+
+      <text x="0" y="-112" text-anchor="middle" fill="#0B1F3A" stroke="none"
+            font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.28em">POWER</text>
+      <line x1="0" y1="-102" x2="0" y2="-86" opacity="0.7"/>
+    </g>
+
+    <!-- Rays -->
+    <g opacity="0.9">
+      <line x1="160" y1="270" x2="507.9" y2="17.3"/>
+      <line x1="160" y1="270" x2="524.7" y2="42.1"/>
+      <line x1="160" y1="270" x2="539.7" y2="68.1"/>
+      <line x1="160" y1="270" x2="552.8" y2="95.1"/>
+      <line x1="160" y1="270" x2="564.1" y2="122.9"/>
+      <line x1="160" y1="270" x2="573.3" y2="151.5"/>
+      <line x1="160" y1="270" x2="580.6" y2="180.6"/>
+      <line x1="160" y1="270" x2="585.8" y2="210.2"/>
+      <line x1="160" y1="270" x2="589.0" y2="240.0"/>
+      <line x1="160" y1="270" x2="590.0" y2="270.0"/>
+      <line x1="160" y1="270" x2="589.0" y2="300.0"/>
+      <line x1="160" y1="270" x2="585.8" y2="329.8"/>
+      <line x1="160" y1="270" x2="580.6" y2="359.4"/>
+      <line x1="160" y1="270" x2="573.3" y2="388.5"/>
+      <line x1="160" y1="270" x2="564.1" y2="417.1"/>
+      <line x1="160" y1="270" x2="552.8" y2="444.9"/>
+      <line x1="160" y1="270" x2="539.7" y2="471.9"/>
+      <line x1="160" y1="270" x2="524.7" y2="497.9"/>
+      <line x1="160" y1="270" x2="507.9" y2="522.7"/>
+    </g>
+
+    <!-- Field ticks (crosses before nodes) -->
+    <g opacity="0.55">
+      <line x1="480.2" y1="33.7" x2="490.2" y2="33.7"/><line x1="485.2" y1="28.7" x2="485.2" y2="38.7"/>
+      <line x1="495.9" y1="57.0" x2="505.9" y2="57.0"/><line x1="500.9" y1="52.0" x2="500.9" y2="62.0"/>
+      <line x1="509.9" y1="81.3" x2="519.9" y2="81.3"/><line x1="514.9" y1="76.3" x2="514.9" y2="86.3"/>
+      <line x1="522.2" y1="106.5" x2="532.2" y2="106.5"/><line x1="527.2" y1="101.5" x2="527.2" y2="111.5"/>
+      <line x1="532.8" y1="132.5" x2="542.8" y2="132.5"/><line x1="537.8" y1="127.5" x2="537.8" y2="137.5"/>
+      <line x1="541.4" y1="159.2" x2="551.4" y2="159.2"/><line x1="546.4" y1="154.2" x2="546.4" y2="164.2"/>
+      <line x1="548.2" y1="186.4" x2="558.2" y2="186.4"/><line x1="553.2" y1="181.4" x2="553.2" y2="191.4"/>
+      <line x1="553.1" y1="214.1" x2="563.1" y2="214.1"/><line x1="558.1" y1="209.1" x2="558.1" y2="219.1"/>
+      <line x1="556.0" y1="242.0" x2="566.0" y2="242.0"/><line x1="561.0" y1="237.0" x2="561.0" y2="247.0"/>
+      <line x1="557.0" y1="270.0" x2="567.0" y2="270.0"/><line x1="562.0" y1="265.0" x2="562.0" y2="275.0"/>
+      <line x1="556.0" y1="298.0" x2="566.0" y2="298.0"/><line x1="561.0" y1="293.0" x2="561.0" y2="303.0"/>
+      <line x1="553.1" y1="325.9" x2="563.1" y2="325.9"/><line x1="558.1" y1="320.9" x2="558.1" y2="330.9"/>
+      <line x1="548.2" y1="353.6" x2="558.2" y2="353.6"/><line x1="553.2" y1="348.6" x2="553.2" y2="358.6"/>
+      <line x1="541.4" y1="380.8" x2="551.4" y2="380.8"/><line x1="546.4" y1="375.8" x2="546.4" y2="385.8"/>
+      <line x1="532.8" y1="407.5" x2="542.8" y2="407.5"/><line x1="537.8" y1="402.5" x2="537.8" y2="412.5"/>
+      <line x1="522.2" y1="433.5" x2="532.2" y2="433.5"/><line x1="527.2" y1="428.5" x2="527.2" y2="438.5"/>
+      <line x1="509.9" y1="458.7" x2="519.9" y2="458.7"/><line x1="514.9" y1="453.7" x2="514.9" y2="463.7"/>
+      <line x1="495.9" y1="483.0" x2="505.9" y2="483.0"/><line x1="500.9" y1="478.0" x2="500.9" y2="488.0"/>
+      <line x1="480.2" y1="506.3" x2="490.2" y2="506.3"/><line x1="485.2" y1="501.3" x2="485.2" y2="511.3"/>
+    </g>
+
+    <!-- Endpoints + numbers -->
+    <g font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#0B1F3A" stroke="none">
+      <circle cx="507.9" cy="17.3" r="4" fill="none" stroke="#0B1F3A"/><text x="520" y="21">01</text>
+      <circle cx="524.7" cy="42.1" r="4" fill="none" stroke="#0B1F3A"/><text x="537" y="46">02</text>
+      <circle cx="539.7" cy="68.1" r="4" fill="none" stroke="#0B1F3A"/><text x="552" y="72">03</text>
+      <circle cx="552.8" cy="95.1" r="4" fill="none" stroke="#0B1F3A"/><text x="565" y="99">04</text>
+      <circle cx="564.1" cy="122.9" r="4" fill="none" stroke="#0B1F3A"/><text x="577" y="127">05</text>
+      <circle cx="573.3" cy="151.5" r="4" fill="none" stroke="#0B1F3A"/><text x="586" y="156">06</text>
+      <circle cx="580.6" cy="180.6" r="4" fill="none" stroke="#0B1F3A"/><text x="593" y="185">07</text>
+      <circle cx="585.8" cy="210.2" r="4" fill="none" stroke="#0B1F3A"/><text x="599" y="214">08</text>
+      <circle cx="589.0" cy="240.0" r="4" fill="none" stroke="#0B1F3A"/><text x="602" y="244">09</text>
+      <circle cx="590.0" cy="270.0" r="4" fill="none" stroke="#0B1F3A"/><text x="603" y="274">10</text>
+      <circle cx="589.0" cy="300.0" r="4" fill="none" stroke="#0B1F3A"/><text x="602" y="304">11</text>
+      <circle cx="585.8" cy="329.8" r="4" fill="none" stroke="#0B1F3A"/><text x="599" y="334">12</text>
+      <circle cx="580.6" cy="359.4" r="4" fill="none" stroke="#0B1F3A"/><text x="593" y="363">13</text>
+      <circle cx="573.3" cy="388.5" r="4" fill="none" stroke="#0B1F3A"/><text x="586" y="393">14</text>
+      <circle cx="564.1" cy="417.1" r="4" fill="none" stroke="#0B1F3A"/><text x="577" y="421">15</text>
+      <circle cx="552.8" cy="444.9" r="4" fill="none" stroke="#0B1F3A"/><text x="565" y="449">16</text>
+      <circle cx="539.7" cy="471.9" r="4" fill="none" stroke="#0B1F3A"/><text x="552" y="476">17</text>
+      <circle cx="524.7" cy="497.9" r="4" fill="none" stroke="#0B1F3A"/><text x="537" y="502">18</text>
+      <circle cx="507.9" cy="522.7" r="4" fill="none" stroke="#0B1F3A"/><text x="520" y="527">19</text>
+    </g>
+
+    <!-- Field bracket -->
+    <g opacity="0.8">
+      <line x1="640" y1="24" x2="640" y2="516"/>
+      <line x1="632" y1="24" x2="648" y2="24"/>
+      <line x1="632" y1="516" x2="648" y2="516"/>
+      <line x1="640" y1="16" x2="640" y2="32"/>
+      <line x1="640" y1="508" x2="640" y2="524"/>
+    </g>
+
+    <text x="678" y="278" fill="#0B1F3A" stroke="none"
+          font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.22em"
+          transform="rotate(90 678 278)">OPTION FIELD</text>
+  </g>
+</svg>
