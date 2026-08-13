@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium — Introducing a new asset class</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0a0a0a;
+      --soft: #f3f2ee;
+      --paper: #f7f4ec;
+      --line: #d6d5cf;
+      --muted: rgba(10, 10, 10, 0.55);
+      --valence: #0a0a0a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .orbit.valence { animation: none !important; }
+    }
+    body {
+      color: var(--ink);
+      background: #fff;
+      font-family: "Instrument Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .site-header {
+      z-index: 2;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 22px 30px;
+      display: grid;
+      position: relative;
+    }
+    .word-sign {
+      display: block;
+      width: fit-content;
+      line-height: 0;
+    }
+    .word-sign img {
+      width: 44px;
+      height: 44px;
+      display: block;
+    }
+    nav.top { gap: 25px; display: flex; justify-self: center; }
+    nav.top a, .header-note, .eyebrow, .section-tag, .work-topline p, footer {
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    nav.top a { transition: opacity 0.2s; }
+    nav.top a:hover { opacity: 0.45; }
+    .header-note { opacity: 0.56; justify-self: end; }
+
+    .hero {
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      min-height: calc(100svh - 69px);
+      padding: clamp(30px, 6vw, 90px) 30px 24px;
+      display: flex;
+    }
+    .eyebrow { margin: 0; }
+    .hero-mark {
+      mix-blend-mode: multiply;
+      width: min(88vw, 1120px);
+      max-width: 1120px;
+      height: auto;
+      margin: auto;
+      display: block;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-mark {
+        opacity: 0;
+        filter: blur(28px);
+        transform: translateY(14px) scale(0.99);
+        animation: heroIn 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+      }
+      @keyframes heroIn {
+        to {
+          opacity: 1;
+          filter: blur(0);
+          transform: translateY(0) scale(1);
+        }
+      }
+    }
+    .hero-bottom {
+      justify-content: space-between;
+      align-items: end;
+      display: flex;
+      gap: 20px;
+    }
+    .hero-bottom p {
+      letter-spacing: -0.03em;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+    .round-link {
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      font-size: 22px;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      display: inline-flex;
+      flex: none;
+    }
+    .round-link:hover {
+      background: var(--ink);
+      color: #fff;
+      transform: translateY(3px);
+    }
+
+    .manifesto { padding: clamp(100px, 14vw, 210px) max(30px, 10vw) clamp(110px, 14vw, 200px); }
+    .section-tag { margin: 0 0 32px; }
+    .manifesto h1 {
+      letter-spacing: -0.085em;
+      margin: 0;
+      font-size: clamp(50px, 8.6vw, 140px);
+      font-weight: 500;
+      line-height: 0.87;
+    }
+    .manifesto em, .loaded-sec em, .contact em, .pillars-sec em {
+      letter-spacing: -0.04em;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+    .manifesto-copy {
+      letter-spacing: -0.04em;
+      max-width: 430px;
+      margin: 72px 0 0 auto;
+      font-size: clamp(18px, 2vw, 26px);
+      line-height: 1.16;
+    }
+
+    /* —— Nineteen Pillars —— */
+    .pillars-sec {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(72px, 10vw, 120px) clamp(20px, 4vw, 48px) clamp(80px, 11vw, 140px);
+      position: relative;
+      overflow: clip;
+    }
+    .pillars-sec::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 18%, rgba(10,10,10,0.035), transparent 70%),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(10,10,10,0.015) 3px,
+          rgba(10,10,10,0.015) 4px
+        );
+      pointer-events: none;
+    }
+    .pillars-inner {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .pillars-kicker {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .pillars-title {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(28px, 4.5vw, 48px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin: 0 0 48px;
+    }
+    .pillars-title .config {
+      font-family: "Instrument Sans", sans-serif;
+      font-size: 0.42em;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      vertical-align: middle;
+      margin-left: 0.6em;
+      opacity: 0.7;
+    }
+
+    .atom-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 1.1fr) minmax(260px, 0.9fr);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      margin-bottom: clamp(48px, 7vw, 80px);
+    }
+
+    .atom-stage {
+      position: relative;
+      aspect-ratio: 1;
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .atom-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      display: block;
+    }
+    .orbit {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 1.25;
+      opacity: 0.85;
+      transition: opacity 0.35s, stroke-width 0.35s;
+    }
+    .orbit.valence {
+      stroke-dasharray: 5 4;
+      opacity: 0.65;
+      animation: dashWalk 18s linear infinite;
+    }
+    @keyframes dashWalk {
+      to { stroke-dashoffset: -90; }
+    }
+    .atom-stage[data-active-shell="1"] .orbit:not([data-shell="1"]),
+    .atom-stage[data-active-shell="2"] .orbit:not([data-shell="2"]),
+    .atom-stage[data-active-shell="3"] .orbit:not([data-shell="3"]),
+    .atom-stage[data-active-shell="4"] .orbit:not([data-shell="4"]) {
+      opacity: 0.18;
+    }
+    .atom-stage[data-active-shell] .orbit[data-shell] {
+      stroke-width: 1.75;
+      opacity: 1;
+    }
+
+    /* Shell rotation is driven in JS for reliable SVG origin */
+
+    .electron {
+      cursor: pointer;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .electron .dot {
+      fill: var(--ink);
+      transition: r 0.25s, fill 0.25s;
+    }
+    .electron .hit {
+      fill: transparent;
+    }
+    .electron .halo {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 1.25;
+      opacity: 0;
+      transition: opacity 0.25s, r 0.25s;
+    }
+    .electron.is-active .dot,
+    .electron:hover .dot,
+    .electron:focus-visible .dot {
+      fill: var(--ink);
+    }
+    .electron.is-active .halo,
+    .electron:hover .halo,
+    .electron:focus-visible .halo {
+      opacity: 1;
+    }
+    .electron.valence .ring {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 1.4;
+    }
+    .electron.valence .arrow {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .electron.is-dim { opacity: 0.22; }
+    .electron.is-arriving {
+      opacity: 0;
+    }
+    .nucleus {
+      cursor: default;
+    }
+    .nucleus circle {
+      fill: var(--ink);
+    }
+    .nucleus text {
+      fill: #fff;
+      font-family: "Instrument Serif", Georgia, serif;
+      text-anchor: middle;
+      dominant-baseline: central;
+      user-select: none;
+    }
+    .nucleus .k-label { font-size: 28px; }
+    .nucleus .n-label { font-size: 11px; letter-spacing: 0.08em; }
+    .config-mark {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 22px;
+      letter-spacing: 0.18em;
+      text-anchor: middle;
+      fill: var(--ink);
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+    .atom-stage.is-ready .config-mark { opacity: 1; }
+
+    .pillar-panel {
+      min-height: 280px;
+      border-top: 1px solid var(--ink);
+      padding-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .pillar-panel .shell-label {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      opacity: 0.55;
+    }
+    .pillar-panel .pillar-num {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(48px, 7vw, 72px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+    .pillar-panel h3 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    .pillar-panel .lede {
+      font-size: 15px;
+      line-height: 1.45;
+      max-width: 36ch;
+      letter-spacing: -0.01em;
+    }
+    .pillar-panel .hint {
+      margin-top: auto;
+      padding-top: 20px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0.45;
+    }
+    .pillar-panel.is-valence {
+      border-top-width: 2px;
+    }
+
+    .pillar-lists {
+      border-top: 1px solid var(--ink);
+      padding-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px 48px;
+    }
+    .shell-block h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0.55;
+    }
+    .shell-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .shell-block li button {
+      width: 100%;
+      text-align: left;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      padding: 6px 8px;
+      margin: 0 -8px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      align-items: baseline;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .shell-block li button:hover,
+    .shell-block li button.is-active {
+      background: rgba(10, 10, 10, 0.05);
+    }
+    .shell-block li button.is-dim { opacity: 0.28; }
+    .shell-block .n {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0.45;
+      font-variant-numeric: tabular-nums;
+    }
+    .shell-block .t {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .valence-block {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      margin-top: 4px;
+    }
+    .valence-block button {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px 18px;
+      width: 100%;
+      text-align: left;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+      padding: 10px 8px;
+      margin: 0 -8px;
+      transition: background 0.2s;
+    }
+    .valence-block button:hover,
+    .valence-block button.is-active {
+      background: rgba(10, 10, 10, 0.05);
+    }
+    .valence-block .t {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(22px, 3vw, 30px);
+      letter-spacing: -0.03em;
+    }
+    .valence-block .sub {
+      font-size: 14px;
+      font-style: italic;
+      font-family: "Instrument Serif", Georgia, serif;
+      opacity: 0.65;
+    }
+
+    .reading {
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+    }
+    .reading h5 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0.55;
+    }
+    .reading p {
+      font-size: 14px;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      max-width: 58ch;
+    }
+    .reading .quote {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+    .reading .credit {
+      margin-top: 18px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    .work { background: var(--soft); padding: 24px 30px 0; }
+    .work-topline { justify-content: space-between; display: flex; }
+    .work-topline p { margin: 0; }
+    .capability-list { margin-top: 76px; }
+    .capability {
+      border-top: 1px solid var(--ink);
+      grid-template-columns: 65px minmax(180px, 1fr) minmax(220px, 0.9fr) 24px;
+      align-items: baseline;
+      gap: 25px;
+      padding: 20px 0 38px;
+      display: grid;
+    }
+    .capability:last-child { border-bottom: 1px solid var(--ink); }
+    .capability > span { font-size: 11px; }
+    .capability h2 {
+      letter-spacing: -0.065em;
+      margin: 0;
+      font-size: clamp(27px, 3.5vw, 48px);
+      font-weight: 500;
+      line-height: 0.9;
+    }
+    .capability p { max-width: 260px; margin: 0; font-size: 14px; line-height: 1.2; }
+    .capability .arrow { font-size: 22px; transition: transform 0.2s; }
+    .capability:hover .arrow { transform: translate(4px, -4px); }
+
+    .loaded-sec {
+      border-bottom: 1px solid var(--line);
+      padding: clamp(100px, 13vw, 180px) 30px clamp(100px, 13vw, 170px);
+    }
+    .loaded-row {
+      justify-content: space-between;
+      align-items: end;
+      display: flex;
+      gap: 42px;
+      flex-wrap: wrap;
+    }
+    .loaded-sec h2, .contact h2 {
+      letter-spacing: -0.08em;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 112px);
+      font-weight: 500;
+      line-height: 0.86;
+    }
+    .loaded-sec .go, .contact a.go {
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 7px;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+    .loaded-sec .go:hover, .contact a.go:hover { opacity: 0.5; }
+    .loaded-sec .go span, .contact a.go span { margin-left: 28px; }
+    .loaded-note {
+      letter-spacing: -0.03em;
+      max-width: 340px;
+      margin: 56px 0 0;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .contact { padding: clamp(100px, 13vw, 180px) 30px 36px; }
+    .contact-row {
+      justify-content: space-between;
+      align-items: end;
+      display: flex;
+      gap: 42px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      justify-content: space-between;
+      padding: 16px 30px 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    footer p { margin: 0; }
+
+    @media (width <= 860px) {
+      .atom-layout { grid-template-columns: 1fr; }
+      .pillar-panel { min-height: 0; }
+      .reading { grid-template-columns: 1fr; }
+    }
+    @media (width <= 650px) {
+      .site-header { grid-template-columns: 1fr auto; padding: 20px; }
+      .header-note { display: none; }
+      nav.top { gap: 12px; justify-self: end; flex-wrap: wrap; }
+      nav.top a { font-size: 9px; }
+      .hero { min-height: calc(100svh - 61px); padding: 26px 20px 20px; }
+      .hero-mark { width: 118vw; max-width: none; }
+      .hero-bottom p { font-size: 14px; white-space: normal; max-width: 220px; }
+      .manifesto { padding: 105px 20px; }
+      .manifesto-copy { margin-top: 52px; }
+      .pillar-lists { grid-template-columns: 1fr; gap: 28px; }
+      .work { padding: 20px 20px 0; }
+      .capability-list { margin-top: 52px; }
+      .capability {
+        grid-template-columns: 35px 1fr 20px;
+        gap: 10px;
+        padding: 18px 0 27px;
+      }
+      .capability p { grid-column: 2 / 3; margin-top: 8px; }
+      .capability .arrow { grid-area: 1 / 3; }
+      .loaded-sec { padding: 105px 20px; }
+      .loaded-row, .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 42px;
+      }
+      .contact { padding: 105px 20px 28px; }
+      footer { padding: 16px 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <a class="word-sign" href="index.html" aria-label="Kalium home">
+    <img src="assets/k19-mark.png" alt="Kalium — K19" width="1024" height="1024">
+  </a>
+  <nav class="top" aria-label="Primary navigation">
+    <a href="#pillars">Pillars</a>
+    <a href="#instrument">The Instrument</a>
+    <a href="#loaded">Loaded</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <span class="header-note">Piloting / 2026</span>
+</header>
+
+<section class="hero" id="top">
+  <p class="eyebrow">Introducing</p>
+  <img class="hero-mark" src="assets/kalium-mark.png" alt="Kalium" width="1634" height="640">
+  <div class="hero-bottom">
+    <p>Equity that creates public goods alongside private returns.</p>
+    <a class="round-link" href="#about" aria-label="Read about Kalium"><span>↓</span></a>
+  </div>
+</section>
+
+<section class="manifesto" id="about">
+  <p class="section-tag">The premise</p>
+  <h1>Change <em>nothing.</em><br>Except <em>one thing.</em></h1>
+  <p class="manifesto-copy">Kalium invests on conventional terms, alongside conventional capital. Above an agreed cap, surplus returns are reinvested in the company to create public goods — chosen by the founder, built from what the company does best.</p>
+</section>
+
+<section class="pillars-sec" id="pillars" aria-labelledby="pillars-heading">
+  <div class="pillars-inner">
+    <div class="pillars-kicker">
+      <p class="section-tag" style="margin:0">The structure is the argument</p>
+    </div>
+    <h2 class="pillars-title" id="pillars-heading">
+      The Nineteen Pillars
+      <span class="config">2 · 8 · 8 · 1</span>
+    </h2>
+
+    <div class="atom-layout">
+      <div class="atom-stage" id="atom-stage" data-active-shell="">
+        <svg class="atom-svg" viewBox="0 0 400 400" role="img" aria-label="Interactive Bohr model of Kalium with nineteen pillars as electrons">
+          <g transform="translate(200 200)">
+            <circle class="orbit" data-shell="1" cx="0" cy="0" r="48" />
+            <circle class="orbit" data-shell="2" cx="0" cy="0" r="88" />
+            <circle class="orbit" data-shell="3" cx="0" cy="0" r="128" />
+            <circle class="orbit valence" data-shell="4" cx="0" cy="0" r="168" />
+
+            <g class="shell-spin" data-shell="1" id="shell-1"></g>
+            <g class="shell-spin" data-shell="2" id="shell-2"></g>
+            <g class="shell-spin" data-shell="3" id="shell-3"></g>
+            <g class="shell-spin" data-shell="4" id="shell-4"></g>
+
+            <g class="nucleus" aria-hidden="true">
+              <circle cx="0" cy="0" r="26" />
+              <text class="k-label" x="0" y="-6">K</text>
+              <text class="n-label" x="0" y="12">19</text>
+            </g>
+          </g>
+          <text class="config-mark" x="200" y="388">2 · 8 · 8 · 1</text>
+        </svg>
+      </div>
+
+      <aside class="pillar-panel" id="pillar-panel" aria-live="polite">
+        <p class="shell-label" id="panel-shell">Shell one — the core</p>
+        <p class="pillar-num" id="panel-num">01</p>
+        <h3 id="panel-title">More is possible</h3>
+        <p class="lede" id="panel-lede">The two-star belief. The reason the firm exists at all.</p>
+        <p class="hint" id="panel-hint">Hover an electron — or a pillar below</p>
+      </aside>
+    </div>
+
+    <div class="pillar-lists" id="pillar-lists"></div>
+
+    <div class="reading">
+      <div>
+        <h5>Reading the system</h5>
+        <p>
+          Rows are eras; columns move from principle to practice. Kalium, 19 — eighteen electrons rest in closed shells (2, 8, 8); the nineteenth stands alone in the outer shell, and giving it away is how the element bonds. Eighteen parts convention, one part radical.
+        </p>
+      </div>
+      <div>
+        <p class="quote">
+          “Nothing about the deal changes. Above an agreed cap, surplus returns become public goods, chosen by the founder alone.” — the position, in nineteen words.
+        </p>
+        <p class="credit">Drawn from the foundational identity sessions, 2026. Kalium — symbol K — the nineteenth electron.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="instrument">
+  <div class="work-topline">
+    <p>How it works</p>
+    <p>(2026)</p>
+  </div>
+  <div class="capability-list">
+    <article class="capability">
+      <span>01</span>
+      <h2>The Instrument</h2>
+      <p>Capped returns. Surplus becomes public goods, on the founder’s terms.</p>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </article>
+    <article class="capability">
+      <span>02</span>
+      <h2>The Bench</h2>
+      <p>LP-first, co-investing alongside conventional capital — within an $8B platform.</p>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </article>
+    <article class="capability">
+      <span>03</span>
+      <h2>The Template</h2>
+      <p>Published as a public resource. Designed to be copied. Built to be standard.</p>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </article>
+  </div>
+</section>
+
+<section class="loaded-sec" id="loaded">
+  <p class="section-tag">From Loaded — the publication</p>
+  <div class="loaded-row">
+    <h2>What’s all this <em>money</em> for?</h2>
+    <a class="go" href="#contact" aria-label="Read Loaded">Read Loaded <span>↗</span></a>
+  </div>
+  <p class="loaded-note">Essays, mechanics, and conversations for people who already have it — hosted by the ones building an answer.</p>
+</section>
+
+<section class="contact" id="contact">
+  <p class="section-tag">Wealth holders, founders, GPs</p>
+  <div class="contact-row">
+    <h2>More is <em>possible.</em></h2>
+    <a class="go" href="mailto:hello@kalium.example" aria-label="Start a conversation">Start a conversation <span>↗</span></a>
+  </div>
+</section>
+
+<footer>
+  <p>© Kalium 2026</p>
+  <p>Not impact investing. Not concessionary.</p>
+</footer>
+
+<script>
+const PILLARS = [
+  {
+    id: 1, shell: 1, shellName: "Shell one — the core", shellNote: "what everything orbits",
+    title: "More is possible",
+    lede: "The two-star belief. The reason the firm exists at all."
+  },
+  {
+    id: 2, shell: 1, shellName: "Shell one — the core", shellNote: "what everything orbits",
+    title: "Agency",
+    lede: "The capacity to make choices — seeing what’s available, and having the courage to choose it. Also two stars; the product underneath the product."
+  },
+  {
+    id: 3, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "Conventional terms",
+    lede: "Same rooms, same rigor, same co-investors. Pattern-match to normal, because scale requires compatibility."
+  },
+  {
+    id: 4, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "The cap",
+    lede: "An agreed ceiling on private return — the hinge the entire instrument turns on."
+  },
+  {
+    id: 5, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "The surplus",
+    lede: "What lives above the cap. Not charity; value that was always going to exist, pointed somewhere."
+  },
+  {
+    id: 6, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "Founder’s choice",
+    lede: "The founder names the public good, built from what the company already does best."
+  },
+  {
+    id: 7, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "The bench",
+    lede: "LP-first inside an $8B platform. Skin in the game, follow-on weight, “that’s a bench behind them.”"
+  },
+  {
+    id: 8, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "The template",
+    lede: "The documents are public. Copying us is the point."
+  },
+  {
+    id: 9, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "Proof",
+    lede: "Every deal tells two stories — the return and the good — until “would this deter investors?” answers itself."
+  },
+  {
+    id: 10, shell: 2, shellName: "Shell two — the mechanics", shellNote: "closed, stable, conventional — “change nothing”",
+    title: "The standard",
+    lede: "The goal isn’t to be special. It’s to be a line item — then a tax code."
+  },
+  {
+    id: 11, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "Frank",
+    lede: "Say the quiet part plainly. Welcome the skeptic; we had the same doubts first."
+  },
+  {
+    id: 12, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "Smart",
+    lede: "No jargon, ever. If any fund could say the sentence, we don’t."
+  },
+  {
+    id: 13, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "Professional",
+    lede: "Heavyweight and prepared. Values-aligned and soft are different things."
+  },
+  {
+    id: 14, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "Trustworthy",
+    lede: "Big-sister energy. Friends, not authority; skin behind every claim."
+  },
+  {
+    id: 15, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "Provocative — by reframing",
+    lede: "“You’re paying twice.” Never by volume."
+  },
+  {
+    id: 16, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "Two rooms, one spine",
+    lede: "Cool for founders, elite for wealth holders; the surfaces flex, the core never does."
+  },
+  {
+    id: 17, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "The better party",
+    lede: "You change people by hosting the room they’d rather be in. Loaded and the gatherings are this pillar with a door."
+  },
+  {
+    id: 18, shell: 3, shellName: "Shell three — the manners", shellNote: "equally stable — how it carries itself",
+    title: "Beautiful, calm, certain",
+    lede: "In a category of blue glass and noise, composure is the differentiation. Nothing ships that isn’t beautiful."
+  },
+  {
+    id: 19, shell: 4, shellName: "The valence", shellNote: "the one that reacts — “except one thing”",
+    title: "Give it away",
+    lede: "The surplus, the template, the credit. The nineteenth pillar isn’t held — it’s donated. That’s how the element bonds, and it’s the only pillar that would make the other eighteen mean anything.",
+    valence: true
+  }
+];
+
+const RADII = { 1: 48, 2: 88, 3: 128, 4: 168 };
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const stage = document.getElementById("atom-stage");
+const panel = document.getElementById("pillar-panel");
+const panelShell = document.getElementById("panel-shell");
+const panelNum = document.getElementById("panel-num");
+const panelTitle = document.getElementById("panel-title");
+const panelLede = document.getElementById("panel-lede");
+const panelHint = document.getElementById("panel-hint");
+const listsEl = document.getElementById("pillar-lists");
+
+let activeId = null;
+const electronEls = new Map();
+const listButtons = new Map();
+
+function pad(n) {
+  return String(n).padStart(2, "0");
+}
+
+function anglesForShell(count) {
+  // Match the reference: shell 1 at 12 & 6; others evenly from ~top
+  if (count === 2) return [-Math.PI / 2, Math.PI / 2];
+  if (count === 1) return [-Math.PI / 5]; // ~2 o'clock-ish, matching the poster
+  const start = -Math.PI / 2;
+  return Array.from({ length: count }, (_, i) => start + (i * 2 * Math.PI) / count);
+}
+
+function buildAtom() {
+  const byShell = { 1: [], 2: [], 3: [], 4: [] };
+  PILLARS.forEach((p) => byShell[p.shell].push(p));
+
+  Object.entries(byShell).forEach(([shell, items]) => {
+    const g = document.getElementById(`shell-${shell}`);
+    const angles = anglesForShell(items.length);
+    const r = RADII[shell];
+
+    items.forEach((pillar, i) => {
+      const a = angles[i];
+      const x = r * Math.cos(a);
+      const y = r * Math.sin(a);
+      const isValence = !!pillar.valence;
+
+      const eg = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      eg.classList.add("electron");
+      if (isValence) eg.classList.add("valence");
+      eg.dataset.id = String(pillar.id);
+      eg.dataset.shell = String(shell);
+      eg.dataset.angle = String(a);
+      eg.setAttribute("tabindex", "0");
+      eg.setAttribute("role", "img");
+      eg.setAttribute("aria-label", `Pillar ${pillar.id}: ${pillar.title}`);
+
+      const hit = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      hit.classList.add("hit");
+      hit.setAttribute("cx", x);
+      hit.setAttribute("cy", y);
+      hit.setAttribute("r", isValence ? 16 : 12);
+
+      const halo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      halo.classList.add("halo");
+      halo.setAttribute("cx", x);
+      halo.setAttribute("cy", y);
+      halo.setAttribute("r", isValence ? 11 : 8);
+
+      if (isValence) {
+        const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        ring.classList.add("ring");
+        ring.setAttribute("cx", x);
+        ring.setAttribute("cy", y);
+        ring.setAttribute("r", 9);
+        eg.appendChild(ring);
+
+        // Arrow pointing outward along the radius
+        const ux = Math.cos(a);
+        const uy = Math.sin(a);
+        const tipX = x + ux * 22;
+        const tipY = y + uy * 22;
+        const baseX = x + ux * 12;
+        const baseY = y + uy * 12;
+        const px = -uy;
+        const py = ux;
+        const arrow = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        arrow.classList.add("arrow");
+        arrow.setAttribute(
+          "d",
+          `M ${baseX} ${baseY} L ${tipX} ${tipY} M ${tipX - ux * 5 + px * 4} ${tipY - uy * 5 + py * 4} L ${tipX} ${tipY} L ${tipX - ux * 5 - px * 4} ${tipY - uy * 5 - py * 4}`
+        );
+        eg.appendChild(arrow);
+      }
+
+      const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      dot.classList.add("dot");
+      dot.setAttribute("cx", x);
+      dot.setAttribute("cy", y);
+      dot.setAttribute("r", isValence ? 4.2 : 3.6);
+
+      eg.appendChild(hit);
+      eg.appendChild(halo);
+      eg.appendChild(dot);
+      g.appendChild(eg);
+      electronEls.set(pillar.id, eg);
+
+      eg.addEventListener("mouseenter", () => selectPillar(pillar.id));
+      eg.addEventListener("mouseleave", () => clearSelection());
+      eg.addEventListener("focus", () => selectPillar(pillar.id));
+      eg.addEventListener("blur", () => clearSelection());
+      eg.addEventListener("mousedown", (e) => e.preventDefault());
+    });
+  });
+}
+
+function buildLists() {
+  const shells = [
+    { shell: 1, title: "Shell one — the core (2)", note: "what everything orbits" },
+    { shell: 2, title: "Shell two — the mechanics (8)", note: "closed, stable, conventional" },
+    { shell: 3, title: "Shell three — the manners (8)", note: "equally stable — how it carries itself" }
+  ];
+
+  const frag = document.createDocumentFragment();
+
+  shells.forEach((s) => {
+    const block = document.createElement("div");
+    block.className = "shell-block";
+    block.dataset.shell = String(s.shell);
+    const h = document.createElement("h4");
+    h.textContent = s.title;
+    const ul = document.createElement("ul");
+    PILLARS.filter((p) => p.shell === s.shell).forEach((p) => {
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.dataset.id = String(p.id);
+      btn.innerHTML = `<span class="n">${pad(p.id)}</span><span class="t">${p.title}</span>`;
+      btn.addEventListener("mouseenter", () => selectPillar(p.id));
+      btn.addEventListener("mouseleave", () => clearSelection());
+      btn.addEventListener("focus", () => selectPillar(p.id));
+      btn.addEventListener("blur", () => clearSelection());
+      btn.addEventListener("mousedown", (e) => e.preventDefault());
+      btn.addEventListener("click", (e) => e.preventDefault());
+      listButtons.set(p.id, btn);
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+    block.appendChild(h);
+    block.appendChild(ul);
+    frag.appendChild(block);
+  });
+
+  const valence = PILLARS[18];
+  const vBlock = document.createElement("div");
+  vBlock.className = "valence-block";
+  const vh = document.createElement("h4");
+  vh.textContent = "The valence (1)";
+  vh.style.marginBottom = "8px";
+  vh.style.fontSize = "11px";
+  vh.style.letterSpacing = "0.12em";
+  vh.style.textTransform = "uppercase";
+  vh.style.opacity = "0.55";
+  const vBtn = document.createElement("button");
+  vBtn.type = "button";
+  vBtn.dataset.id = "19";
+  vBtn.innerHTML = `<span class="n" style="font-weight:700;opacity:.45">19</span><span class="t">${valence.title}</span><span class="sub">the one pillar not held but donated; how the element bonds.</span>`;
+  vBtn.addEventListener("mouseenter", () => selectPillar(19));
+  vBtn.addEventListener("mouseleave", () => clearSelection());
+  vBtn.addEventListener("focus", () => selectPillar(19));
+  vBtn.addEventListener("blur", () => clearSelection());
+  vBtn.addEventListener("mousedown", (e) => e.preventDefault());
+  vBtn.addEventListener("click", (e) => e.preventDefault());
+  listButtons.set(19, vBtn);
+  vBlock.appendChild(vh);
+  vBlock.appendChild(vBtn);
+  frag.appendChild(vBlock);
+
+  listsEl.appendChild(frag);
+}
+
+function selectPillar(id) {
+  const pillar = PILLARS.find((p) => p.id === id);
+  if (!pillar) return;
+  activeId = id;
+
+  stage.dataset.activeShell = String(pillar.shell);
+  stage.classList.add("is-paused");
+
+  electronEls.forEach((el, eid) => {
+    el.classList.toggle("is-active", eid === id);
+    el.classList.toggle("is-dim", eid !== id);
+  });
+  listButtons.forEach((btn, eid) => {
+    btn.classList.toggle("is-active", eid === id);
+    btn.classList.toggle("is-dim", eid !== id);
+  });
+
+  panel.classList.toggle("is-valence", !!pillar.valence);
+  panelShell.textContent = `${pillar.shellName} · ${pillar.shellNote}`;
+  panelNum.textContent = pad(pillar.id);
+  panelTitle.textContent = pillar.title;
+  panelLede.textContent = pillar.lede;
+  panelHint.textContent = pillar.valence
+    ? "The reactive electron — the one that bonds"
+    : "Eighteen stable · one reactive";
+}
+
+function clearSelection() {
+  activeId = null;
+  stage.dataset.activeShell = "";
+  stage.classList.remove("is-paused");
+  electronEls.forEach((el) => {
+    el.classList.remove("is-active", "is-dim");
+  });
+  listButtons.forEach((btn) => {
+    btn.classList.remove("is-active", "is-dim");
+  });
+  panel.classList.remove("is-valence");
+  panelShell.textContent = "Kalium · nineteen pillars";
+  panelNum.textContent = "19";
+  panelTitle.textContent = "Eighteen stable, one reactive";
+  panelLede.textContent = "Two core beliefs at the nucleus, eight closed-shell mechanics, eight closed-shell manners, and one valence pillar that exists to be given away.";
+  panelHint.textContent = "Hover an electron — or a pillar below";
+}
+
+const shellAngles = { 1: 0, 2: 0, 3: 0, 4: 0 };
+const shellSpeeds = { 1: 360 / 14, 2: -360 / 28, 3: 360 / 42, 4: -360 / 56 }; // deg/sec
+let lastSpin = performance.now();
+
+function spinShells(now) {
+  const dt = Math.min(0.05, (now - lastSpin) / 1000);
+  lastSpin = now;
+  if (!stage.classList.contains("is-paused") && !reduceMotion) {
+    for (const shell of [1, 2, 3, 4]) {
+      shellAngles[shell] = (shellAngles[shell] + shellSpeeds[shell] * dt) % 360;
+      document.getElementById(`shell-${shell}`).setAttribute("transform", `rotate(${shellAngles[shell]})`);
+    }
+  }
+  requestAnimationFrame(spinShells);
+}
+
+let introStarted = false;
+
+function arrangeIntro() {
+  if (introStarted) return;
+  introStarted = true;
+
+  if (reduceMotion) {
+    stage.classList.add("is-ready");
+    clearSelection();
+    return;
+  }
+
+  const electrons = [...electronEls.values()];
+  electrons.forEach((el) => {
+    el.classList.add("is-arriving");
+    el.style.opacity = "0";
+  });
+
+  // Stagger by shell: core → mechanics → manners → valence
+  const order = [1, 2, 3, 4];
+  let delay = 180;
+  order.forEach((shell) => {
+    const shellEls = electrons.filter((el) => el.dataset.shell === String(shell));
+    shellEls.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.remove("is-arriving");
+        el.style.transition = "opacity 0.55s ease";
+        el.style.opacity = "1";
+      }, delay + i * 70);
+    });
+    delay += 280 + shellEls.length * 40;
+  });
+
+  setTimeout(() => {
+    stage.classList.add("is-ready");
+    // Don't wipe a selection the user already made during the intro.
+    if (activeId == null) clearSelection();
+  }, delay + 200);
+}
+
+// Wire up
+buildAtom();
+buildLists();
+requestAnimationFrame(spinShells);
+
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        arrangeIntro();
+        io.disconnect();
+      }
+    });
+  },
+  { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+);
+io.observe(stage);
+
+// Default idle state copy before intro finishes
+clearSelection();
+
+// If the section is already on screen (deep link / restore), run intro
+requestAnimationFrame(() => {
+  const rect = stage.getBoundingClientRect();
+  const visible = rect.top < innerHeight * 0.9 && rect.bottom > 80;
+  if (visible) arrangeIntro();
+});
+</script>
+</body>
+</html>
