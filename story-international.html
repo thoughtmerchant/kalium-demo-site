@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium — International Story</title>
+  <style>
+    :root {
+      --paper: #F4F1EA;
+      --ink: #22304C;
+      --font: Helvetica, "Helvetica Neue", Arial, sans-serif;
+      --max: 1080px;
+      --pad: clamp(18px, 3.6vw, 40px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100svh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    a:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad) 0;
+    }
+
+    /* —— Sticky chrome: wordmark + 1px rule —— */
+    .site-head {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: end;
+      gap: 14px;
+      background: var(--paper);
+      width: 100%;
+      padding: 12px max(var(--pad), calc(50vw - var(--max) / 2 + var(--pad))) 10px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .head-rule {
+      height: 1px;
+      background: var(--ink);
+      margin-bottom: 7px;
+    }
+
+    .doc-name {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* —— Plate (EPA brochure unit) —— */
+    .plate {
+      border: 1px solid var(--ink);
+      padding: 14px clamp(16px, 2.4vw, 28px) clamp(28px, 5vh, 48px);
+      margin: clamp(28px, 5vh, 48px) 0 0;
+    }
+
+    .plate-cover {
+      margin-top: clamp(22px, 4vh, 36px);
+    }
+
+    @media (min-width: 721px) {
+      .plate-cover {
+        min-height: calc(100svh - 52px);
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .plate-meta {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px 24px;
+      align-items: start;
+      font-size: 11px;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .plate-meta p { max-width: 22ch; }
+
+    .plate-meta .id {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kicker {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 8px 0 9px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .title-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 14px 16px;
+      align-items: start;
+      margin-top: clamp(22px, 4vh, 40px);
+    }
+
+    .mark {
+      width: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-top: 0.22em;
+    }
+
+    .mark i {
+      display: block;
+      height: 7px;
+      background: var(--ink);
+    }
+
+    .mark i:nth-child(2) { height: 4px; width: 68%; }
+    .mark i:nth-child(3) { height: 2px; width: 36%; }
+
+    .plate-cover .mark {
+      width: 44px;
+      gap: 5px;
+      margin-top: 0.18em;
+    }
+
+    .plate-cover .mark i { height: 11px; }
+    .plate-cover .mark i:nth-child(2) { height: 6px; }
+    .plate-cover .mark i:nth-child(3) { height: 3px; }
+
+    .title {
+      font-size: clamp(34px, 6.2vw, 72px);
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: -0.048em;
+      text-rendering: optimizeLegibility;
+      max-width: 12ch;
+    }
+
+    .plate-cover .title {
+      font-size: clamp(40px, 7.4vw, 84px);
+      max-width: 11ch;
+    }
+
+    .title-xl {
+      font-size: clamp(40px, 7vw, 80px);
+      max-width: 10ch;
+    }
+
+    .lede,
+    .body {
+      font-size: clamp(15px, 1.25vw, 17px);
+      line-height: 1.38;
+      max-width: 46ch;
+      margin-top: 18px;
+    }
+
+    .lede {
+      margin-top: 22px;
+    }
+
+    .note {
+      margin-top: 16px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.4;
+      max-width: 52ch;
+    }
+
+    .links {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .links a {
+      font-size: 15px;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      letter-spacing: -0.015em;
+    }
+
+    .fig {
+      margin-top: clamp(40px, 8vh, 80px);
+    }
+
+    .u {
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .plate-cover .fig {
+      margin-top: auto;
+      padding-top: clamp(36px, 8vh, 72px);
+    }
+
+    .caption {
+      margin-top: 12px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* —— Air / Smog bars —— */
+    .air .b {
+      display: block;
+      width: 100%;
+      background: var(--ink);
+      transform-origin: left center;
+    }
+
+    .air-epa .b:nth-child(1) { height: 64px; }
+    .air-epa .b:nth-child(2) { height: 14px; margin-top: 10px; }
+    .air-epa .b:nth-child(3) { height: 8px;  margin-top: 14px; }
+    .air-epa .b:nth-child(4) { height: 5px;  margin-top: 20px; }
+    .air-epa .b:nth-child(5) { height: 3px;  margin-top: 26px; }
+    .air-epa .b:nth-child(6) { height: 2px;  margin-top: 34px; }
+    .air-epa .b:nth-child(7) { height: 1px;  margin-top: 42px; }
+
+    .air-dense .b { height: 10px; margin-top: 6px; }
+    .air-dense .b:first-child { margin-top: 0; height: 28px; }
+
+    .air-sparse .b { height: 2px; margin-top: 18px; }
+    .air-sparse .b:first-child { margin-top: 0; height: 4px; }
+
+    .air-park .b:nth-child(1) { height: 120px; }
+    .air-park .b:nth-child(2) { height: 1px; margin-top: 28px; width: 62%; }
+    .air-park .b:nth-child(3) { height: 1px; margin-top: 36px; width: 84%; }
+    .air-park .b:nth-child(4) { height: 1px; margin-top: 48px; width: 40%; }
+
+    .air-mech .b:nth-child(1) { height: 1px; }
+    .air-mech .b:nth-child(2) { height: 2px; margin-top: 22px; }
+    .air-mech .b:nth-child(3) { height: 3px; margin-top: 16px; }
+    .air-mech .b:nth-child(4) { height: 5px; margin-top: 12px; }
+    .air-mech .cap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+      margin: 14px 0 10px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .air-mech .cap::before {
+      content: "";
+      height: 1px;
+      background: var(--ink);
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--ink) 0 6px,
+        transparent 6px 12px
+      );
+      background-color: transparent;
+    }
+    .air-mech .mass { height: 72px; }
+
+    .js .plate:not(.is-visible) .air .b {
+      transform: scaleX(0);
+    }
+
+    .js .plate.is-visible .air .b {
+      transform: scaleX(1);
+      transition: transform 1.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .js .plate.is-visible .air .b:nth-child(1) { transition-delay: 0ms; }
+    .js .plate.is-visible .air .b:nth-child(2) { transition-delay: 70ms; }
+    .js .plate.is-visible .air .b:nth-child(3) { transition-delay: 140ms; }
+    .js .plate.is-visible .air .b:nth-child(4) { transition-delay: 210ms; }
+    .js .plate.is-visible .air .b:nth-child(5) { transition-delay: 280ms; }
+    .js .plate.is-visible .air .b:nth-child(6) { transition-delay: 350ms; }
+    .js .plate.is-visible .air .b:nth-child(7) { transition-delay: 420ms; }
+
+    /* —— Split columns + vertical rule —— */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 22px;
+      align-items: start;
+    }
+
+    .split-3 {
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+    }
+
+    .v-rule { background: var(--ink); min-height: 100%; }
+
+    .col-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      flex-shrink: 0;
+    }
+
+    .num-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+    }
+
+    .sub {
+      margin-top: 10px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+
+    /* —— Numbered process 01–05 —— */
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px 10px;
+      align-items: start;
+      margin-top: 28px;
+    }
+
+    .process li {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .process .label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    .process-line {
+      display: none;
+    }
+
+    /* —— Contract rules —— */
+    .contract {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      padding: 8px 0 4px;
+    }
+
+    .contract .line {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: var(--ink);
+    }
+
+    .contract .line.mid { width: 86%; }
+    .contract .line.short { width: 68%; }
+    .contract .line.key { height: 4px; width: 72%; }
+
+    .contract .lab {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: -18px;
+    }
+
+    /* —— Radiation arcs —— */
+    .arcs {
+      width: 100%;
+      display: block;
+      overflow: hidden;
+    }
+
+    .arc-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+      gap: 20px 28px;
+      align-items: center;
+    }
+
+    .arc-keys {
+      list-style: none;
+      border-top: 1px solid var(--ink);
+    }
+
+    .arc-keys li {
+      display: grid;
+      grid-template-columns: 2.2em 1fr;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .arc-keys .w { font-weight: 700; letter-spacing: -0.02em; }
+
+    /* —— Option catalog —— */
+    .opt-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 24px 32px;
+      align-items: start;
+    }
+
+    .catalog {
+      list-style: none;
+      border-top: 1px solid var(--ink);
+    }
+
+    .catalog li {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 10px 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .catalog .n {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      padding-top: 1px;
+    }
+
+    .catalog strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    .catalog p {
+      margin-top: 3px;
+      font-size: 13px;
+      line-height: 1.32;
+    }
+
+    .catalog li:hover .n,
+    .catalog li:focus-within .n {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* —— Horizon seats —— */
+    .seats {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .seats span {
+      aspect-ratio: 1.55 / 1;
+      border: 1px solid var(--ink);
+      display: block;
+    }
+
+    .seats span.on { background: var(--ink); }
+
+    /* —— Pilot row —— */
+    .pilot-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
+
+    .pilot-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .pilot-cell .dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid var(--ink);
+    }
+
+    .pilot-cell .dot.fill { background: var(--ink); }
+
+    .pilot-cell .dot.half {
+      background: linear-gradient(var(--ink) 0 50%, transparent 50%);
+    }
+
+    .pilot-cell em {
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* —— Type-only plate —— */
+    .type-block {
+      padding: clamp(28px, 6vh, 56px) 0 clamp(12px, 3vh, 24px);
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      margin-top: clamp(28px, 5vh, 48px);
+    }
+
+    .type-block .body { margin-top: 0; max-width: 36ch; }
+
+    /* —— Loaded: photo plate, Swiss overlay —— */
+    .loaded {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-top: clamp(28px, 5vh, 48px);
+      min-height: min(92vh, 920px);
+      background: var(--ink);
+      color: var(--paper);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .loaded-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      display: block;
+      z-index: 0;
+    }
+
+    .loaded-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to top,
+          rgba(34, 48, 76, 0.88) 0%,
+          rgba(34, 48, 76, 0.35) 42%,
+          rgba(34, 48, 76, 0.2) 100%
+        );
+    }
+
+    .loaded-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      min-height: inherit;
+      padding: 18px var(--pad) clamp(36px, 6vh, 56px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .loaded .plate-meta,
+    .loaded .kicker {
+      border-color: var(--paper);
+    }
+
+    .loaded .title {
+      color: var(--paper);
+      max-width: 10ch;
+    }
+
+    .loaded .mark i { background: var(--paper); }
+
+    .loaded-link {
+      margin-top: 22px;
+      display: inline-block;
+      border-bottom: 1px solid var(--paper);
+      padding-bottom: 2px;
+      font-size: 15px;
+    }
+
+    .loaded a:focus-visible { outline-color: var(--paper); }
+
+    /* —— Close / CTAs —— */
+    .cta-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 28px;
+      margin-top: clamp(28px, 5vh, 44px);
+      max-width: 520px;
+    }
+
+    .cta-field label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .cta-field a {
+      display: block;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid var(--ink);
+      padding: 0 0 8px;
+    }
+
+    .story-foot {
+      margin-top: clamp(36px, 7vh, 64px);
+      padding: 16px 0 36px;
+      border-top: 1px solid var(--ink);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .story-foot a { border-bottom: 1px solid var(--ink); }
+
+    /* —— Series rule between cover and story —— */
+    .series {
+      margin: clamp(28px, 5vh, 48px) 0 0;
+      padding: 10px 0;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      scroll-margin-top: 56px;
+    }
+
+    @media (max-width: 720px) {
+      .split,
+      .split-3,
+      .arc-wrap,
+      .opt-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .v-rule { display: none; }
+
+      .process,
+      .pilot-row,
+      .seats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cta-row { grid-template-columns: 1fr; }
+
+      .title,
+      .plate-cover .title,
+      .title-xl { max-width: none; }
+
+      .mark { width: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      .js .plate:not(.is-visible) .air .b,
+      .js .plate.is-visible .air .b {
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-head" aria-label="Document header">
+    <a class="brand" href="index.html">Kalium</a>
+    <span class="head-rule" aria-hidden="true"></span>
+    <span class="doc-name">International Story</span>
+  </header>
+
+  <main>
+    <div class="page">
+      <!-- ABSTRACT -->
+      <article class="plate plate-cover" aria-labelledby="k-abstract" data-scene="abstract">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 00<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-abstract">Abstract</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h1 class="title">Dynamic equity<br>creates private<br>returns and<br>public goods.</h1>
+        </div>
+        <p class="lede">
+          Kalium is an investment platform piloting a new kind of investment. It works like any other — same terms, same rigor, alongside conventional capital — with one addition: an agreed cap on our financial return. Above the cap, surplus value builds public goods through the company itself, defined with the founder at the start. Below it, nothing is different.
+        </p>
+        <p class="note">Private returns, capped. Public goods, built in.</p>
+        <div class="links">
+          <a href="whitepaper.html">Read the white paper →</a>
+          <a href="#story">Or take the long way — the story ↓</a>
+        </div>
+        <figure class="fig">
+          <div class="air air-epa" role="img" aria-label="Horizontal bars of decreasing weight and increasing interval, after the EPA Air plate.">
+            <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+          </div>
+        </figure>
+      </article>
+
+      <p class="series" id="story">
+        <span>The story</span>
+        <span>Fig. 01–14</span>
+      </p>
+
+      <!-- PREMISE -->
+      <article class="plate" aria-labelledby="k-premise" data-scene="1">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 01<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-premise">Premise</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">Capitalism<br>works.</h2>
+        </div>
+        <p class="body">
+          It is the best machine anyone has ever built for turning ideas into value.
+          We are not here to fix it. We are here because of what we keep doing with it.
+        </p>
+        <figure class="fig">
+          <div class="air air-dense" role="img" aria-label="A dense stack of horizontal bars: the machine, intact.">
+            <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+          </div>
+          <p class="caption">The machine</p>
+        </figure>
+      </article>
+
+      <!-- SEQUENCE -->
+      <article class="plate" aria-labelledby="k-sequence" data-scene="2">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 02<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-sequence">Sequence</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">Value leaves.<br>It becomes<br>private wealth.</h2>
+        </div>
+        <p class="body">
+          A company creates value. The value flows out. It becomes private wealth.
+        </p>
+        <figure class="fig">
+          <div class="split">
+            <div>
+              <p class="col-label"><span class="num">01</span> Company</p>
+              <div class="air air-dense" role="img" aria-label="Bound value: dense horizontal bars.">
+                <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+              </div>
+            </div>
+            <span class="v-rule" aria-hidden="true"></span>
+            <div>
+              <p class="col-label"><span class="num">02</span> Private wealth</p>
+              <div class="air air-sparse" role="img" aria-label="Unbound value: thin bars with wide intervals.">
+                <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+              </div>
+            </div>
+          </div>
+          <p class="caption">Value → private wealth · 01–02</p>
+        </figure>
+      </article>
+
+      <!-- RETURN -->
+      <article class="plate" aria-labelledby="k-return" data-scene="3">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 03<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-return">Sequence, cont.</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">We pay<br>twice.</h2>
+        </div>
+        <p class="body">
+          Years later — sometimes decades — some of it travels back as philanthropy,
+          to repair problems the same companies were best positioned to prevent.
+          We <span class="u">pay twice</span>: once to extract, once to repair.
+        </p>
+        <figure class="fig">
+          <div class="split split-3">
+            <div>
+              <p class="col-label"><span class="num">01</span> Company</p>
+              <div class="air air-dense" role="img" aria-label="Company: dense bars.">
+                <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+              </div>
+              <p class="sub">Capacity without mandate</p>
+            </div>
+            <span class="v-rule" aria-hidden="true"></span>
+            <div>
+              <p class="col-label"><span class="num">02</span> Private wealth</p>
+              <div class="air air-sparse" role="img" aria-label="Private wealth: sparse bars.">
+                <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+              </div>
+            </div>
+            <span class="v-rule" aria-hidden="true"></span>
+            <div>
+              <p class="col-label"><span class="num">03</span> A second system</p>
+              <div class="air air-dense" role="img" aria-label="Second system: dense bars again.">
+                <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+              </div>
+              <p class="sub">Mandate without capacity</p>
+            </div>
+          </div>
+          <p class="caption">Return · 01–03</p>
+        </figure>
+      </article>
+
+      <!-- RESERVOIR -->
+      <article class="plate" aria-labelledby="k-reservoir" data-scene="4">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 04<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-reservoir">Reservoir</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">$326 billion<br>unbound.</h2>
+        </div>
+        <p class="body">
+          Right now, more than $326 billion sits parked in donor-advised funds —
+          committed to the public, under no obligation ever to move.
+          The intention is real. The structure is the problem.
+        </p>
+        <figure class="fig">
+          <div class="air air-park" role="img" aria-label="A solid parked mass with no cap; a few unbound hairlines below.">
+            <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span>
+          </div>
+          <p class="caption">Unbound · $326B · no obligation to move</p>
+        </figure>
+      </article>
+
+      <!-- INSTRUCTION -->
+      <article class="plate" aria-labelledby="k-instruction" data-scene="5">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 05<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-instruction">Instruction</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">One term<br>in an<br>agreement.</h2>
+        </div>
+        <p class="body">
+          The corporation is the most effective public-goods-producing machine we have.
+          It simply runs on a single instruction — return value to its owners.
+          That instruction is not a law of nature. It is a term in an agreement.
+          And terms can change.
+        </p>
+        <figure class="fig">
+          <div class="contract" role="img" aria-labelledby="fig5-cap">
+            <span class="line"></span>
+            <span class="line mid"></span>
+            <span class="line"></span>
+            <p class="lab">Return value to its owners</p>
+            <span class="line key"></span>
+            <span class="line mid"></span>
+            <span class="line short"></span>
+            <span class="line"></span>
+          </div>
+          <p class="caption" id="fig5-cap">Single instruction</p>
+        </figure>
+      </article>
+
+      <!-- AMENDMENT -->
+      <article class="plate" aria-labelledby="k-amendment" data-scene="6">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 06<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-amendment">Amendment</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title title-xl">So we changed<br>one term.<br>One.</h2>
+        </div>
+        <figure class="fig">
+          <div class="contract" role="img" aria-labelledby="fig6-cap">
+            <span class="line"></span>
+            <span class="line mid"></span>
+            <span class="line"></span>
+            <p class="lab">Return value to its owners</p>
+            <span class="line key"></span>
+            <p class="lab">Public good annex</p>
+            <span class="line key"></span>
+            <span class="line mid"></span>
+            <span class="line short"></span>
+            <span class="line"></span>
+          </div>
+          <p class="caption" id="fig6-cap">Public good annex</p>
+        </figure>
+      </article>
+
+      <!-- MECHANISM -->
+      <article class="plate" aria-labelledby="k-mechanism" data-scene="7">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 07<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-mechanism">Mechanism</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">Below the cap,<br>nothing is<br>different.</h2>
+        </div>
+        <p class="body">
+          Dynamic equity creates private returns and public goods. It works like any investment — the same rooms, the same rigor, side by side with conventional capital. One addition: an agreed cap on our financial return. Below the cap, nothing is different. Above it, the surplus builds public goods through the company itself defined together with the founder, at the start, in writing.
+        </p>
+        <figure class="fig">
+          <div class="air air-mech" role="img" aria-label="Thin surplus bands above a dashed agreed cap; a solid mass of private return below.">
+            <span class="b"></span>
+            <span class="b"></span>
+            <span class="b"></span>
+            <span class="b"></span>
+            <div class="cap"><span>Agreed cap</span></div>
+            <span class="b mass"></span>
+          </div>
+          <p class="caption">Surplus above · private return below</p>
+          <ol class="process" aria-label="Process 01 to 05">
+            <li><span class="num">01</span><span class="label">Company</span></li>
+            <li><span class="num">02</span><span class="label">Wealth</span></li>
+            <li><span class="num">03</span><span class="label">Return</span></li>
+            <li><span class="num">04</span><span class="label">Surplus</span></li>
+            <li><span class="num">05</span><span class="label">Public good</span></li>
+          </ol>
+        </figure>
+      </article>
+
+      <!-- STRUCTURE -->
+      <article class="plate" aria-labelledby="k-structure" data-scene="8">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 08<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-structure">Structure</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">Nothing here<br>is external.</h2>
+        </div>
+        <p class="body">
+          Nothing here is external. Everything orbits the mission. The returns fills toward the cap and closes and what exceeds it doesn't leave. It orbits.
+        </p>
+        <p class="note">Identity is the nucleus. Behavior is the outer shell.</p>
+        <figure class="fig">
+          <div class="arc-wrap">
+            <ul class="arc-keys">
+              <li><span class="w">01</span> The mission</li>
+              <li><span class="w">02</span> The work</li>
+              <li><span class="w">03</span> The capital</li>
+              <li><span class="w">04</span> The returns</li>
+              <li><span class="w">05</span> The cap</li>
+              <li><span class="w">06</span> The public goods</li>
+            </ul>
+            <svg class="arcs" viewBox="0 0 640 340" fill="none" role="img" aria-labelledby="fig8-title fig8-desc">
+              <title id="fig8-title">Structure as concentric arcs</title>
+              <desc id="fig8-desc">Concentric arcs originating at the right edge, decreasing in weight as they move left: mission, work, capital, returns, a dashed cap, and public goods.</desc>
+              <g stroke="#22304C" stroke-linecap="butt">
+                <circle cx="640" cy="170" r="56" stroke-width="36"/>
+                <circle cx="640" cy="170" r="102" stroke-width="20"/>
+                <circle cx="640" cy="170" r="148" stroke-width="12"/>
+                <circle cx="640" cy="170" r="194" stroke-width="6"/>
+                <circle cx="640" cy="170" r="236" stroke-width="2" stroke-dasharray="5 6"/>
+                <circle cx="640" cy="170" r="278" stroke-width="1.25"/>
+              </g>
+            </svg>
+          </div>
+          <p class="caption">One structure · nothing external</p>
+        </figure>
+      </article>
+
+      <!-- OPTION FIELD -->
+      <article class="plate" aria-labelledby="k-option" data-scene="9">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 09<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-option">Option Field</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">The founder<br>chooses what<br>the surplus<br>builds.</h2>
+        </div>
+        <p class="body">
+          The founder chooses what the surplus builds. The asset holder chooses what their capital means.
+        </p>
+        <figure class="fig">
+          <div class="opt-grid">
+            <svg class="arcs" viewBox="0 0 420 360" fill="none" role="img" aria-labelledby="fig9-title fig9-desc">
+              <title id="fig9-title">Option field</title>
+              <desc id="fig9-desc">Concentric arcs forming a field. Nine surplus options are listed in the catalog at right.</desc>
+              <g stroke="#22304C" fill="none">
+                <circle cx="420" cy="180" r="48" stroke-width="28"/>
+                <circle cx="420" cy="180" r="92" stroke-width="14"/>
+                <circle cx="420" cy="180" r="136" stroke-width="7"/>
+                <circle cx="420" cy="180" r="178" stroke-width="3"/>
+                <circle cx="420" cy="180" r="218" stroke-width="1.25" stroke-dasharray="5 6"/>
+              </g>
+            </svg>
+            <ol class="catalog">
+              <li>
+                <span class="n">01</span>
+                <div>
+                  <strong>New research for everyone</strong>
+                  <p>A pharmaceutical company's R&amp;D pipeline as a net-new public good.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">02</span>
+                <div>
+                  <strong>A smaller footprint</strong>
+                  <p>Cutting the carbon intensity of the company's own operations.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">03</span>
+                <div>
+                  <strong>Upside shared with the people who built it</strong>
+                  <p>Workers and communities who help create the value share in it (employee liquidity pool, community trust).</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">04</span>
+                <div>
+                  <strong>Essential things kept affordable</strong>
+                  <p>Lowering the cost of goods and services for the people who depend on them.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">05</span>
+                <div>
+                  <strong>A model or dataset that stays open</strong>
+                  <p>A nonprofit holds or licenses the company's IP so an acquirer can't enclose it (open-data trusts and patent pledges as precedent).</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">06</span>
+                <div>
+                  <strong>A promise welded to the asset</strong>
+                  <p>Covenants that bind the acquirer: the price stays below a set threshold, access survives the sale.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">07</span>
+                <div>
+                  <strong>Paying for an outcome, not an institution</strong>
+                  <p>Surplus funds a commitment that pulls a specific good into existence, proven in vaccine and essential-medicine markets (advance market commitment).</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">08</span>
+                <div>
+                  <strong>A purpose trust</strong>
+                  <p>Surplus lands in a restricted vehicle built to fund one defined public benefit.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">09</span>
+                <div>
+                  <strong>Seeding the next one</strong>
+                  <p>Surplus recycles into the next generation of public-goods companies; each exit funds more of the same ("self-propagating infrastructure").</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <p class="caption">Capital meaning · 01–09</p>
+        </figure>
+      </article>
+
+      <!-- CLASSIFICATION -->
+      <article class="plate" aria-labelledby="k-class" data-scene="10">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 10<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-class">Classification</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">Watch the<br>returns.</h2>
+        </div>
+        <div class="type-block">
+          <p class="body">
+            This is not impact investing. It is not concessionary.
+            Nothing here asks a founder to build differently, or an investor to accept less rigor.
+            Watch the returns.
+          </p>
+        </div>
+      </article>
+
+      <!-- PILOT -->
+      <article class="plate" aria-labelledby="k-pilot" data-scene="11">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 11<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-pilot">Pilot</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">Copy us.<br>Being copied<br>is the point.</h2>
+        </div>
+        <p class="body">
+          We are piloting now, at early stage, and publishing the documents as we go:
+          the templates, the governance, the lessons. Copy us. Being copied is the point.
+        </p>
+        <figure class="fig">
+          <div class="pilot-row" role="img" aria-label="One filled pilot circle, one half-inked neighbor, three outlined templates.">
+            <div class="pilot-cell">
+              <span class="dot fill" aria-hidden="true"></span>
+              <em>01 The pilot</em>
+            </div>
+            <div class="pilot-cell">
+              <span class="dot half" aria-hidden="true"></span>
+              <em>02</em>
+            </div>
+            <div class="pilot-cell">
+              <span class="dot" aria-hidden="true"></span>
+              <em>03</em>
+            </div>
+            <div class="pilot-cell">
+              <span class="dot" aria-hidden="true"></span>
+              <em>04</em>
+            </div>
+            <div class="pilot-cell">
+              <span class="dot" aria-hidden="true"></span>
+              <em>05</em>
+            </div>
+          </div>
+          <p class="caption">Templates · public</p>
+        </figure>
+      </article>
+
+      <!-- HORIZON -->
+      <article class="plate" aria-labelledby="k-horizon" data-scene="12">
+        <header class="plate-meta">
+          <p>Kalium<br>Investment Platform</p>
+          <p class="id">Fig. 12<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-horizon">Horizon</p>
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">Standard,<br>not special.</h2>
+        </div>
+        <p class="body">
+          In five years this should not be a movement.
+          It should be a checkbox at the largest asset managers in the world.
+          The goal is not to be special. It is to be standard.
+        </p>
+        <figure class="fig">
+          <div class="seats" role="img" aria-label="A six-by-three grid of empty seats; one seat is filled.">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span class="on"></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="caption">One seat marked · a grid waiting</p>
+        </figure>
+      </article>
+    </div>
+
+  <!-- LOADED -->
+  <section class="loaded" aria-labelledby="k-loaded" data-scene="13">
+    <img
+      class="loaded-cover"
+      src="assets/loaded-cover.png"
+      alt="Mockup of LOADED magazine Issue 01 on a wood table: cream cover with bold red LOADED masthead and a detailed technical illustration titled The Internal Combustion Economy."
+      width="1200"
+      height="1800"
+      decoding="async"
+    >
+    <div class="loaded-scrim" aria-hidden="true"></div>
+    <div class="loaded-inner">
+      <div>
+        <header class="plate-meta">
+          <p>Kalium<br>Publication</p>
+          <p class="id">Fig. 13<br>August 2026</p>
+        </header>
+        <p class="kicker" id="k-loaded">Loaded</p>
+      </div>
+      <div class="loaded-copy">
+        <div class="title-row">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="title">What’s all<br>this money<br>for?</h2>
+        </div>
+        <a class="loaded-link" href="#">Read Loaded →</a>
+      </div>
+    </div>
+  </section>
+
+    <div class="page">
+    <!-- CLOSE -->
+    <article class="plate" aria-labelledby="k-close" data-scene="14">
+      <header class="plate-meta">
+        <p>Kalium<br>Investment Platform</p>
+        <p class="id">Fig. 14<br>August 2026</p>
+      </header>
+      <p class="kicker" id="k-close">Close</p>
+      <div class="title-row">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h2 class="title title-xl">More is<br>possible.</h2>
+      </div>
+      <p class="note">
+        Dynamic equity creates private returns and public goods.
+        Private returns, capped. Public goods, built in.
+      </p>
+      <div class="cta-row">
+        <div class="cta-field">
+          <label>Document</label>
+          <a href="whitepaper.html">Read the white paper</a>
+        </div>
+        <div class="cta-field">
+          <label>Next</label>
+          <a href="mailto:hello@kalium.example">Start a conversation</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="story-foot">
+      <span>© 2026 Kalium · Not impact investing. Not concessionary.</span>
+      <span>
+        <a href="form.html">Form</a>
+        ·
+        <a href="whitepaper.html">White paper</a>
+      </span>
+    </footer>
+  </div>
+  </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.remove('no-js');
+      root.classList.add('js');
+
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var plates = Array.prototype.slice.call(document.querySelectorAll('[data-scene]'));
+
+      function show(el) {
+        el.classList.add('is-visible');
+      }
+
+      if (reduce) {
+        plates.forEach(show);
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        plates.forEach(show);
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          show(entry.target);
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -6% 0px' });
+
+      plates.forEach(function (p) { io.observe(p); });
+    })();
+  </script>
+</body>
+</html>

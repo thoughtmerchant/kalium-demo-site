@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -191,8 +191,8 @@
       max-width: none;
     }
 
-    /* Keep readable measure on copy; allow full-bleed children (e.g. tables). */
-    .prose > *:not(.table-wrap) {
+    /* Keep readable measure on copy; allow full-bleed children (e.g. appendix table). */
+    .prose > *:not(.table-wrap):not(.plate) {
       max-width: 68ch;
     }
 
@@ -325,6 +325,161 @@
       padding-right: 18px;
     }
 
+    .prose > .table-wrap,
+    .prose > .plate {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+
+    .table-wrap.compact {
+      max-width: 68ch;
+      scroll-margin-top: 24px;
+    }
+
+    .table-wrap.compact table {
+      min-width: 0;
+    }
+
+    .table-wrap.compact td:first-child {
+      white-space: normal;
+      width: 12.5em;
+    }
+
+    .plate-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .plate-label .plate-num {
+      color: var(--ink);
+      letter-spacing: 0.12em;
+      margin-right: 0.65em;
+    }
+
+    .table-note,
+    .plate figcaption {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 52ch;
+    }
+
+    .plate {
+      max-width: 68ch;
+      padding: 14px 0 12px;
+      border-top: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair);
+      scroll-margin-top: 24px;
+    }
+
+    .plate.plate-wide {
+      max-width: 100%;
+    }
+
+    .plate svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .plate-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .plate-legend > span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .multiples {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px 16px;
+    }
+
+    .multiple {
+      min-width: 0;
+    }
+
+    .multiple .kicker {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 6px;
+    }
+
+    .multiple .kicker b {
+      font-weight: 400;
+      color: var(--ink);
+      margin-right: 0.4em;
+    }
+
+    .multiple .table-note {
+      margin-top: 6px;
+    }
+
+    .swatch {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border: 1px solid var(--ink);
+      flex-shrink: 0;
+    }
+
+    .swatch-private {
+      background: rgba(34, 48, 76, 0.16);
+    }
+
+    .swatch-surplus {
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 2px,
+        rgba(34, 48, 76, 0.45) 2px,
+        rgba(34, 48, 76, 0.45) 2.6px
+      );
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html.js .js-rise {
+        transform-box: fill-box;
+        transform-origin: bottom center;
+        animation: plate-rise 1.1s ease-out both;
+      }
+    }
+
+    @keyframes plate-rise {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      .plate-svg * {
+        animation: none !important;
+      }
+    }
+
+    @media print {
+      .plate-svg * {
+        animation: none !important;
+      }
+    }
+
     /* —— Notes —— */
     .notes {
       margin-top: clamp(48px, 8vh, 80px);
@@ -409,6 +564,10 @@
 
       .pull {
         padding-left: 14px;
+      }
+
+      .multiples {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -648,8 +807,46 @@
           We propose a new asset class — <em>aligned equity</em> — in which the financial return
           to the investor is capped by agreement, and the enterprise value generated beyond that
           cap is directed, by the same agreement, toward defined public goods connected to — or
-          produced by — the company’s operations.
+          produced by — the company’s operations (Table 1).
         </p>
+
+        <div class="table-wrap compact" id="table-1" role="region" aria-label="Table 1 — Terms" tabindex="0">
+          <p class="plate-label"><span class="plate-num">Table 1</span> Terms</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>In this paper</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aligned equity</td>
+                <td>A new asset class in which the investor’s financial return is capped by agreement, and enterprise value beyond that cap is directed toward defined public goods.</td>
+              </tr>
+              <tr>
+                <td>Cap</td>
+                <td>The ceiling on the investor’s financial return. Below it, the instrument behaves like any other investment.</td>
+              </tr>
+              <tr>
+                <td>Surplus</td>
+                <td>Enterprise value generated beyond the cap — value that would ordinarily accrue to the investor, redirected to public ends agreed in advance.</td>
+              </tr>
+              <tr>
+                <td>Public good</td>
+                <td>Goods, services, and utilities that support overall societal health and wellbeing — created net-new, by changing where upside flows, or by working against externalities the enterprise generates.</td>
+              </tr>
+              <tr>
+                <td>Instruction</td>
+                <td>An ordinary equity or equity-like position on standard terms for the stage and sector: return value to its owners.</td>
+              </tr>
+              <tr>
+                <td>Amendment</td>
+                <td>A single addition to those terms — a public good annex — specifying the ceiling, the public good the surplus is intended to fund, and the governance by which that commitment is held.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>
           Public benefit here can span four modes, which fall into two families. The first is the
@@ -671,8 +868,51 @@
           the definition of the public good the surplus is intended to fund, and the governance by
           which that commitment is held over time. Below the cap, the instrument behaves like any
           other investment. Above it, value that would ordinarily accrue to the investor is
-          redirected to public ends the parties agreed to in advance.
+          redirected to public ends the parties agreed to in advance (Fig. 1).
         </p>
+
+        <figure class="plate" id="fig-1">
+          <p class="plate-label"><span class="plate-num">Fig. 1</span> The cap</p>
+          <svg class="plate-svg" viewBox="0 0 520 200" fill="none" role="img" aria-labelledby="fig1-title fig1-desc">
+            <title id="fig1-title">The cap</title>
+            <desc id="fig1-desc">A single return path fills toward a horizontal cap line, then splits: private return remains below the cap; surplus continues above it toward a public good.</desc>
+            <defs>
+              <pattern id="fig1-hatch" patternUnits="userSpaceOnUse" width="5" height="5">
+                <path d="M0 5 L5 0" stroke="#22304C" stroke-width="0.7" opacity="0.55"/>
+              </pattern>
+            </defs>
+            <g stroke="#22304C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+               font-family="Arial, Helvetica, sans-serif" fill="#22304C">
+              <!-- Instrument scale -->
+              <line x1="88" y1="22" x2="88" y2="168" opacity="0.3"/>
+              <line x1="82" y1="168" x2="88" y2="168" opacity="0.45"/>
+              <line x1="84" y1="144" x2="88" y2="144" opacity="0.3"/>
+              <line x1="84" y1="120" x2="88" y2="120" opacity="0.3"/>
+              <line x1="82" y1="96" x2="104" y2="96"/>
+              <line x1="84" y1="72" x2="88" y2="72" opacity="0.3"/>
+              <line x1="84" y1="48" x2="88" y2="48" opacity="0.3"/>
+              <line x1="82" y1="22" x2="88" y2="22" opacity="0.45"/>
+
+              <!-- Return column -->
+              <rect x="104" y="22" width="34" height="146" fill="none" opacity="0.45"/>
+              <rect class="js-rise" x="104" y="96" width="34" height="72" fill="#22304C" fill-opacity="0.22" stroke="none"/>
+              <rect x="104" y="22" width="34" height="74" fill="url(#fig1-hatch)" stroke="none"/>
+
+              <!-- Cap -->
+              <line x1="72" y1="96" x2="268" y2="96"/>
+              <text x="288" y="100" stroke="none" font-size="10" letter-spacing="0.16em">CAP</text>
+
+              <!-- Split: surplus above -->
+              <path d="M138 96 L138 52 L268 52"/>
+              <circle cx="276" cy="52" r="3.5" fill="none"/>
+              <text x="288" y="48" stroke="none" font-size="10" letter-spacing="0.14em">SURPLUS</text>
+              <text x="288" y="62" stroke="none" font-size="9" fill="#8A93A6" letter-spacing="0.06em">public good</text>
+
+              <text x="104" y="188" stroke="none" font-size="9" fill="#8A93A6" letter-spacing="0.12em">PRIVATE RETURN</text>
+            </g>
+          </svg>
+          <figcaption>Below the cap, nothing is different. Above it, surplus.</figcaption>
+        </figure>
 
         <p>
           This design resolves the double bind directly. The capital operates inside the enterprise
@@ -722,9 +962,40 @@
           against the proceeds of the eventual liquidity event: an acquisition, an IPO, or a later
           round that lets the position exit. For example, if an enterprise compounds toward an exit
           8–10 years out, the conventional capital distributes pro-rata ownership returns indefinitely,
-          while the aligned equity returns stop at the 3.0× cap. Every dollar of value the position
+          while the aligned equity returns stop at the 3.0× cap (Table 2). Every dollar of value the position
           would otherwise have captured is redirected to the public good annex.
         </p>
+
+        <div class="table-wrap compact" id="table-2" role="region" aria-label="Table 2 — Worked example" tabindex="0">
+          <p class="plate-label"><span class="plate-num">Table 2</span> Worked example</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Early-stage unit position</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dollars in</td>
+                <td>$1</td>
+              </tr>
+              <tr>
+                <td>At cap</td>
+                <td>$3 returned to the investor (3.0×). The instrument stops.</td>
+              </tr>
+              <tr>
+                <td>Surplus</td>
+                <td>Every further dollar the position would otherwise have captured.</td>
+              </tr>
+              <tr>
+                <td>Destination</td>
+                <td>Public good annex, in force at liquidity.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="table-note">Unit position using the 3.0× cap in illustrative example #1. Not a specific company.</p>
+        </div>
 
         <h4>Illustrative example #2 — growth stage enterprise</h4>
         <p>
@@ -751,8 +1022,85 @@
         <p>
           This is the case that best shows aligned equity doesn't require a funding need or a growth
           story to be employed — it can invest in an ownership transfer and still commit the business's
-          future cash flow to public purpose.
+          future cash flow to public purpose (Fig. 3).
         </p>
+
+        <figure class="plate plate-wide" id="fig-3">
+          <p class="plate-label"><span class="plate-num">Fig. 3</span> Illustrative examples</p>
+          <div class="multiples">
+            <div class="multiple">
+              <p class="kicker"><b>a</b> Early</p>
+              <svg class="plate-svg" viewBox="0 0 240 200" fill="none" role="img" aria-label="Early stage: 3.0× cap, annex at liquidity.">
+                <defs>
+                  <pattern id="fig3a-hatch" patternUnits="userSpaceOnUse" width="5" height="5">
+                    <path d="M0 5 L5 0" stroke="#22304C" stroke-width="0.7" opacity="0.55"/>
+                  </pattern>
+                </defs>
+                <g stroke="#22304C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica, sans-serif" fill="#22304C">
+                  <line x1="28" y1="168" x2="220" y2="168" opacity="0.35"/>
+                  <line x1="28" y1="24" x2="28" y2="168" opacity="0.35"/>
+                  <line x1="28" y1="64" x2="220" y2="64" stroke-dasharray="3 3" opacity="0.7"/>
+                  <text x="32" y="58" stroke="none" font-size="9" letter-spacing="0.12em">3.0×</text>
+                  <path d="M28 168 L28 158 C72 142 112 108 168 64 L168 168 Z" fill="#22304C" fill-opacity="0.2" stroke="none"/>
+                  <path d="M168 64 C186 48 200 36 220 28 L220 64 Z" fill="url(#fig3a-hatch)" stroke="none"/>
+                  <path d="M28 158 C72 142 112 108 168 64 C186 48 200 36 220 28"/>
+                  <circle cx="220" cy="28" r="3" fill="none"/>
+                </g>
+              </svg>
+              <p class="table-note">8–10 yr · annex at liquidity</p>
+            </div>
+            <div class="multiple">
+              <p class="kicker"><b>b</b> Growth</p>
+              <svg class="plate-svg" viewBox="0 0 240 200" fill="none" role="img" aria-label="Growth stage: cap, surplus at scale.">
+                <defs>
+                  <pattern id="fig3b-hatch" patternUnits="userSpaceOnUse" width="5" height="5">
+                    <path d="M0 5 L5 0" stroke="#22304C" stroke-width="0.7" opacity="0.55"/>
+                  </pattern>
+                </defs>
+                <g stroke="#22304C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica, sans-serif" fill="#22304C">
+                  <line x1="28" y1="168" x2="220" y2="168" opacity="0.35"/>
+                  <line x1="28" y1="24" x2="28" y2="168" opacity="0.35"/>
+                  <line x1="28" y1="76" x2="220" y2="76" stroke-dasharray="3 3" opacity="0.7"/>
+                  <text x="32" y="70" stroke="none" font-size="9" letter-spacing="0.12em">CAP</text>
+                  <path d="M28 168 L28 156 C64 140 104 108 152 76 L152 168 Z" fill="#22304C" fill-opacity="0.2" stroke="none"/>
+                  <path d="M152 76 C176 54 196 38 220 24 L220 76 Z" fill="url(#fig3b-hatch)" stroke="none"/>
+                  <path d="M28 156 C64 140 104 108 152 76 C176 54 196 38 220 24"/>
+                  <circle cx="220" cy="24" r="3" fill="none"/>
+                </g>
+              </svg>
+              <p class="table-note">surplus at scale</p>
+            </div>
+            <div class="multiple">
+              <p class="kicker"><b>c</b> Mature</p>
+              <svg class="plate-svg" viewBox="0 0 240 200" fill="none" role="img" aria-label="Mature recapitalization: lower cap, shorter path, surplus from distributions.">
+                <defs>
+                  <pattern id="fig3c-hatch" patternUnits="userSpaceOnUse" width="5" height="5">
+                    <path d="M0 5 L5 0" stroke="#22304C" stroke-width="0.7" opacity="0.55"/>
+                  </pattern>
+                </defs>
+                <g stroke="#22304C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                   font-family="Arial, Helvetica, sans-serif" fill="#22304C">
+                  <line x1="28" y1="168" x2="220" y2="168" opacity="0.35"/>
+                  <line x1="28" y1="24" x2="28" y2="168" opacity="0.35"/>
+                  <line x1="28" y1="108" x2="220" y2="108" stroke-dasharray="3 3" opacity="0.7"/>
+                  <text x="32" y="102" stroke="none" font-size="9" letter-spacing="0.12em">LOWER</text>
+                  <path d="M28 168 L28 150 C52 136 78 120 118 108 L118 168 Z" fill="#22304C" fill-opacity="0.2" stroke="none"/>
+                  <path d="M118 108 C148 96 178 86 220 76 L220 108 Z" fill="url(#fig3c-hatch)" stroke="none"/>
+                  <path d="M28 150 C52 136 78 120 118 108 C148 96 178 86 220 76"/>
+                  <circle cx="220" cy="76" r="3" fill="none"/>
+                </g>
+              </svg>
+              <p class="table-note">shorter path · distributions</p>
+            </div>
+          </div>
+          <div class="plate-legend">
+            <span><span class="swatch swatch-private" aria-hidden="true"></span> Private return</span>
+            <span><span class="swatch swatch-surplus" aria-hidden="true"></span> Surplus</span>
+          </div>
+          <figcaption>Same axes; different caps and surplus destinations.</figcaption>
+        </figure>
       </div>
     </article>
 
@@ -769,8 +1117,32 @@
           operations, as defined above. The question addressed here is narrower: when an investment
           reaches liquidity and the operating company is absorbed, the surplus value above the
           investor's cap must be carried to something that outlasts the enterprise itself. The
-          pathways below map how that surplus can be directed.
+          pathways below map how that surplus can be directed (Fig. 2).
         </p>
+
+        <figure class="plate" id="fig-2">
+          <p class="plate-label"><span class="plate-num">Fig. 2</span> Surplus as one line</p>
+          <svg class="plate-svg" viewBox="0 0 520 176" fill="none" role="img" aria-labelledby="fig2-title fig2-desc">
+            <title id="fig2-title">Surplus as one line</title>
+            <desc id="fig2-desc">A ruled instrument with ordinary form lines. One key line reads return value to owners. Directly beneath it, an added line: public good annex.</desc>
+            <g stroke="#22304C" stroke-width="1" stroke-linecap="round"
+               font-family="Arial, Helvetica, sans-serif" fill="#22304C">
+              <line x1="24" y1="22" x2="496" y2="22" opacity="0.28"/>
+              <line x1="24" y1="46" x2="430" y2="46" opacity="0.28"/>
+              <line x1="24" y1="70" x2="460" y2="70" opacity="0.28"/>
+
+              <text x="24" y="90" stroke="none" font-size="11" letter-spacing="0.16em">RETURN VALUE TO ITS OWNERS</text>
+              <line x1="24" y1="100" x2="400" y2="100"/>
+
+              <text x="24" y="122" stroke="none" font-size="11" letter-spacing="0.16em">PUBLIC GOOD ANNEX</text>
+              <line x1="24" y1="132" x2="400" y2="132"/>
+
+              <line x1="24" y1="156" x2="448" y2="156" opacity="0.28"/>
+            </g>
+          </svg>
+          <figcaption>Surplus is directed by adding a line.</figcaption>
+        </figure>
+
         <p>
           The forms the redirected surplus might take are illustrated below. They are presented as
           illustrative rather than prescriptive: the appropriate structure for any given investment
@@ -953,7 +1325,8 @@
           a company adopt this infrastructure at scale.
         </p>
 
-        <div class="table-wrap" role="region" aria-label="Structural case studies" tabindex="0">
+        <div class="table-wrap" role="region" aria-label="Appendix table — Structural case studies" tabindex="0">
+          <p class="plate-label"><span class="plate-num">Table A</span> Structural case studies</p>
           <table>
             <thead>
               <tr>
@@ -1113,5 +1486,9 @@
       </span>
     </footer>
   </main>
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
 </body>
 </html>
