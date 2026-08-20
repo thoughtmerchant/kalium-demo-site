@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none"
+     role="img" aria-labelledby="t11 d11">
+  <title id="t11">Kalium — Missing circuit, plate 11</title>
+  <desc id="d11">Three nodes and three pathways form a circuit; one connection is missing, so the circuit is incomplete.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .serif { font-family: Times, "Times New Roman", serif; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#22304C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrRed" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#C8362B" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="28" y="28" width="1144" height="744" stroke="#22304C" stroke-width="1.05"/>
+  <rect x="35.5" y="35.5" width="1129" height="729" stroke="#22304C" stroke-width="0.45"/>
+
+  <text x="52" y="62" fill="#C8362B" font-size="11" font-weight="700" letter-spacing="2.4">FIG. 11</text>
+
+  <text x="52" y="748" fill="#22304C" font-size="15.5" class="serif" font-style="italic">A public good requires a path.</text>
+  <g fill="#22304C" font-size="8" letter-spacing="1.6" font-weight="700">
+    <text x="1148" y="716" text-anchor="end">THREE PATHWAYS.</text>
+    <text x="1148" y="732" text-anchor="end">ONE MISSING CONNECTION.</text>
+    <text x="1148" y="748" text-anchor="end">CIRCUIT INCOMPLETE.</text>
+  </g>
+
+  <g stroke="#22304C" stroke-linecap="round" stroke-linejoin="round">
+    <!-- nodes -->
+    <circle cx="355" cy="328" r="72" stroke-width="1.2"/>
+    <circle cx="845" cy="328" r="72" stroke-width="1.2"/>
+    <circle cx="600" cy="568" r="64" stroke-width="1.2"/>
+
+    <!-- left: crosshair -->
+    <g stroke-width="0.7" opacity="0.95">
+      <line x1="321" y1="328" x2="389" y2="328"/>
+      <line x1="355" y1="294" x2="355" y2="362"/>
+    </g>
+    <circle cx="355" cy="328" r="4.1" fill="#22304C" stroke="none"/>
+
+    <!-- right: hexagon -->
+    <path d="M 845,294 L 874.44,311 L 874.44,345 L 845,362 L 815.56,345 L 815.56,311 Z" stroke-width="0.85"/>
+    <circle cx="845" cy="328" r="3.4" fill="#22304C" stroke="none"/>
+
+    <!-- bottom: three open circles on a rail -->
+    <g stroke-width="0.8">
+      <circle cx="578" cy="566" r="8.2"/>
+      <circle cx="600" cy="566" r="8.2"/>
+      <circle cx="622" cy="566" r="8.2"/>
+      <line x1="566" y1="580" x2="634" y2="580"/>
+    </g>
+
+    <!-- TOP pathway (outer arc, navy coupler gap) -->
+    <path d="M 568,142 C 480,152 445,160 373,258"
+          stroke-width="1.05" fill="none" marker-end="url(#arr)"/>
+    <path d="M 632,142 C 720,152 755,160 827,258"
+          stroke-width="1.05" fill="none" marker-end="url(#arr)"/>
+    <circle cx="568" cy="142" r="5.2" stroke-width="0.9"/>
+    <circle cx="632" cy="142" r="5.2" stroke-width="0.9"/>
+    <!-- markers on top limbs -->
+    <circle cx="433" cy="210" r="5" stroke-width="0.85"/>
+    <rect x="762.5" y="205.5" width="9" height="9" stroke-width="0.85"/>
+
+    <!-- MIDDLE pathway: missing red connection -->
+    <path d="M 427,336 C 505,414 520,428 564,428"
+          stroke-width="1.05" fill="none"/>
+    <path d="M 636,428 C 680,428 695,414 773,336"
+          stroke-width="1.05" fill="none"/>
+    <circle cx="564" cy="428" r="5.2" stroke-width="0.9"/>
+    <circle cx="636" cy="428" r="5.2" stroke-width="0.9"/>
+    <path d="M 413,332 L 427,336 L 413,346" stroke-width="0.95" fill="none"/>
+    <path d="M 787,332 L 773,336 L 787,346" stroke-width="0.95" fill="none"/>
+
+    <!-- BOTTOM pathway through third node -->
+    <path d="M 375,398 C 425,476 490,478 536,560"
+          stroke-width="1.05" fill="none" marker-end="url(#arr)"/>
+    <path d="M 664,560 C 710,478 775,476 825,398"
+          stroke-width="1.05" fill="none"/>
+    <path d="M 809,406 L 825,398 L 815,414" stroke-width="0.95" fill="none"/>
+    <!-- diamond + triangle markers -->
+    <path d="M 417,446 l 5.2,5.2 -5.2,5.2 -5.2,-5.2 Z" stroke-width="0.85"/>
+    <path d="M 783,446 l 6.2,0 -3.1,7.2 Z" stroke-width="0.85"/>
+  </g>
+
+  <!-- red missing segment -->
+  <g stroke="#C8362B" stroke-linecap="round">
+    <line x1="571" y1="428" x2="629" y2="428" stroke-width="1.35"/>
+    <path d="M597,428h6M600,425v6"/>
+  </g>
+
+</svg>

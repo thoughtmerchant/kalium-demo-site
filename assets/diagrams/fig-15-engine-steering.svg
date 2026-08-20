@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none"
+     role="img" aria-labelledby="t15 d15">
+  <title id="t15">Kalium — Engine and steering, plate 15</title>
+  <desc id="d15">A capacity engine and a direction compass, joined only by a weak coupler: the best engine is not the best steer.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .serif { font-family: Times, "Times New Roman", serif; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#22304C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrRed" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#C8362B" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="28" y="28" width="1144" height="744" stroke="#22304C" stroke-width="1.05"/>
+  <rect x="35.5" y="35.5" width="1129" height="729" stroke="#22304C" stroke-width="0.45"/>
+
+  <text x="52" y="62" fill="#C8362B" font-size="11" font-weight="700" letter-spacing="2.4">FIG. 15</text>
+
+  <text x="390" y="132" text-anchor="middle" fill="#22304C" font-size="13" font-weight="700" letter-spacing="8">CAPACITY</text>
+  <text x="930" y="132" text-anchor="middle" fill="#22304C" font-size="13" font-weight="700" letter-spacing="8">DIRECTION</text>
+  <text x="52" y="748" fill="#22304C" font-size="15.5" class="serif" font-style="italic">The best engine is not the best steer.</text>
+
+  <g stroke="#22304C" stroke-linecap="round" stroke-linejoin="round">
+    <!-- engine construction -->
+    <g stroke-width="0.45" stroke-dasharray="2.2 2.5" opacity="0.55">
+      <line x1="260" y1="400" x2="520" y2="400"/>
+      <line x1="390" y1="270" x2="390" y2="530"/>
+    </g>
+    <circle cx="390" cy="400" r="118" stroke-width="0.45" opacity="0.45"/>
+    <circle cx="508" cy="400" r="1.5" fill="#22304C" stroke="none"/><circle cx="473.44" cy="483.44" r="1.5" fill="#22304C" stroke="none"/><circle cx="390" cy="518" r="1.5" fill="#22304C" stroke="none"/><circle cx="306.56" cy="483.44" r="1.5" fill="#22304C" stroke="none"/><circle cx="272" cy="400" r="1.5" fill="#22304C" stroke="none"/><circle cx="306.56" cy="316.56" r="1.5" fill="#22304C" stroke="none"/><circle cx="390" cy="282" r="1.5" fill="#22304C" stroke="none"/><circle cx="473.44" cy="316.56" r="1.5" fill="#22304C" stroke="none"/>
+
+    <!-- core -->
+    <circle cx="390" cy="400" r="5.5" fill="#22304C" stroke="none"/>
+    <circle cx="390" cy="400" r="16" stroke-width="0.85"/>
+    <circle cx="390" cy="400" r="28" stroke-width="0.7" opacity="0.85"/>
+
+    <!-- segmented rings -->
+    <g stroke="#22304C">
+      <path d="M 439.63,406.09 A 50 50 0 0 1 396.09,449.63" stroke-width="11" fill="none"/>
+      <path d="M 383.91,449.63 A 50 50 0 0 1 340.37,406.09" stroke-width="11" fill="none"/>
+      <path d="M 340.37,393.91 A 50 50 0 0 1 383.91,350.37" stroke-width="11" fill="none"/>
+      <path d="M 396.09,350.37 A 50 50 0 0 1 439.63,393.91" stroke-width="11" fill="none"/>
+      <circle cx="390" cy="400" r="64" stroke-width="0.6" opacity="0.8"/>
+      <path d="M 467.42,409.51 A 78 78 0 0 1 399.51,477.42" stroke-width="12" fill="none"/>
+      <path d="M 380.49,477.42 A 78 78 0 0 1 312.58,409.51" stroke-width="12" fill="none"/>
+      <path d="M 312.58,390.49 A 78 78 0 0 1 380.49,322.58" stroke-width="12" fill="none"/>
+      <path d="M 399.51,322.58 A 78 78 0 0 1 467.42,390.49" stroke-width="12" fill="none"/>
+      <circle cx="390" cy="400" r="92" stroke-width="0.7"/>
+    </g>
+
+    <!-- housing: intake – circle – exhaust -->
+    <path d="M 172,382 H 296.7
+             A 96 96 0 0 1 483.3,382
+             H 618 V 418 H 483.3
+             A 96 96 0 0 1 296.7,418
+             H 172 Z" stroke-width="1.15" fill="none"/>
+    <g stroke-width="0.7" opacity="0.85">
+      <path d="M 180,392 H 286"/>
+      <path d="M 180,400 H 302" marker-end="url(#arr)"/>
+      <path d="M 180,408 H 286"/>
+      <path d="M 500,392 H 604"/>
+      <path d="M 494,400 H 548"/>
+      <path d="M 564,400 H 604" marker-end="url(#arr)"/>
+      <path d="M 500,408 H 604"/>
+    </g>
+    <path d="M 536,400 L 550,400" stroke-width="0.7" marker-end="url(#arr)"/>
+
+    <!-- direction -->
+    <circle cx="930" cy="400" r="16" stroke-width="1.05"/>
+    <circle cx="930" cy="400" r="3.3" fill="#22304C" stroke="none"/>
+    <line x1="930" y1="322" x2="930" y2="462" stroke-width="0.9"/>
+    <line x1="868" y1="400" x2="992" y2="400" stroke-width="0.9"/>
+    <path d="M 924,332 L 930,320 L 936,332" stroke-width="1.05" fill="#22304C"/>
+    <line x1="923" y1="462" x2="937" y2="462" stroke-width="0.9"/>
+    <circle cx="992" cy="400" r="5" stroke-width="0.85"/>
+    <!-- vanes: left and right of the hub -->
+    <path d="M 889.04,428.68 A 50 50 0 0 1 889.04,371.32" stroke-width="1.2"/>
+    <path d="M 898.87,421.8 A 38 38 0 0 1 898.87,378.2" stroke-width="0.7" opacity="0.8"/>
+    <path d="M 970.96,371.32 A 50 50 0 0 1 970.96,428.68" stroke-width="1.2"/>
+    <path d="M 961.13,378.2 A 38 38 0 0 1 961.13,421.8" stroke-width="0.7" opacity="0.8"/>
+    <line x1="930" y1="304" x2="930" y2="488" stroke-width="0.4" stroke-dasharray="2 2.4" opacity="0.5"/>
+  </g>
+
+  <!-- red coupler -->
+  <g stroke="#C8362B" fill="none" stroke-linecap="round">
+    <line x1="632" y1="400" x2="848" y2="400" stroke-width="1.05" stroke-dasharray="3.2 3.4"/>
+    <circle cx="632" cy="400" r="5.2" stroke-width="1.05"/>
+    <circle cx="848" cy="400" r="5.2" stroke-width="1.05"/>
+  </g>
+
+</svg>

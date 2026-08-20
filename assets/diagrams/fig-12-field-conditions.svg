@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none"
+     role="img" aria-labelledby="t12 d12">
+  <title id="t12">Kalium — Field conditions, plate 12</title>
+  <desc id="d12">A sparse field of public-goods nodes on a dashed-vertical, solid-horizontal grid. The routes are missing.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .serif { font-family: Times, "Times New Roman", serif; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#22304C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrRed" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#C8362B" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="28" y="28" width="1144" height="744" stroke="#22304C" stroke-width="1.05"/>
+  <rect x="35.5" y="35.5" width="1129" height="729" stroke="#22304C" stroke-width="0.45"/>
+
+  <text x="52" y="62" fill="#C8362B" font-size="11" font-weight="700" letter-spacing="2.4">FIG. 12</text>
+
+  <text x="52" y="82" fill="#22304C" font-size="12" font-weight="700" letter-spacing="3.2">FIELD CONDITIONS</text>
+  <text x="52" y="748" fill="#22304C" font-size="15.5" class="serif" font-style="italic">The field is not empty. The routes are.</text>
+
+  <g stroke="#22304C" stroke-width="0.45" stroke-dasharray="2.1 2.6" opacity="0.72" stroke-linecap="butt">
+    <line x1="88" y1="118" x2="88" y2="612"/>
+    <line x1="152.25" y1="118" x2="152.25" y2="612"/>
+    <line x1="216.5" y1="118" x2="216.5" y2="612"/>
+    <line x1="280.75" y1="118" x2="280.75" y2="612"/>
+    <line x1="345" y1="118" x2="345" y2="612"/>
+    <line x1="409.25" y1="118" x2="409.25" y2="612"/>
+    <line x1="473.5" y1="118" x2="473.5" y2="612"/>
+    <line x1="537.75" y1="118" x2="537.75" y2="612"/>
+    <line x1="602" y1="118" x2="602" y2="612"/>
+    <line x1="666.25" y1="118" x2="666.25" y2="612"/>
+    <line x1="730.5" y1="118" x2="730.5" y2="612"/>
+    <line x1="794.75" y1="118" x2="794.75" y2="612"/>
+    <line x1="859" y1="118" x2="859" y2="612"/>
+    <line x1="923.25" y1="118" x2="923.25" y2="612"/>
+    <line x1="987.5" y1="118" x2="987.5" y2="612"/>
+    <line x1="1051.75" y1="118" x2="1051.75" y2="612"/>
+    <line x1="1116" y1="118" x2="1116" y2="612"/>
+  </g>
+  <g stroke="#22304C" stroke-width="0.7" opacity="0.9" stroke-linecap="butt">
+    <line x1="88" y1="118" x2="1116" y2="118"/>
+    <line x1="88" y1="167.4" x2="1116" y2="167.4"/>
+    <line x1="88" y1="216.8" x2="1116" y2="216.8"/>
+    <line x1="88" y1="266.2" x2="1116" y2="266.2"/>
+    <line x1="88" y1="315.6" x2="1116" y2="315.6"/>
+    <line x1="88" y1="365" x2="1116" y2="365"/>
+    <line x1="88" y1="414.4" x2="1116" y2="414.4"/>
+    <line x1="88" y1="463.8" x2="1116" y2="463.8"/>
+    <line x1="88" y1="513.2" x2="1116" y2="513.2"/>
+    <line x1="88" y1="562.6" x2="1116" y2="562.6"/>
+    <line x1="88" y1="612" x2="1116" y2="612"/>
+  </g>
+  <g fill="#22304C" stroke="none">
+    <circle cx="88" cy="118" r="3.6"/>
+    <circle cx="730.5" cy="118" r="3.6"/>
+    <circle cx="794.75" cy="118" r="3.6"/>
+    <circle cx="280.75" cy="167.4" r="3.6"/>
+    <circle cx="409.25" cy="167.4" r="3.6"/>
+    <circle cx="602" cy="167.4" r="3.6"/>
+    <circle cx="987.5" cy="167.4" r="3.6"/>
+    <circle cx="1051.75" cy="167.4" r="3.6"/>
+    <circle cx="216.5" cy="266.2" r="3.6"/>
+    <circle cx="859" cy="315.6" r="3.6"/>
+    <circle cx="923.25" cy="315.6" r="3.6"/>
+    <circle cx="987.5" cy="315.6" r="3.6"/>
+    <circle cx="152.25" cy="365" r="3.6"/>
+    <circle cx="345" cy="414.4" r="3.6"/>
+    <circle cx="216.5" cy="463.8" r="3.6"/>
+    <circle cx="537.75" cy="463.8" r="3.6"/>
+    <circle cx="923.25" cy="463.8" r="3.6"/>
+    <circle cx="152.25" cy="513.2" r="3.6"/>
+    <circle cx="473.5" cy="513.2" r="3.6"/>
+    <circle cx="666.25" cy="513.2" r="3.6"/>
+    <circle cx="987.5" cy="513.2" r="3.6"/>
+    <circle cx="1116" cy="513.2" r="3.6"/>
+    <circle cx="409.25" cy="562.6" r="3.6"/>
+    <circle cx="473.5" cy="562.6" r="3.6"/>
+    <circle cx="794.75" cy="562.6" r="3.6"/>
+    <circle cx="923.25" cy="562.6" r="3.6"/>
+    <circle cx="987.5" cy="562.6" r="3.6"/>
+  </g>
+
+  <g stroke="#C8362B" stroke-width="1.15" stroke-linecap="round">
+    <line x1="1116" y1="356" x2="1116" y2="374"/>
+  </g>
+
+  <g fill="#22304C">
+    <circle cx="52" cy="668" r="3.6"/>
+    <text x="66" y="672" font-size="8.2" font-weight="700" letter-spacing="1.8">PUBLIC-GOODS NODE</text>
+    <text x="1116" y="672" text-anchor="end" font-size="8.2" font-weight="700" letter-spacing="2.4">ACCESS  |  CARE  |  CAPACITY</text>
+  </g>
+
+</svg>

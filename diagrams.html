@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium — Diagrams</title>
+  <style>
+    :root {
+      --paper: #FAF9F7;
+      --ink: #22304C;
+      --muted: #8A93A6;
+      --hair: #C9CFD9;
+      --font: Arial, "Helvetica Neue", sans-serif;
+      --page-max: 1180px;
+      --pad-x: clamp(22px, 4.5vw, 48px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100svh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 48px) var(--pad-x) 0;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* —— Chrome (full-bleed paper band) —— */
+    .form-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.55em;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--paper);
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: 14px max(var(--pad-x), calc(50vw - var(--page-max) / 2 + var(--pad-x))) 10px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-rule {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: var(--ink);
+      opacity: 0.85;
+      margin-top: 0.12em;
+    }
+
+    .intro {
+      padding: clamp(28px, 5vh, 48px) 0 clamp(20px, 3vh, 32px);
+      max-width: 46ch;
+    }
+
+    .intro .rail {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .intro p {
+      font-size: clamp(16px, 1.35vw, 18px);
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .plates {
+      list-style: none;
+      flex: 1;
+    }
+
+    .plates > li {
+      padding: clamp(8px, 2vh, 20px) 0 clamp(48px, 8vh, 80px);
+      border-top: 1px solid var(--hair);
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .plate {
+      width: 100%;
+    }
+
+    .plate img,
+    .plate svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55em 1.1em;
+      align-items: baseline;
+      margin-top: 16px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    figcaption .fig-num {
+      color: var(--ink);
+      letter-spacing: 0.14em;
+    }
+
+    .form-foot {
+      margin-top: auto;
+      padding: 20px 0 28px;
+      border-top: 1px solid var(--hair);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="form-head" aria-label="Document header">
+      <a class="brand" href="index.html">Kalium</a>
+      <span class="brand-rule" aria-hidden="true"></span>
+    </header>
+
+    <main>
+      <div class="intro">
+        <p class="rail">Diagrams</p>
+        <p>Construction plates and theme diagrams for the white paper.</p>
+      </div>
+
+      <ol class="plates">
+        <li id="fig-01">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/kalium-systems-k.svg"
+                alt="Kalium Systems construction plate 01: a stylized K inscribed in a circle, with golden-ratio dimension, cartesian and polar grid, ring system, and radial logic."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 01</span>
+              <span>Mark construction / Kalium Systems</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li id="fig-11">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/fig-11-missing-circuit.svg"
+                alt="Kalium construction plate 11: three nodes and three pathways form a circuit, with one connection missing in red."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 11</span>
+              <span>Missing circuit</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li id="fig-12">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/fig-12-field-conditions.svg"
+                alt="Kalium construction plate 12: a sparse field of public-goods nodes on a dashed-vertical, solid-horizontal grid."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 12</span>
+              <span>Field conditions</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li id="fig-13">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/fig-13-three-operations.svg"
+                alt="Kalium construction plate 13: an enterprise cell splits at a red junction into net new, shift, and repair."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 13</span>
+              <span>Three operations</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li id="fig-14">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/fig-14-old-arrangement.svg"
+                alt="Kalium construction plate 14: private value, taxation, and philanthropy enter a balancing chamber; a red break leaves the public-good grid unreached."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 14</span>
+              <span>The old arrangement</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li id="fig-15">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/fig-15-engine-steering.svg"
+                alt="Kalium construction plate 15: a capacity engine and a direction compass joined by a red dashed coupler."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 15</span>
+              <span>Engine and steering</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li id="fig-16">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/fig-16-double-bind.svg"
+                alt="Kalium construction plate 16: system A holds capacity without a mandate; system B holds a mandate without capacity."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 16</span>
+              <span>The double bind</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li id="fig-17">
+          <figure>
+            <div class="plate">
+              <img
+                src="assets/diagrams/fig-17-at-formation.svg"
+                alt="Kalium construction plate 17: a cap path meets a red agreement inside a hexagon; private-return loops remain inside, then surplus leaves toward a public-good constellation."
+                width="1200"
+                height="800"
+              >
+            </div>
+            <figcaption>
+              <span class="fig-num">Fig. 17</span>
+              <span>At formation</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ol>
+    </main>
+
+    <footer class="form-foot">
+      <span>Kalium · Demo</span>
+      <span>Plates</span>
+    </footer>
+  </div>
+</body>
+</html>
