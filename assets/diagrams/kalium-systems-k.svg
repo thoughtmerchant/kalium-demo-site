@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none"
+     role="img" aria-labelledby="plate-title plate-desc">
+  <title id="plate-title">Kalium Systems — Mark construction, plate 01</title>
+  <desc id="plate-desc">Construction plate for the Kalium K mark: a vertical stem and two diagonal arms inscribed in a circle, with golden-ratio, cartesian/polar grid, ring, and radial annotations.</desc>
+
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+  </style>
+
+  <!-- Plate frame (paper is the page) -->
+  <rect x="28" y="28" width="1144" height="744" stroke="#22304C" stroke-width="0.9"/>
+
+  <!-- Header -->
+  <g>
+    <text x="52" y="62" fill="#22304C" font-size="13" font-weight="700" letter-spacing="2.4">KALIUM</text>
+    <text x="52" y="78" fill="#22304C" font-size="10.5" letter-spacing="2.8">SYSTEMS</text>
+    <text x="1148" y="72" fill="#22304C" font-size="18" text-anchor="end" letter-spacing="1.2">01</text>
+  </g>
+
+  <!-- Left column -->
+  <g>
+    <text x="52" y="128" fill="#22304C" font-size="8.6" font-weight="700" letter-spacing="1.7">RATIO LOGIC</text>
+      <line x1="52" y1="134" x2="220" y2="134" stroke="#22304C" stroke-width="0.6" opacity="0.85"/>
+      <text x="52" y="150" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">System</text>
+      <text x="144" y="150" fill="#22304C" font-size="7.2">Golden</text>
+      <text x="52" y="165.2" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Reference</text>
+      <text x="144" y="165.2" fill="#22304C" font-size="7.2">φ  (1.61803398875…)</text>
+      <text x="52" y="180.4" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Application</text>
+      <text x="144" y="180.4" fill="#22304C" font-size="7.2">Proportional division</text>
+      <text x="52" y="195.6" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Function</text>
+      <text x="144" y="195.6" fill="#22304C" font-size="7.2">Structural order</text>
+
+    <text x="52" y="248" fill="#22304C" font-size="8.6" font-weight="700" letter-spacing="1.7">GRID BASIS</text>
+      <line x1="52" y1="254" x2="220" y2="254" stroke="#22304C" stroke-width="0.6" opacity="0.85"/>
+      <text x="52" y="270" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">System</text>
+      <text x="144" y="270" fill="#22304C" font-size="7.2">Cartesian  ·  Polar</text>
+      <text x="52" y="285.2" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Reference</text>
+      <text x="144" y="285.2" fill="#22304C" font-size="7.2">Unit / Circle / Axis</text>
+      <text x="52" y="300.4" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Application</text>
+      <text x="144" y="300.4" fill="#22304C" font-size="7.2">Modular construction</text>
+      <text x="52" y="315.6" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Function</text>
+      <text x="144" y="315.6" fill="#22304C" font-size="7.2">Alignment / integration</text>
+
+    <text x="52" y="368" fill="#22304C" font-size="8.6" font-weight="700" letter-spacing="1.7">STRUCTURE</text>
+      <line x1="52" y1="374" x2="220" y2="374" stroke="#22304C" stroke-width="0.6" opacity="0.85"/>
+      <text x="52" y="390" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">System</text>
+      <text x="144" y="390" fill="#22304C" font-size="7.2">Geometric decomposition</text>
+      <text x="52" y="405.2" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Reference</text>
+      <text x="144" y="405.2" fill="#22304C" font-size="7.2">Square / Diagonal / Arc</text>
+      <text x="52" y="420.4" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Application</text>
+      <text x="144" y="420.4" fill="#22304C" font-size="7.2">Form generation</text>
+      <text x="52" y="435.6" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Function</text>
+      <text x="144" y="435.6" fill="#22304C" font-size="7.2">Balance</text>
+      <text x="52" y="450.8" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Priority</text>
+      <text x="144" y="450.8" fill="#22304C" font-size="7.2">Clarity / Economy</text>
+      <text x="52" y="466" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Method</text>
+      <text x="144" y="466" fill="#22304C" font-size="7.2">Reduction</text>
+      <text x="52" y="481.2" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Outcome</text>
+      <text x="144" y="481.2" fill="#22304C" font-size="7.2">Harmony</text>
+  </g>
+
+  <!-- Main construction -->
+  <g stroke="#22304C" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Envelope + axes (dashed) -->
+    <g stroke-width="0.45" stroke-dasharray="2.2 2.4" opacity="0.55">
+      <line x1="316" y1="430" x2="780" y2="430"/>
+      <line x1="548" y1="198" x2="548" y2="662"/>
+      <line x1="409.41" y1="198" x2="409.41" y2="662"/>
+      <line x1="686.59" y1="198" x2="686.59" y2="662"/>
+      <line x1="515.28" y1="198" x2="515.28" y2="662"/>
+      <line x1="316" y1="291.41" x2="780" y2="291.41"/>
+      <line x1="316" y1="568.59" x2="780" y2="568.59"/>
+    </g>
+
+    <!-- Envelope ticks -->
+    <g stroke-width="0.7" opacity="0.7">
+      <line x1="316" y1="198" x2="780" y2="198" opacity="0.35"/>
+      <line x1="316" y1="662" x2="780" y2="662" opacity="0.35"/>
+      <line x1="316" y1="198" x2="316" y2="662" opacity="0.35"/>
+      <line x1="780" y1="198" x2="780" y2="662" opacity="0.35"/>
+    </g>
+
+    <!-- Square + 2×2 grid -->
+    <g stroke-width="0.55" opacity="0.7">
+      <rect x="409.41" y="291.41" width="277.19" height="277.19"/>
+      <line x1="548" y1="291.41" x2="548" y2="568.59"/>
+      <line x1="409.41" y1="430" x2="686.59" y2="430"/>
+    </g>
+
+    <!-- Diagonals of the square + X in left cells -->
+    <g stroke-width="0.45" opacity="0.5">
+      <line x1="409.41" y1="291.41" x2="686.59" y2="568.59"/>
+      <line x1="409.41" y1="568.59" x2="686.59" y2="291.41"/>
+      <line x1="409.41" y1="291.41" x2="548" y2="430"/>
+      <line x1="548" y1="291.41" x2="409.41" y2="430"/>
+      <line x1="409.41" y1="430" x2="548" y2="568.59"/>
+      <line x1="548" y1="430" x2="409.41" y2="568.59"/>
+    </g>
+
+    <!-- Arm centerlines, dashed through the circle -->
+    <g stroke-width="0.45" stroke-dasharray="2.2 2.4" opacity="0.55">
+      <line x1="515.28" y1="430" x2="686.59" y2="291.41"/>
+      <line x1="515.28" y1="430" x2="686.59" y2="568.59"/>
+    </g>
+
+    <!-- Concentric arcs at the junction -->
+    <g stroke-width="0.4" opacity="0.38">
+      <circle cx="515.28" cy="430" r="58.23"/><circle cx="515.28" cy="430" r="111.17"/><circle cx="515.28" cy="430" r="168"/>
+    </g>
+
+    <!-- Primary circle -->
+    <circle cx="548" cy="430" r="196" stroke-width="1.15"/>
+
+    <!-- The mark -->
+    <g stroke-width="1.45">
+      <rect x="409.41" y="291.41" width="105.88" height="277.19"/>
+      <polygon points="532.6,451.4 703.91,312.81 669.28,270.01 497.97,408.6"/>
+      <polygon points="497.97,451.4 669.28,589.99 703.91,547.19 532.6,408.6"/>
+    </g>
+
+    <!-- φ dimension -->
+    <g stroke-width="0.6" opacity="0.85">
+      <line x1="381.41" y1="291.41" x2="381.41" y2="568.59"/>
+      <line x1="375.41" y1="291.41" x2="387.41" y2="291.41"/>
+      <line x1="375.41" y1="568.59" x2="387.41" y2="568.59"/>
+      <line x1="381.41" y1="462.72" x2="385.41" y2="462.72"/>
+    </g>
+    <text x="369.41" y="433" fill="#22304C" font-size="13" font-family="Times, 'Times New Roman', serif" font-style="italic" text-anchor="end">φ</text>
+  </g>
+
+  <!-- Red construction marks — main -->
+  <g stroke="#C8362B" stroke-width="0.85" stroke-linecap="round" opacity="0.92">
+    <path d="M312.7,198h6.6M316,194.7v6.6"/><path d="M776.7,198h6.6M780,194.7v6.6"/><path d="M312.7,662h6.6M316,658.7v6.6"/><path d="M776.7,662h6.6M780,658.7v6.6"/><path d="M312.7,430h6.6M316,426.7v6.6"/><path d="M776.7,430h6.6M780,426.7v6.6"/><path d="M544.7,198h6.6M548,194.7v6.6"/><path d="M544.7,662h6.6M548,658.7v6.6"/><path d="M406.11,291.41h6.6M409.41,288.11v6.6"/><path d="M683.29,291.41h6.6M686.59,288.11v6.6"/><path d="M406.11,568.59h6.6M409.41,565.29v6.6"/><path d="M683.29,568.59h6.6M686.59,565.29v6.6"/><path d="M511.98,430h6.6M515.28,426.7v6.6"/><path d="M544.7,430h6.6M548,426.7v6.6"/><path d="M406.11,430h6.6M409.41,426.7v6.6"/><path d="M544.7,234h6.6M548,230.7v6.6"/><path d="M740.7,430h6.6M744,426.7v6.6"/><path d="M544.7,626h6.6M548,622.7v6.6"/><path d="M348.7,430h6.6M352,426.7v6.6"/>
+  </g>
+
+  <!-- Right: RING SYSTEM -->
+  <g>
+    <text x="848" y="128" fill="#22304C" font-size="8.6" font-weight="700" letter-spacing="1.7">RING SYSTEM</text>
+      <line x1="848" y1="134" x2="1016" y2="134" stroke="#22304C" stroke-width="0.6" opacity="0.85"/>
+      <text x="848" y="150" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Type</text>
+      <text x="934" y="150" fill="#22304C" font-size="7.2">Concentric</text>
+      <text x="848" y="165.2" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Reference</text>
+      <text x="934" y="165.2" fill="#22304C" font-size="7.2">Same center (0,0)</text>
+      <text x="848" y="180.4" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Application</text>
+      <text x="934" y="180.4" fill="#22304C" font-size="7.2">Dimension control</text>
+      <text x="848" y="195.6" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Function</text>
+      <text x="934" y="195.6" fill="#22304C" font-size="7.2">Modulation / Scale</text>
+      <text x="848" y="210.8" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Units</text>
+      <text x="934" y="210.8" fill="#22304C" font-size="7.2">—</text>
+
+    <g transform="translate(992 318)" stroke="#22304C" stroke-linecap="round">
+      <g stroke-width="0.45" stroke-dasharray="2 2.2" opacity="0.55">
+        <line x1="-70" y1="0" x2="70" y2="0"/>
+        <line x1="0" y1="-70" x2="0" y2="70"/>
+        <line x1="-40.5" y1="40.5" x2="40.5" y2="-40.5"/>
+      </g>
+      <g stroke-width="0.7" opacity="0.55">
+        <line x1="-70" y1="-3" x2="-70" y2="3"/>
+        <line x1="70" y1="-3" x2="70" y2="3"/>
+        <line x1="-3" y1="-70" x2="3" y2="-70"/>
+        <line x1="-3" y1="70" x2="3" y2="70"/>
+      </g>
+      <circle r="54" stroke-width="1.05"/>
+      <!-- diamond: rotated square, vertices on the circle -->
+      <polygon points="0,-54 54,0 0,54 -54,0" stroke-width="0.75"/>
+      <!-- axis-aligned inscribed square -->
+      <rect x="-38.18" y="-38.18"
+            width="76.37" height="76.37"
+            stroke-width="0.6" opacity="0.75"/>
+    </g>
+    <g stroke="#C8362B" stroke-width="0.85" stroke-linecap="round">
+      <path d="M989.2,318h5.6M992,315.2v5.6"/><path d="M989.2,264h5.6M992,261.2v5.6"/><path d="M1043.2,318h5.6M1046,315.2v5.6"/><path d="M989.2,372h5.6M992,369.2v5.6"/><path d="M935.2,318h5.6M938,315.2v5.6"/><path d="M951.02,276.82h5.6M953.82,274.02v5.6"/><path d="M1027.18,276.82h5.6M1029.98,274.02v5.6"/><path d="M951.02,353.18h5.6M953.82,350.38v5.6"/><path d="M1027.18,353.18h5.6M1029.98,350.38v5.6"/>
+    </g>
+  </g>
+
+  <!-- Right: RADIAL LOGIC -->
+  <g>
+    <g transform="translate(992 502)" stroke="#22304C" stroke-linecap="round">
+      <g stroke-width="0.45" stroke-dasharray="2 2.2" opacity="0.55">
+        <line x1="-70" y1="0" x2="70" y2="0"/>
+        <line x1="0" y1="-70" x2="0" y2="70"/>
+      </g>
+      <g stroke-width="0.7" opacity="0.55">
+        <line x1="-70" y1="-3" x2="-70" y2="3"/>
+        <line x1="70" y1="-3" x2="70" y2="3"/>
+        <line x1="-3" y1="-70" x2="3" y2="-70"/>
+        <line x1="-3" y1="70" x2="3" y2="70"/>
+      </g>
+      <circle r="54" stroke-width="1.05"/>
+      <circle r="18.36" stroke-width="0.7" opacity="0.8"/>
+      <!-- starburst -->
+      <g stroke-width="0.5" opacity="0.7">
+        <line x1="18.36" y1="0" x2="-18.36" y2="-0"/><line x1="16.96" y1="7.03" x2="-16.96" y2="-7.03"/><line x1="12.98" y1="12.98" x2="-12.98" y2="-12.98"/><line x1="7.03" y1="16.96" x2="-7.03" y2="-16.96"/><line x1="0" y1="18.36" x2="-0" y2="-18.36"/><line x1="-7.03" y1="16.96" x2="7.03" y2="-16.96"/><line x1="-12.98" y1="12.98" x2="12.98" y2="-12.98"/><line x1="-16.96" y1="7.03" x2="16.96" y2="-7.03"/>
+      </g>
+      <!-- 45° vector -->
+      <g stroke-width="1.05">
+        <line x1="0" y1="0" x2="38.88" y2="-38.88"/>
+        <polyline points="31.88,-36.38 38.88,-38.88 36.38,-31.88"/>
+      </g>
+    </g>
+    <g stroke="#C8362B" stroke-width="0.85" stroke-linecap="round">
+      <path d="M989.2,502h5.6M992,499.2v5.6"/><path d="M989.2,448h5.6M992,445.2v5.6"/><path d="M1043.2,502h5.6M1046,499.2v5.6"/><path d="M989.2,556h5.6M992,553.2v5.6"/><path d="M935.2,502h5.6M938,499.2v5.6"/>
+    </g>
+
+    <text x="848" y="592" fill="#22304C" font-size="8.6" font-weight="700" letter-spacing="1.7">RADIAL LOGIC</text>
+      <line x1="848" y1="598" x2="1016" y2="598" stroke="#22304C" stroke-width="0.6" opacity="0.85"/>
+      <text x="848" y="614" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Type</text>
+      <text x="934" y="614" fill="#22304C" font-size="7.2">Radial</text>
+      <text x="848" y="629.2" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Reference</text>
+      <text x="934" y="629.2" fill="#22304C" font-size="7.2">Central point (0,0)</text>
+      <text x="848" y="644.4" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Application</text>
+      <text x="934" y="644.4" fill="#22304C" font-size="7.2">Direction / Rotation</text>
+      <text x="848" y="659.6" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Function</text>
+      <text x="934" y="659.6" fill="#22304C" font-size="7.2">Distribution / Balance / Motion</text>
+      <text x="848" y="674.8" fill="#8A93A6" font-size="7.2" letter-spacing="0.04">Units</text>
+      <text x="934" y="674.8" fill="#22304C" font-size="7.2">Proportional / Angular</text>
+  </g>
+</svg>

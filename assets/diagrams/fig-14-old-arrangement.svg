@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none"
+     role="img" aria-labelledby="t14 d14">
+  <title id="t14">Kalium — The old arrangement, plate 14</title>
+  <desc id="d14">Private value, taxation, and philanthropy enter a balancing chamber; a break leaves the public-good distribution grid unreached.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .serif { font-family: Times, "Times New Roman", serif; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#22304C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrRed" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#C8362B" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="28" y="28" width="1144" height="744" stroke="#22304C" stroke-width="1.05"/>
+  <rect x="35.5" y="35.5" width="1129" height="729" stroke="#22304C" stroke-width="0.45"/>
+
+  <text x="52" y="62" fill="#C8362B" font-size="11" font-weight="700" letter-spacing="2.4">FIG. 14</text>
+
+  <text x="600" y="66" text-anchor="middle" fill="#22304C" font-size="13" font-weight="700" letter-spacing="3.6">THE OLD ARRANGEMENT</text>
+  <line x1="470" y1="76" x2="730" y2="76" stroke="#22304C" stroke-width="0.55"/>
+  <text x="52" y="748" fill="#22304C" font-size="15.5" class="serif" font-style="italic">The system assumed the sum would hold.</text>
+
+  <g stroke="#22304C" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="148" cy="188" r="42" stroke-width="1.1"/>
+    <circle cx="148" cy="188" r="24" stroke-width="0.5" opacity="0.7"/>
+    <circle cx="148" cy="188" r="12" stroke-width="0.5" opacity="0.7"/>
+    <line x1="126" y1="188" x2="170" y2="188" stroke-width="0.55" opacity="0.8"/>
+    <line x1="148" y1="166" x2="148" y2="210" stroke-width="0.55" opacity="0.8"/>
+    <line x1="156" y1="188" x2="184" y2="188" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <line x1="153.66" y1="193.66" x2="173.46" y2="213.46" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <line x1="148" y1="196" x2="148" y2="224" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <line x1="142.34" y1="193.66" x2="122.54" y2="213.46" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <line x1="140" y1="188" x2="112" y2="188" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <line x1="142.34" y1="182.34" x2="122.54" y2="162.54" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <line x1="148" y1="180" x2="148" y2="152" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <line x1="153.66" y1="182.34" x2="173.46" y2="162.54" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.7"/>
+    <circle cx="148" cy="188" r="3" fill="#22304C" stroke="none"/>
+    <circle cx="148" cy="368" r="42" stroke-width="1.1"/>
+    <line x1="130" y1="354" x2="166" y2="354" stroke-width="0.5" opacity="0.8"/>
+    <line x1="134" y1="350" x2="134" y2="386" stroke-width="0.5" opacity="0.8"/>
+    <line x1="130" y1="361" x2="166" y2="361" stroke-width="0.5" opacity="0.8"/>
+    <line x1="141" y1="350" x2="141" y2="386" stroke-width="0.5" opacity="0.8"/>
+    <line x1="130" y1="368" x2="166" y2="368" stroke-width="0.5" opacity="0.8"/>
+    <line x1="148" y1="350" x2="148" y2="386" stroke-width="0.5" opacity="0.8"/>
+    <line x1="130" y1="375" x2="166" y2="375" stroke-width="0.5" opacity="0.8"/>
+    <line x1="155" y1="350" x2="155" y2="386" stroke-width="0.5" opacity="0.8"/>
+    <line x1="130" y1="382" x2="166" y2="382" stroke-width="0.5" opacity="0.8"/>
+    <line x1="162" y1="350" x2="162" y2="386" stroke-width="0.5" opacity="0.8"/>
+    <circle cx="148" cy="548" r="42" stroke-width="1.1"/>
+    <line x1="148" y1="548" x2="180" y2="548" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="180" cy="548" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="175.71" y2="564" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="175.71" cy="564" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="164" y2="575.71" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="164" cy="575.71" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="148" y2="580" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="148" cy="580" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="132" y2="575.71" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="132" cy="575.71" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="120.29" y2="564" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="120.29" cy="564" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="116" y2="548" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="116" cy="548" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="120.29" y2="532" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="120.29" cy="532" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="132" y2="520.29" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="132" cy="520.29" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="148" y2="516" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="148" cy="516" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="164" y2="520.29" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="164" cy="520.29" r="1.6" fill="#22304C" stroke="none"/>
+    <line x1="148" y1="548" x2="175.71" y2="532" stroke-width="0.5" stroke-dasharray="1.6 1.8" opacity="0.75"/>
+    <circle cx="175.71" cy="532" r="1.6" fill="#22304C" stroke="none"/>
+    <text x="148" y="134" text-anchor="middle" fill="#22304C" stroke="none" font-size="8.2" font-weight="700" letter-spacing="1.6">PRIVATE VALUE</text>
+    <text x="148" y="314" text-anchor="middle" fill="#22304C" stroke="none" font-size="8.2" font-weight="700" letter-spacing="1.6">TAXATION</text>
+    <text x="148" y="494" text-anchor="middle" fill="#22304C" stroke="none" font-size="8.2" font-weight="700" letter-spacing="1.6">PHILANTHROPY</text>
+    
+    <line x1="190" y1="368" x2="432" y2="368" stroke-width="1.05"/>
+    <circle cx="216.89" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="243.78" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="270.67" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="297.56" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="324.44" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="351.33" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="378.22" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="405.11" cy="368" r="1.7" fill="#22304C" stroke="none"/>
+    <path d="M 190,188 C 298,188 362,282 432,340" stroke-width="1.05" fill="none"/>
+    <path d="M 190,548 C 298,548 362,454 432,396" stroke-width="1.05" fill="none"/>
+    <circle cx="249.92" cy="198.24" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="249.92" cy="537.76" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="301.68" cy="224.8" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="301.68" cy="511.2" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="347.68" cy="261.44" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="347.68" cy="474.56" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="390.32" cy="301.92" r="1.7" fill="#22304C" stroke="none"/>
+    <circle cx="390.32" cy="434.08" r="1.7" fill="#22304C" stroke="none"/>
+
+    <g transform="translate(442 368) rotate(0)"><line x1="-10" y1="0" x2="8" y2="0" stroke-width="1.1"/><line x1="8" y1="-7" x2="8" y2="7" stroke-width="1.1"/></g>
+    <g transform="translate(448 340) rotate(-18)"><line x1="-10" y1="0" x2="8" y2="0" stroke-width="1.1"/><line x1="8" y1="-7" x2="8" y2="7" stroke-width="1.1"/></g>
+    <g transform="translate(448 396) rotate(18)"><line x1="-10" y1="0" x2="8" y2="0" stroke-width="1.1"/><line x1="8" y1="-7" x2="8" y2="7" stroke-width="1.1"/></g>
+
+    <!-- chamber -->
+    <circle cx="560" cy="368" r="118" stroke-width="1.25"/>
+    <circle cx="560" cy="368" r="108" stroke-width="0.45" stroke-dasharray="2.2 2.6" opacity="0.65"/>
+    <g transform="translate(560 250) rotate(-90)"><line x1="-10" y1="0" x2="8" y2="0" stroke-width="1.1"/><line x1="8" y1="-7" x2="8" y2="7" stroke-width="1.1"/></g>
+    <g transform="translate(560 486) rotate(90)"><line x1="-10" y1="0" x2="8" y2="0" stroke-width="1.1"/><line x1="8" y1="-7" x2="8" y2="7" stroke-width="1.1"/></g>
+    <g transform="translate(678 368) rotate(180)"><line x1="-10" y1="0" x2="8" y2="0" stroke-width="1.1"/><line x1="8" y1="-7" x2="8" y2="7" stroke-width="1.1"/></g>
+    <line x1="560" y1="242" x2="560" y2="214" stroke-width="0.7"/>
+    <line x1="560" y1="494" x2="560" y2="522" stroke-width="0.7"/>
+    <circle cx="560" cy="208" r="6" stroke-width="0.85"/>
+    <circle cx="560" cy="208" r="2.2" fill="#22304C" stroke="none"/>
+    <circle cx="560" cy="530" r="6" stroke-width="0.85"/>
+    <line x1="553" y1="540" x2="567" y2="540" stroke-width="0.85"/>
+    <line x1="560" y1="536" x2="560" y2="548" stroke-width="0.85"/>
+
+    <text x="560" y="352" text-anchor="middle" fill="#22304C" stroke="none"
+          font-size="10.5" font-weight="700" letter-spacing="1.6">BALANCING CHAMBER</text>
+    <text x="560" y="376" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.6" letter-spacing="0.4">
+      AGGREGATES PRIVATE, MANDATORY,
+    </text>
+    <text x="560" y="388" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.6" letter-spacing="0.4">
+      AND VOLUNTARY FLOWS IN EXPECTATION
+    </text>
+    <text x="560" y="400" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.6" letter-spacing="0.4">
+      OF COMMON DISTRIBUTION.
+    </text>
+
+    <!-- exit then break -->
+    <line x1="688" y1="368" x2="702" y2="368" stroke-width="1.15"/>
+    <line x1="736" y1="368" x2="892" y2="368" stroke-width="1.05" stroke-dasharray="3.2 3.2"/>
+
+    <g stroke-dasharray="2.2 2.4" stroke-width="0.55" opacity="0.85">
+      <line x1="905.2" y1="292" x2="922.8" y2="292"/><line x1="900" y1="297.2" x2="900" y2="314.8"/><line x1="933.2" y1="292" x2="950.8" y2="292"/><line x1="928" y1="297.2" x2="928" y2="314.8"/><line x1="961.2" y1="292" x2="978.8" y2="292"/><line x1="956" y1="297.2" x2="956" y2="314.8"/><line x1="984" y1="297.2" x2="984" y2="314.8"/><line x1="905.2" y1="320" x2="922.8" y2="320"/><line x1="900" y1="325.2" x2="900" y2="342.8"/><line x1="933.2" y1="320" x2="950.8" y2="320"/><line x1="928" y1="325.2" x2="928" y2="342.8"/><line x1="961.2" y1="320" x2="978.8" y2="320"/><line x1="956" y1="325.2" x2="956" y2="342.8"/><line x1="984" y1="325.2" x2="984" y2="342.8"/><line x1="905.2" y1="348" x2="922.8" y2="348"/><line x1="900" y1="353.2" x2="900" y2="370.8"/><line x1="933.2" y1="348" x2="950.8" y2="348"/><line x1="928" y1="353.2" x2="928" y2="370.8"/><line x1="961.2" y1="348" x2="978.8" y2="348"/><line x1="956" y1="353.2" x2="956" y2="370.8"/><line x1="984" y1="353.2" x2="984" y2="370.8"/><line x1="905.2" y1="376" x2="922.8" y2="376"/><line x1="933.2" y1="376" x2="950.8" y2="376"/><line x1="961.2" y1="376" x2="978.8" y2="376"/>
+    </g>
+    <circle cx="900" cy="292" r="5.2" stroke-width="0.85"/><circle cx="928" cy="292" r="5.2" stroke-width="0.85"/><circle cx="956" cy="292" r="5.2" stroke-width="0.85"/><circle cx="984" cy="292" r="5.2" stroke-width="0.85"/><circle cx="900" cy="320" r="5.2" stroke-width="0.85"/><circle cx="928" cy="320" r="5.2" stroke-width="0.85"/><circle cx="956" cy="320" r="5.2" stroke-width="0.85"/><circle cx="984" cy="320" r="5.2" stroke-width="0.85"/><circle cx="900" cy="348" r="5.2" stroke-width="0.85"/><circle cx="928" cy="348" r="5.2" stroke-width="0.85"/><circle cx="956" cy="348" r="5.2" stroke-width="0.85"/><circle cx="984" cy="348" r="5.2" stroke-width="0.85"/><circle cx="900" cy="376" r="5.2" stroke-width="0.85"/><circle cx="928" cy="376" r="5.2" stroke-width="0.85"/><circle cx="956" cy="376" r="5.2" stroke-width="0.85"/><circle cx="984" cy="376" r="5.2" stroke-width="0.85"/>
+
+    <text x="942.0" y="270" text-anchor="middle" fill="#22304C" stroke="none"
+          font-size="8" font-weight="700" letter-spacing="1.3">PUBLIC-GOOD DISTRIBUTION GRID</text>
+    <text x="942.0" y="422" text-anchor="middle" fill="#22304C" stroke="none"
+          font-size="8.5" class="serif" font-style="italic">Intended recipients remain unreached</text>
+  </g>
+
+  <g stroke="#C8362B" stroke-linecap="round" fill="none">
+    <g transform="translate(718 368) rotate(-28)">
+      <line x1="-4" y1="-11" x2="-4" y2="11" stroke-width="1.35"/>
+      <line x1="4" y1="-11" x2="4" y2="11" stroke-width="1.35"/>
+    </g>
+    <line x1="718" y1="378" x2="718" y2="542" stroke-width="0.9" stroke-dasharray="2.2 2.4"/>
+    <circle cx="718" cy="560" r="11" stroke-width="0.9"/>
+    <circle cx="718" cy="560" r="5.5" stroke-width="0.9"/>
+  </g>
+
+</svg>

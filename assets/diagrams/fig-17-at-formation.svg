@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none"
+     role="img" aria-labelledby="t17 d17">
+  <title id="t17">Kalium — At formation, plate 17</title>
+  <desc id="d17">A capped path meets an agreement inside a hexagon; private-return loops remain inside, then surplus leaves toward a public-good constellation.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .serif { font-family: Times, "Times New Roman", serif; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#22304C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrRed" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#C8362B" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="28" y="28" width="1144" height="744" stroke="#22304C" stroke-width="1.05"/>
+  <rect x="35.5" y="35.5" width="1129" height="729" stroke="#22304C" stroke-width="0.45"/>
+
+  <text x="52" y="62" fill="#C8362B" font-size="11" font-weight="700" letter-spacing="2.4">FIG. 17</text>
+
+  <text x="600" y="66" text-anchor="middle" fill="#22304C" font-size="13" font-weight="700" letter-spacing="4.4">AT FORMATION</text>
+  <line x1="500" y1="78" x2="700" y2="78" stroke="#22304C" stroke-width="0.55"/>
+  <circle cx="600" cy="78" r="2.2" fill="#22304C" stroke="none"/>
+  <text x="52" y="748" fill="#22304C" font-size="15.5" class="serif" font-style="italic">The agreement precedes the surplus.</text>
+  <line x1="52" y1="758" x2="168" y2="758" stroke="#22304C" stroke-width="0.5"/>
+
+  <g stroke="#22304C" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 560,204 L 729.74,302 L 729.74,498 L 560,596 L 390.26,498 L 390.26,302 Z" stroke-width="1.15"/>
+    <circle cx="560" cy="400" r="169.74" stroke-width="0.55" opacity="0.7"/>
+    <line x1="382.25902085825004" y1="400" x2="737.7409791417499" y2="400" stroke-width="0.45" stroke-dasharray="2.4 2.6" opacity="0.6"/>
+    <line x1="560" y1="222.25902085825004" x2="560" y2="577.7409791417499" stroke-width="0.45" stroke-dasharray="2.4 2.6" opacity="0.6"/>
+
+    <!-- CAP path -->
+    <circle cx="86" cy="508" r="4.2" fill="#22304C" stroke="none"/>
+    <text x="86" y="492" text-anchor="middle" fill="#22304C" stroke="none" font-size="10" font-weight="700" letter-spacing="2.4">CAP</text>
+    <path d="M 86,508 H 168 L 230,400 H 470" stroke-width="1.2" fill="none"/>
+
+    <!-- private return: two major circular loops (not one circle) -->
+    <path d="M 470,400 A 70 70 0 1 1 590,400" stroke-width="1.2" fill="none"/>
+    <path d="M 470,400 A 70 70 0 1 0 590,400" stroke-width="1.2" fill="none"/>
+    <path d="M 522,304 L 536,314 L 518,320" stroke-width="1.05" fill="none"/>
+    <path d="M 522,496 L 536,486 L 518,480" stroke-width="1.05" fill="none"/>
+    <text x="532" y="404" text-anchor="middle" fill="#22304C" stroke="none"
+          font-size="9" font-weight="700" letter-spacing="1.6">PRIVATE RETURN</text>
+
+    <!-- exit to public good -->
+    <path d="M 590,400 H 725.7409791417499" stroke-width="1.2" fill="none"/>
+    <path d="M 735.7409791417499,400 H 820 L 910,210" stroke-width="1.2" fill="none" marker-end="url(#arr)"/>
+
+    <g stroke-dasharray="2.2 2.6" stroke-width="0.55" opacity="0.8">
+      <line x1="980" y1="168" x2="1048" y2="142"/>
+    <line x1="1048" y1="142" x2="1088" y2="198"/>
+    <line x1="1088" y1="198" x2="1022" y2="230"/>
+    <line x1="1022" y1="230" x2="980" y2="168"/>
+    <line x1="980" y1="168" x2="1088" y2="198"/>
+    <line x1="1048" y1="142" x2="1022" y2="230"/>
+    <line x1="980" y1="168" x2="960" y2="214"/>
+    <line x1="1088" y1="198" x2="1108" y2="156"/>
+    </g>
+    <path d="M 980,152 L 982.57,161.79 L 991.31,156.69 L 986.21,165.43 L 996,168 L 986.21,170.57 L 991.31,179.31 L 982.57,174.21 L 980,184 L 977.43,174.21 L 968.69,179.31 L 973.79,170.57 L 964,168 L 973.79,165.43 L 968.69,156.69 L 977.43,161.79 Z" stroke-width="0.85" fill="none"/><path d="M 1048,132 L 1049.61,138.12 L 1055.07,134.93 L 1051.88,140.39 L 1058,142 L 1051.88,143.61 L 1055.07,149.07 L 1049.61,145.88 L 1048,152 L 1046.39,145.88 L 1040.93,149.07 L 1044.12,143.61 L 1038,142 L 1044.12,140.39 L 1040.93,134.93 L 1046.39,138.12 Z" stroke-width="0.85" fill="none"/><path d="M 1088,186 L 1089.93,193.34 L 1096.49,189.51 L 1092.66,196.07 L 1100,198 L 1092.66,199.93 L 1096.49,206.49 L 1089.93,202.66 L 1088,210 L 1086.07,202.66 L 1079.51,206.49 L 1083.34,199.93 L 1076,198 L 1083.34,196.07 L 1079.51,189.51 L 1086.07,193.34 Z" stroke-width="0.85" fill="none"/><path d="M 1022,221 L 1023.45,226.51 L 1028.36,223.64 L 1025.49,228.55 L 1031,230 L 1025.49,231.45 L 1028.36,236.36 L 1023.45,233.49 L 1022,239 L 1020.55,233.49 L 1015.64,236.36 L 1018.51,231.45 L 1013,230 L 1018.51,228.55 L 1015.64,223.64 L 1020.55,226.51 Z" stroke-width="0.85" fill="none"/><path d="M 953,214 h 14 M 960,207 v 14" stroke-width="0.9" stroke-linecap="round"/><path d="M 1102,156 h 12 M 1108,150 v 12" stroke-width="0.9" stroke-linecap="round"/><path d="M 1059,248 h 10 M 1064,243 v 10" stroke-width="0.9" stroke-linecap="round"/><path d="M 939.5,154 h 9.0 M 944,149.5 v 9.0" stroke-width="0.9" stroke-linecap="round"/>
+    <text x="1018" y="118" text-anchor="middle" fill="#22304C" stroke="none"
+          font-size="10" font-weight="700" letter-spacing="2">PUBLIC GOOD</text>
+  </g>
+
+  <!-- AGREEMENT (red) -->
+  <g stroke="#C8362B" fill="#C8362B">
+    <circle cx="470" cy="400" r="5.6"/>
+    <line x1="470" y1="406" x2="470" y2="422" stroke-width="0.85" fill="none"/>
+  </g>
+  <text x="470" y="438" text-anchor="middle" fill="#C8362B" font-size="8.5" font-weight="700" letter-spacing="1.8">AGREEMENT</text>
+
+</svg>

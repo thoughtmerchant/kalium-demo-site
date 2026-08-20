@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none"
+     role="img" aria-labelledby="t16 d16">
+  <title id="t16">Kalium — The double bind, plate 16</title>
+  <desc id="d16">System A holds capacity without a mandate; System B holds a mandate without capacity. The work and the means have been separated.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .serif { font-family: Times, "Times New Roman", serif; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#22304C" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrRed" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0.6,0.8 L8,4 L0.6,7.2" fill="none" stroke="#C8362B" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="28" y="28" width="1144" height="744" stroke="#22304C" stroke-width="1.05"/>
+  <rect x="35.5" y="35.5" width="1129" height="729" stroke="#22304C" stroke-width="0.45"/>
+
+  <text x="52" y="62" fill="#C8362B" font-size="11" font-weight="700" letter-spacing="2.4">FIG. 16</text>
+
+  <text x="600" y="66" text-anchor="middle" fill="#22304C" font-size="13" font-weight="700" letter-spacing="3.8">THE DOUBLE BIND</text>
+  <text x="52" y="748" fill="#22304C" font-size="15.5" class="serif" font-style="italic">The work and the means have been separated.</text>
+
+  <g stroke="#22304C" stroke-linecap="round" stroke-linejoin="round">
+    <!-- brackets -->
+    <path d="M 70,108 H 530" stroke-width="0.8"/>
+    <path d="M 70,108 v 8 M 530,108 v 8 M 300,100 v 8" stroke-width="0.8"/>
+    <text x="300" y="98" text-anchor="middle" fill="#22304C" stroke="none" font-size="8.4" font-weight="700" letter-spacing="1.8">CAPACITY WITHOUT MANDATE</text>
+    <path d="M 670,108 H 1130" stroke-width="0.8"/>
+    <path d="M 670,108 v 8 M 1130,108 v 8 M 900,100 v 8" stroke-width="0.8"/>
+    <text x="900" y="98" text-anchor="middle" fill="#22304C" stroke="none" font-size="8.4" font-weight="700" letter-spacing="1.8">MANDATE WITHOUT CAPACITY</text>
+
+    <!-- SYSTEM A -->
+    <rect x="70" y="128" width="460" height="268" rx="10" stroke-width="0.85" stroke-dasharray="3.2 3"/>
+    <text x="90" y="150" fill="#22304C" stroke="none" font-size="9" font-weight="700" letter-spacing="1.6">SYSTEM A</text>
+    <text x="90" y="164" fill="#8A93A6" stroke="none" font-size="7.2" letter-spacing="0.8">HIGH CAPACITY  /  ABSENT MANDATE</text>
+    <g>
+      <line x1="58" y1="200" x2="78" y2="200" stroke-width="0.9" marker-end="url(#arr)"/>
+      <line x1="58" y1="236" x2="78" y2="236" stroke-width="0.9" marker-end="url(#arr)"/>
+      <line x1="58" y1="272" x2="78" y2="272" stroke-width="0.9" marker-end="url(#arr)"/>
+      <line x1="58" y1="308" x2="78" y2="308" stroke-width="0.9" marker-end="url(#arr)"/>
+    </g>
+    <rect x="100" y="188" width="15" height="15" stroke-width="0.8"/>
+      <circle cx="107.5" cy="195.5" r="1.6" fill="#22304C" stroke="none"/>
+      <rect x="100" y="210" width="15" height="15" stroke-width="0.8"/>
+      <circle cx="107.5" cy="217.5" r="1.6" fill="#22304C" stroke="none"/>
+      <line x1="107.5" y1="203" x2="107.5" y2="210" stroke-width="0.6"/>
+      <rect x="100" y="232" width="15" height="15" stroke-width="0.8"/>
+      <circle cx="107.5" cy="239.5" r="1.6" fill="#22304C" stroke="none"/>
+      <line x1="107.5" y1="225" x2="107.5" y2="232" stroke-width="0.6"/>
+      <rect x="100" y="254" width="15" height="15" stroke-width="0.8"/>
+      <circle cx="107.5" cy="261.5" r="1.6" fill="#22304C" stroke="none"/>
+      <line x1="107.5" y1="247" x2="107.5" y2="254" stroke-width="0.6"/>
+      <rect x="100" y="276" width="15" height="15" stroke-width="0.8"/>
+      <circle cx="107.5" cy="283.5" r="1.6" fill="#22304C" stroke="none"/>
+      <line x1="107.5" y1="269" x2="107.5" y2="276" stroke-width="0.6"/>
+      <rect x="100" y="298" width="15" height="15" stroke-width="0.8"/>
+      <circle cx="107.5" cy="305.5" r="1.6" fill="#22304C" stroke="none"/>
+      <line x1="107.5" y1="291" x2="107.5" y2="298" stroke-width="0.6"/>
+    <circle cx="250" cy="268" r="46" stroke-width="1.05"/>
+      <circle cx="250" cy="268" r="34" stroke-width="0.6" opacity="0.8"/>
+      <circle cx="250" cy="268" r="22" stroke-width="0.7"/>
+      <circle cx="250" cy="268" r="10" stroke-width="0.7"/>
+      <circle cx="250" cy="268" r="3" fill="#22304C" stroke="none"/>
+      <line x1="280" y1="268" x2="284" y2="268" stroke-width="0.7"/>
+      <line x1="290.57" y1="278.87" x2="294.43" y2="279.91" stroke-width="0.7"/>
+      <line x1="275.98" y1="283" x2="279.44" y2="285" stroke-width="0.7"/>
+      <line x1="279.7" y1="297.7" x2="282.53" y2="300.53" stroke-width="0.7"/>
+      <line x1="265" y1="293.98" x2="267" y2="297.44" stroke-width="0.7"/>
+      <line x1="260.87" y1="308.57" x2="261.91" y2="312.43" stroke-width="0.7"/>
+      <line x1="250" y1="298" x2="250" y2="302" stroke-width="0.7"/>
+      <line x1="239.13" y1="308.57" x2="238.09" y2="312.43" stroke-width="0.7"/>
+      <line x1="235" y1="293.98" x2="233" y2="297.44" stroke-width="0.7"/>
+      <line x1="220.3" y1="297.7" x2="217.47" y2="300.53" stroke-width="0.7"/>
+      <line x1="224.02" y1="283" x2="220.56" y2="285" stroke-width="0.7"/>
+      <line x1="209.43" y1="278.87" x2="205.57" y2="279.91" stroke-width="0.7"/>
+      <line x1="220" y1="268" x2="216" y2="268" stroke-width="0.7"/>
+      <line x1="209.43" y1="257.13" x2="205.57" y2="256.09" stroke-width="0.7"/>
+      <line x1="224.02" y1="253" x2="220.56" y2="251" stroke-width="0.7"/>
+      <line x1="220.3" y1="238.3" x2="217.47" y2="235.47" stroke-width="0.7"/>
+      <line x1="235" y1="242.02" x2="233" y2="238.56" stroke-width="0.7"/>
+      <line x1="239.13" y1="227.43" x2="238.09" y2="223.57" stroke-width="0.7"/>
+      <line x1="250" y1="238" x2="250" y2="234" stroke-width="0.7"/>
+      <line x1="260.87" y1="227.43" x2="261.91" y2="223.57" stroke-width="0.7"/>
+      <line x1="265" y1="242.02" x2="267" y2="238.56" stroke-width="0.7"/>
+      <line x1="279.7" y1="238.3" x2="282.53" y2="235.47" stroke-width="0.7"/>
+      <line x1="275.98" y1="253" x2="279.44" y2="251" stroke-width="0.7"/>
+      <line x1="290.57" y1="257.13" x2="294.43" y2="256.09" stroke-width="0.7"/>
+      <line x1="250" y1="268" x2="272" y2="268" stroke-width="0.45" opacity="0.7"/>
+      <line x1="250" y1="268" x2="265.56" y2="283.56" stroke-width="0.45" opacity="0.7"/>
+      <line x1="250" y1="268" x2="250" y2="290" stroke-width="0.45" opacity="0.7"/>
+      <line x1="250" y1="268" x2="234.44" y2="283.56" stroke-width="0.45" opacity="0.7"/>
+      <line x1="250" y1="268" x2="228" y2="268" stroke-width="0.45" opacity="0.7"/>
+      <line x1="250" y1="268" x2="234.44" y2="252.44" stroke-width="0.45" opacity="0.7"/>
+      <line x1="250" y1="268" x2="250" y2="246" stroke-width="0.45" opacity="0.7"/>
+      <line x1="250" y1="268" x2="265.56" y2="252.44" stroke-width="0.45" opacity="0.7"/>
+    <rect x="360" y="198" width="54" height="12" stroke-width="0.7"/>
+      <text x="387" y="207.2" text-anchor="middle" fill="#22304C" stroke="none" font-size="8" letter-spacing="1.2">···</text>
+      <rect x="360" y="216" width="54" height="12" stroke-width="0.7"/>
+      <text x="387" y="225.2" text-anchor="middle" fill="#22304C" stroke="none" font-size="8" letter-spacing="1.2">···</text>
+      <rect x="360" y="234" width="54" height="12" stroke-width="0.7"/>
+      <text x="387" y="243.2" text-anchor="middle" fill="#22304C" stroke="none" font-size="8" letter-spacing="1.2">···</text>
+      <rect x="360" y="252" width="54" height="12" stroke-width="0.7"/>
+      <text x="387" y="261.2" text-anchor="middle" fill="#22304C" stroke="none" font-size="8" letter-spacing="1.2">···</text>
+      <rect x="360" y="270" width="54" height="12" stroke-width="0.7"/>
+      <text x="387" y="279.2" text-anchor="middle" fill="#22304C" stroke="none" font-size="8" letter-spacing="1.2">···</text>
+    <rect x="430" y="198" width="18" height="18" stroke-width="0.75"/>
+    <rect x="454" y="226" width="18" height="18" stroke-width="0.75"/>
+    <rect x="430" y="254" width="18" height="18" stroke-width="0.75"/>
+    <rect x="454" y="282" width="18" height="18" stroke-width="0.75"/>
+    <rect x="430" y="318" width="44" height="14" stroke-width="0.7"/>
+    <line x1="116" y1="268" x2="204" y2="268" stroke-width="0.6" opacity="0.7"/>
+    <line x1="296" y1="268" x2="360" y2="268" stroke-width="0.6" opacity="0.7"/>
+    <line x1="414" y1="204" x2="430" y2="207" stroke-width="0.55"/>
+    <line x1="414" y1="240" x2="454" y2="235" stroke-width="0.55"/>
+    <line x1="414" y1="276" x2="430" y2="263" stroke-width="0.55"/>
+    <line x1="414" y1="294" x2="454" y2="291" stroke-width="0.55"/>
+    <line x1="530" y1="268" x2="552" y2="268" stroke-width="1.05" marker-end="url(#arr)"/>
+
+    <!-- SYSTEM B -->
+    <rect x="670" y="128" width="460" height="200" rx="10" stroke-width="0.85" stroke-dasharray="3.2 3"/>
+    <text x="690" y="150" fill="#22304C" stroke="none" font-size="9" font-weight="700" letter-spacing="1.6">SYSTEM B</text>
+    <text x="690" y="164" fill="#8A93A6" stroke="none" font-size="7.2" letter-spacing="0.8">PUBLIC MANDATE  /  INADEQUATE CAPACITY</text>
+    <line x1="658" y1="210" x2="678" y2="210" stroke-width="0.9" marker-end="url(#arr)"/>
+    <line x1="658" y1="250" x2="678" y2="250" stroke-width="0.9" marker-end="url(#arr)"/>
+    <rect x="848" y="214" width="64" height="28" stroke-width="0.9"/>
+    <rect x="868" y="176" width="24" height="24" stroke-width="0.75"/>
+    <text x="880" y="192" text-anchor="middle" fill="#22304C" stroke="none" font-size="8">···</text>
+    <rect x="812" y="216" width="22" height="22" stroke-width="0.75"/>
+    <rect x="926" y="216" width="22" height="22" stroke-width="0.75"/>
+    <rect x="868" y="256" width="24" height="24" stroke-width="0.75"/>
+    <line x1="880" y1="200" x2="880" y2="214" stroke-width="0.7"/>
+    <line x1="834" y1="227" x2="848" y2="227" stroke-width="0.7"/>
+    <line x1="912" y1="227" x2="926" y2="227" stroke-width="0.7" stroke-dasharray="1.8 2"/>
+    <line x1="880" y1="242" x2="880" y2="256" stroke-width="0.7" stroke-dasharray="1.8 2"/>
+    <line x1="1130" y1="228" x2="1150" y2="228" stroke-width="1.05" marker-end="url(#arr)"/>
+
+    <!-- A indicator -->
+    <line x1="250" y1="396" x2="250" y2="448" stroke-width="0.55" stroke-dasharray="2 2.4"/>
+    <circle cx="250" cy="488" r="30" stroke-width="0.85" stroke-dasharray="2.2 2.4"/>
+      <line x1="250" y1="462" x2="250" y2="514" stroke-width="0.5" opacity="0.7"/>
+      <line x1="224" y1="488" x2="276" y2="488" stroke-width="0.5" opacity="0.7"/>
+      <text x="250" y="470" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">N</text>
+      <text x="271" y="491" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">E</text>
+      <text x="250" y="512" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">S</text>
+      <text x="229" y="491" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">W</text>
+    <text x="250" y="534" text-anchor="middle" fill="#22304C" stroke="none" font-size="7.2" font-weight="700" letter-spacing="1.1">MANDATE INDICATOR: ABSENT</text>
+
+    <!-- B gauges -->
+    
+      <circle cx="760" cy="468" r="22" stroke-width="0.8" stroke-dasharray="2.2 2.4"/>
+      <path d="M 744.96,462.53 A 16 16 0 0 1 775.04,462.53" stroke-width="0.7" opacity="0.7"/>
+      <line x1="760" y1="468" x2="747.88" y2="461" stroke-width="1.05"/>
+      <circle cx="760" cy="468" r="2.1" fill="#22304C" stroke="none"/>
+    
+      <circle cx="900" cy="468" r="22" stroke-width="0.8" stroke-dasharray="2.2 2.4"/>
+      <path d="M 884.96,462.53 A 16 16 0 0 1 915.04,462.53" stroke-width="0.7" opacity="0.7"/>
+      <line x1="900" y1="468" x2="886.84" y2="463.21" stroke-width="1.05"/>
+      <circle cx="900" cy="468" r="2.1" fill="#22304C" stroke="none"/>
+    
+      <circle cx="1040" cy="468" r="22" stroke-width="0.8" stroke-dasharray="2.2 2.4"/>
+      <path d="M 1024.96,462.53 A 16 16 0 0 1 1055.04,462.53" stroke-width="0.7" opacity="0.7"/>
+      <line x1="1040" y1="468" x2="1028.53" y2="459.97" stroke-width="1.05"/>
+      <circle cx="1040" cy="468" r="2.1" fill="#22304C" stroke="none"/>
+    <text x="760" y="504" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.6" font-weight="700" letter-spacing="0.6">TECHNICAL CAPACITY: INADEQUATE</text>
+    <text x="900" y="504" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.6" font-weight="700" letter-spacing="0.6">RESOURCES: INSUFFICIENT</text>
+    <text x="1040" y="504" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.6" font-weight="700" letter-spacing="0.6">SCALABILITY: LIMITED</text>
+    <line x1="900" y1="348" x2="900" y2="438" stroke-width="0.45" stroke-dasharray="2 2.4" opacity="0.7"/>
+    <line x1="900" y1="512" x2="900" y2="548" stroke-width="0.55" stroke-dasharray="2 2.4"/>
+    <circle cx="900" cy="588" r="32" stroke-width="0.85"/>
+      <line x1="900" y1="560" x2="900" y2="616" stroke-width="0.5" opacity="0.7"/>
+      <line x1="872" y1="588" x2="928" y2="588" stroke-width="0.5" opacity="0.7"/>
+      <text x="900" y="568" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">N</text>
+      <text x="923" y="591" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">E</text>
+      <text x="900" y="614" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">S</text>
+      <text x="877" y="591" text-anchor="middle" fill="#22304C" stroke="none" font-size="6.5">W</text>
+      <path d="M 900,572 L 905,598 L 900,594 L 895,598 Z" fill="#22304C" stroke="#22304C" stroke-width="0.4"/>
+    <text x="900" y="636" text-anchor="middle" fill="#22304C" stroke="none" font-size="7.2" font-weight="700" letter-spacing="1.1">MANDATE INDICATOR: PRESENT</text>
+  </g>
+
+  <!-- red break between systems -->
+  <g stroke="#C8362B" fill="none" stroke-linecap="round">
+    <line x1="556" y1="268" x2="586" y2="268" stroke-width="1.05" stroke-dasharray="3 3.2"/>
+    <line x1="638" y1="268" x2="666" y2="268" stroke-width="1.05" stroke-dasharray="3 3.2"/>
+    <g transform="translate(612 268) rotate(-28)">
+      <line x1="-4" y1="-11" x2="-4" y2="11" stroke-width="1.35"/>
+      <line x1="4" y1="-11" x2="4" y2="11" stroke-width="1.35"/>
+    </g>
+  </g>
+
+</svg>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium — Split-Flap</title>
+  <style>
+    :root {
+      --paper: #FAF9F7;
+      --ink: #22304C;
+      --muted: #8A93A6;
+      --hair: #C9CFD9;
+      --font: Arial, "Helvetica Neue", sans-serif;
+      --page-max: 1080px;
+      --pad-x: clamp(22px, 4.5vw, 48px);
+      --fs: min(15vw, 26vh);          /* letter size */
+      --h: calc(var(--fs) * 0.74);    /* cap-height box the flap machine works in */
+      --split: 0.42;                  /* hinge position: fraction of cap height from top (the mark's line) */
+      --gap: calc(var(--h) / 19);     /* THE EASTER EGG: the slit is capHeight/19 */
+      --cellw: calc(var(--fs) * 0.92);
+      --dur: 260ms;                   /* one full flap */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { height: 100%; }
+
+    body {
+      min-height: 100svh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 48px) var(--pad-x) 0;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* —— Chrome (full-bleed paper band) —— */
+    .form-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.55em;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--paper);
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: 14px max(var(--pad-x), calc(50vw - var(--page-max) / 2 + var(--pad-x))) 10px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-rule {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: var(--ink);
+      opacity: 0.85;
+      margin-top: 0.12em;
+    }
+
+    /* —— Stage —— */
+    .stage-wrap {
+      flex: 1;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      min-height: 0;
+    }
+
+    .stage { position: relative; text-align: center; }
+
+    /* the cap line escaping the mark: hairline runs page-wide at hinge height, stopping at the word */
+    .rule {
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--ink);
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .board {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .cell {
+      position: relative;
+      width: var(--cellw);
+      height: var(--h);
+      perspective: calc(var(--h) * 2.4);
+    }
+
+    .piece { position: absolute; left: 0; width: 100%; overflow: hidden; }
+
+    .piece .glyph {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: var(--h);
+      font-family: "Arial Black", "Arial Bold", Arial, "Helvetica Neue", sans-serif;
+      font-size: var(--fs);
+      line-height: var(--h);
+      font-weight: 900;
+      letter-spacing: 0;
+      text-align: center;
+      color: var(--ink);
+    }
+
+    /* top window: shows the band ABOVE the line */
+    .piece.topw { top: 0; height: calc(var(--h) * var(--split) - var(--gap) / 2); }
+    .piece.topw .glyph { top: 0; }
+    /* bottom window: the mass BELOW the line */
+    .piece.botw { top: calc(var(--h) * var(--split) + var(--gap) / 2); height: calc(var(--h) * (1 - var(--split)) - var(--gap) / 2); }
+    .piece.botw .glyph { top: calc(-1 * (var(--h) * var(--split) + var(--gap) / 2)); }
+
+    .flap { z-index: 2; backface-visibility: hidden; -webkit-backface-visibility: hidden; will-change: transform; }
+    .flap.topw { transform-origin: 50% calc(100% + var(--gap) / 2); }
+    .flap.botw { transform-origin: 50% calc(var(--gap) / -2); }
+
+    .caption {
+      margin-top: calc(var(--fs) * 0.34);
+      font-weight: 500;
+      font-size: clamp(11px, 1.4vw, 15px);
+      letter-spacing: 0.34em;
+      text-indent: 0.34em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: opacity 300ms ease;
+      min-height: 1.4em;
+    }
+
+    .form-foot {
+      position: relative;
+      z-index: 21;
+      margin-top: auto;
+      padding: 20px 0 28px;
+      border-top: 1px solid var(--hair);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-foot button {
+      appearance: none;
+      background: none;
+      border: 0;
+      padding: 0;
+      font-family: inherit;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .form-foot button:hover,
+    .form-foot button[aria-pressed="true"] {
+      color: var(--ink);
+    }
+
+    .foot-controls {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flap { display: none !important; }
+      .caption { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="form-head" aria-label="Document header">
+      <a class="brand" href="index.html">Kalium</a>
+      <span class="brand-rule" aria-hidden="true"></span>
+    </header>
+
+    <div class="rule" id="ruleL"></div>
+    <div class="rule" id="ruleR"></div>
+
+    <main class="stage-wrap" id="stageWrap" aria-label="Split-flap mark. Click or press Space to flip.">
+      <div class="stage">
+        <div class="board" id="board" role="img" aria-label="Kalium"></div>
+        <div class="caption" id="caption">An investment platform.</div>
+      </div>
+    </main>
+
+    <footer class="form-foot">
+      <span>Kalium · Demo</span>
+      <div class="foot-controls">
+        <button type="button" id="flipBtn">Flip</button>
+        <button type="button" id="soundBtn" aria-pressed="true">Sound</button>
+      </div>
+    </footer>
+  </div>
+
+<script>
+(function () {
+  var WORDS = [
+    { word: "KALIUM", caption: "An investment platform." },
+    { word: "BETTER", caption: "Choices. Companies. Futures." }
+  ];
+  var FLUTTER = "ABCDEFGHIKLMNOPRSTUV";
+  var board = document.getElementById("board");
+  var caption = document.getElementById("caption");
+  var stageWrap = document.getElementById("stageWrap");
+  var flipBtn = document.getElementById("flipBtn");
+  var soundBtn = document.getElementById("soundBtn");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var current = 0, busy = false, soundOn = true, audioCtx = null;
+
+  var N = WORDS[0].word.length;
+  var cells = [];
+  for (var i = 0; i < N; i++) {
+    var c = document.createElement("div");
+    c.className = "cell";
+    board.appendChild(c);
+    cells.push({ el: c, ch: WORDS[0].word[i] });
+    renderStatic(c, WORDS[0].word[i]);
+  }
+
+  positionRules();
+  window.addEventListener("resize", positionRules);
+  function positionRules() {
+    // hairline at hinge height, running from screen edges to the word's edges
+    var b = board.getBoundingClientRect();
+    var root = getComputedStyle(document.documentElement);
+    var h = b.height;
+    var split = parseFloat(root.getPropertyValue("--split"));
+    var y = b.top + h * split;
+    var pad = Math.round(h * 0.18);
+    var L = document.getElementById("ruleL"), R = document.getElementById("ruleR");
+    L.style.top = y + "px"; R.style.top = y + "px";
+    L.style.right = (window.innerWidth - b.left + pad) + "px"; L.style.left = "0px";
+    R.style.left = (b.right + pad) + "px"; R.style.right = "0px";
+  }
+
+  function piece(cls, ch) {
+    var p = document.createElement("div");
+    p.className = "piece " + cls;
+    var g = document.createElement("div");
+    g.className = "glyph";
+    g.textContent = ch;
+    p.appendChild(g);
+    return p;
+  }
+
+  function renderStatic(cellEl, ch) {
+    cellEl.innerHTML = "";
+    cellEl.appendChild(piece("topw", ch));
+    cellEl.appendChild(piece("botw", ch));
+  }
+
+  function clack() {
+    if (!soundOn || !audioCtx) return;
+    var t = audioCtx.currentTime;
+    var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+    o.type = "square"; o.frequency.value = 2400 + Math.random() * 800;
+    g.gain.setValueAtTime(0.028, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.018);
+    o.connect(g); g.connect(audioCtx.destination);
+    o.start(t); o.stop(t + 0.02);
+  }
+
+  // one mechanical flap: old -> next
+  function flapOnce(cell, next, dur) {
+    return new Promise(function (done) {
+      var el = cell.el, old = cell.ch;
+      if (reduced) { cell.ch = next; renderStatic(el, next); done(); return; }
+      renderStatic(el, old);
+      // static top already shows NEXT (revealed as old top folds away)
+      el.querySelector(".piece.topw .glyph").textContent = next;
+      var fTop = piece("topw flap", old);       // old top band, folds down
+      var fBot = piece("botw flap", next);      // new bottom mass, unfolds
+      fBot.style.transform = "rotateX(90deg)";
+      el.appendChild(fTop); el.appendChild(fBot);
+      clack();
+      var half = dur / 2;
+      var finished = false;
+      function finalize() {
+        if (finished) return;
+        finished = true;
+        cell.ch = next;
+        renderStatic(el, next);
+        done();
+      }
+      // safety net: never let a swallowed animation event wedge the board
+      setTimeout(finalize, dur * 2 + 400);
+      fTop.animate(
+        [{ transform: "rotateX(0deg)" }, { transform: "rotateX(-90deg)" }],
+        { duration: half, easing: "ease-in", fill: "forwards" }
+      ).onfinish = function () {
+        fTop.remove();
+        fBot.animate(
+          [{ transform: "rotateX(90deg)" }, { transform: "rotateX(-4deg)" }, { transform: "rotateX(0deg)" }],
+          { duration: half * 1.15, easing: "ease-out", fill: "forwards" }
+        ).onfinish = finalize;
+      };
+    });
+  }
+
+  // flip a cell through 0–3 flutter letters, then land on target
+  function flipCell(cell, target, flutters) {
+    var seq = [];
+    for (var i = 0; i < flutters; i++) seq.push(FLUTTER[Math.floor(Math.random() * FLUTTER.length)]);
+    seq.push(target);
+    var p = Promise.resolve();
+    seq.forEach(function (ch, idx) {
+      p = p.then(function () {
+        if (cell.ch === ch && idx < seq.length - 1) return;
+        var dur = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--dur")) || 260;
+        return flapOnce(cell, ch, dur);
+      });
+    });
+    return p;
+  }
+
+  function flipTo(idx) {
+    if (busy) return;
+    busy = true;
+    var target = WORDS[idx];
+    caption.style.opacity = 0;
+    var jobs = cells.map(function (cell, i) {
+      var flutters = reduced ? 0 : (cell.ch === target.word[i] ? 0 : 1 + Math.floor(Math.random() * 3));
+      return new Promise(function (res) {
+        setTimeout(function () { flipCell(cell, target.word[i], flutters).then(res); }, reduced ? 0 : i * 90);
+      });
+    });
+    Promise.all(jobs).then(function () {
+      caption.textContent = target.caption;
+      caption.style.opacity = 1;
+      board.setAttribute("aria-label", target.word);
+      busy = false;
+      positionRules();
+    });
+  }
+
+  function ensureAudio() {
+    if (!audioCtx) {
+      try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+    }
+  }
+
+  function toggle() {
+    ensureAudio();
+    current = (current + 1) % WORDS.length;
+    flipTo(current);
+  }
+
+  function setSound(on) {
+    soundOn = on;
+    soundBtn.setAttribute("aria-pressed", soundOn ? "true" : "false");
+    soundBtn.textContent = soundOn ? "Sound" : "Sound off";
+  }
+
+  stageWrap.addEventListener("click", toggle);
+  flipBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    toggle();
+  });
+  soundBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    ensureAudio();
+    setSound(!soundOn);
+  });
+  window.addEventListener("keydown", function (e) {
+    if (e.code === "Space") {
+      if (e.target === soundBtn) return;
+      e.preventDefault();
+      toggle();
+    }
+    if (e.key === "m" || e.key === "M") {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+      ensureAudio();
+      setSound(!soundOn);
+    }
+  });
+  if (!reduced && new URLSearchParams(location.search).get("auto") === "1") {
+    setInterval(function () { toggle(); }, 3200);
+  }
+})();
+</script>
+</body>
+</html>
