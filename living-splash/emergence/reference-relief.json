@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "binary": "reference-relief.bin",
+  "texture": "reference.png",
+  "attributes": {
+    "position": {
+      "byteOffset": 0,
+      "length": 1556025,
+      "itemSize": 3,
+      "type": "float32"
+    },
+    "uv": {
+      "byteOffset": 6224100,
+      "length": 1037350,
+      "itemSize": 2,
+      "type": "uint16",
+      "normalized": true
+    },
+    "aFlex": {
+      "byteOffset": 8298800,
+      "length": 518675,
+      "itemSize": 1,
+      "type": "uint16",
+      "normalized": true
+    },
+    "aPhase": {
+      "byteOffset": 9336152,
+      "length": 518675,
+      "itemSize": 1,
+      "type": "uint16",
+      "normalized": true,
+      "scale": 20.0
+    },
+    "index": {
+      "byteOffset": 10373504,
+      "length": 2855184,
+      "itemSize": 1,
+      "type": "uint32"
+    }
+  },
+  "stats": {
+    "name": "Emergence \u00b7 source-derived botanical relief",
+    "kind": "source-textured 3D relief",
+    "vertices": 518675,
+    "triangles": 951728,
+    "foregroundPixels": 475864,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "bounds": {
+      "min": [
+        -5.515625,
+        -3.3515625,
+        -0.21479596197605133
+      ],
+      "max": [
+        5.8125,
+        3.7265625,
+        0.8354370594024658
+      ]
+    },
+    "sourceSHA256": "72a632f567de802eadf36252419af8baedb6d360433e533c69a2435d5338ebb0",
+    "recommendedOrbitDegrees": 8,
+    "depthMethod": "Smooth hand-shaped organic masses plus broad mask-density modulation. No brightness-to-depth displacement.",
+    "limitation": "A photo-faithful 3D relief for small-angle interaction; not a complete 360-degree botanical model."
+  }
+}
