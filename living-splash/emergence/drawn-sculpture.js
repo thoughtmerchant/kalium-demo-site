@@ -24,7 +24,7 @@ export async function createDrawnSculpture(baseUrl = './') {
   const indices = new Uint16Array(positions.count * 4);
   const weights = new Float32Array(positions.count * 4);
   const strengths = new Float32Array(positions.count);
-  const owners = new Int8Array(positions.count);
+  const owners = new Int16Array(positions.count);
   geometry.setAttribute('skinIndex', new THREE.BufferAttribute(indices, 4));
   geometry.setAttribute('skinWeight', new THREE.BufferAttribute(weights, 4));
   const selectionSurface = createSelectionSurface(mesh);

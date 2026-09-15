@@ -2,6 +2,7 @@ import { sanitizeMask } from './paint-mask.js';
 /** Pure world-space math for a 12 × 8 image and small drawn tendril rigs. */
 const EPSILON = 1e-6;
 const MAX_POINTS = 12;
+export const MAX_RIGS = 128;
 const clamp = (value, low, high) => Math.min(high, Math.max(low, value));
 const finite = (value, fallback) => Number.isFinite(value) ? value : fallback;
 const smoothstep = value => { const t = clamp(value, 0, 1); return t * t * (3 - 2 * t); };
@@ -58,9 +59,9 @@ export function resampleStroke(input, maxPoints = 10) {
 /** Strict persisted shape: {id,name,points,radius,motion,speed}; motion is percent. */
 export function sanitizeRigs(input) {
   if (!Array.isArray(input)) return [];
+  if (input.length > MAX_RIGS) throw new Error(`A setup can contain up to ${MAX_RIGS} tendrils.`);
   const result = [], ids = new Set();
   for (const source of input) {
-    if (result.length >= 8) break;
     if (!source || typeof source !== 'object' || Array.isArray(source)) continue;
     let points = cleanPoints(source.points, true);
     if (points.length > MAX_POINTS) points = resampleStroke(points, MAX_POINTS);
