@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdfdfd">
+  <title>Style guide — Kalium</title>
+  <meta name="description" content="Kalium's working style guide: wordmark, typography, colors, graphic elements, citations and imagery.">
+  <link rel="preload" href="../assets/fonts/glass-meridian-light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/mr-science-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../citations.css">
+  <link rel="stylesheet" href="./guide.css">
+  <script src="../citations.js" defer></script>
+  <script src="./guide.js" defer></script>
+</head>
+<body>
+  <a class="skip-guide" href="#guide-content">Skip to the style guide</a>
+  <main class="page guide" id="top">
+    <header class="header"><a class="wordmark" href="../" aria-label="Kalium homepage">KALIUM</a><p class="motto">Better choices, companies, futures as an investment platform.</p></header>
+    <div class="guide-title"><div><p class="guide-label">Brand reference / Working edition</p><h1>Style guide</h1></div><p>Identity, language and detail.<br>September 2026</p></div>
+    <nav class="guide-nav" aria-label="Style guide sections"><a href="#identity">Identity</a><a href="#typography">Typography</a><a href="#colors">Colors</a><a href="#graphic-elements">Graphic elements</a><a href="#citations">Citations</a><a href="#imagery">Imagery &amp; motion</a></nav>
+    <div id="guide-content">
+      <section class="guide-section" id="identity" aria-labelledby="identity-title">
+        <p class="guide-label">01 / Identity</p><h2 id="identity-title">The wordmark</h2>
+        <p class="section-intro">The current wordmark is set in Glass Meridian Light, with open letter spacing. The dark version below is a proposed alternate for review.</p>
+        <div class="logo-pair"><div><div class="logo-board"><span class="wordmark">KALIUM</span></div><p class="guide-caption">Current / Ink on paper</p></div><div><div class="logo-board inverse"><span class="wordmark">KALIUM</span></div><p class="guide-caption">Proposed / Paper on ink</p></div></div>
+        <div class="guide-placeholder"><div><h3>Logo master &amp; symbol</h3><p>Final vector artwork, alternate lockups and clear-space rules to be supplied.</p></div><span class="placeholder-label">Placeholder</span></div>
+      </section>
+      <section class="guide-section" id="typography" aria-labelledby="typography-title">
+        <p class="guide-label">02 / Typography</p><h2 id="typography-title">Two voices, four cuts</h2>
+        <div class="type-specimens">
+          <div class="type-sample glass-light"><h3>Glass Meridian Grotesque · Light</h3><p class="specimen">Better choices,<br>companies, futures.</p><p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; @ % ? !</p><p class="guide-caption">Current use / Body copy, page titles and wordmark</p></div>
+          <div class="type-sample glass-regular"><h3>Glass Meridian Grotesque · Regular</h3><p class="specimen">Public goods,<br>by design.</p><p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; @ % ? !</p><p class="guide-caption">Available / Labels and emphasis</p></div>
+          <div class="type-sample science-regular"><h3>Mr Science · Regular</h3><p class="specimen">PUBLIC GOODS<br>AT FORMATION</p><p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; @ % ? !</p><p class="guide-caption">Current use / Section headings and motto<br>Supplied font identifies as Helix Nocturne Roman.</p></div>
+          <div class="type-sample science-light"><h3>Mr Science · Light</h3><p class="specimen">A different<br>kind of return.</p><p class="alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; @ % ? !</p><p class="guide-caption">Available / Alternate display treatment</p></div>
+        </div>
+        <div class="type-lab"><h3>Try the type</h3><div class="type-controls"><label for="typeface">Typeface<select id="typeface"><option value="glass-light">Glass Meridian · Light</option><option value="glass-regular">Glass Meridian · Regular</option><option value="science-regular">Mr Science · Regular</option><option value="science-light">Mr Science · Light</option></select></label><label for="type-size">Size <output id="type-size-value" for="type-size">38 px</output><input id="type-size" type="range" min="18" max="72" value="38"></label></div><label class="sample-entry" for="sample-text">Sample text<input id="sample-text" type="text" maxlength="200" value="Better choices, companies, futures."></label><div id="live-type" class="live-specimen glass-light">Better choices, companies, futures.</div></div>
+      </section>
+      <section class="guide-section" id="colors" aria-labelledby="colors-title">
+        <p class="guide-label">03 / Color</p><h2 id="colors-title">The current palette</h2><p class="section-intro">Drawn from the homepage and white paper. Paper and ink lead; green and indigo are used for small accents.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-color" style="background:#fdfdfd"></div><h3>Paper</h3><p>Page background</p><button class="copy-color" type="button" data-color="#FDFDFD" aria-label="Copy Paper color #FDFDFD">#FDFDFD</button></div>
+          <div class="swatch"><div class="swatch-color" style="background:#121313"></div><h3>Ink</h3><p>Wordmark &amp; headings</p><button class="copy-color" type="button" data-color="#121313" aria-label="Copy Ink color #121313">#121313</button></div>
+          <div class="swatch"><div class="swatch-color" style="background:#494b49"></div><h3>Graphite</h3><p>Body text</p><button class="copy-color" type="button" data-color="#494B49" aria-label="Copy Graphite color #494B49">#494B49</button></div>
+          <div class="swatch"><div class="swatch-color" style="background:#455d42"></div><h3>Botanical</h3><p>Links &amp; interaction</p><button class="copy-color" type="button" data-color="#455D42" aria-label="Copy Botanical color #455D42">#455D42</button></div>
+          <div class="swatch"><div class="swatch-color" style="background:#22304c"></div><h3>Indigo</h3><p>Editorial emphasis</p><button class="copy-color" type="button" data-color="#22304C" aria-label="Copy Indigo color #22304C">#22304C</button></div>
+          <div class="swatch"><div class="swatch-color" style="background:#d9ddd5"></div><h3>Fine rule</h3><p>Dividers · not text</p><button class="copy-color" type="button" data-color="#D9DDD5" aria-label="Copy Fine rule color #D9DDD5">#D9DDD5</button></div>
+        </div><p class="copy-status" id="color-status" role="status" aria-live="polite">Select a hex value to copy it.</p>
+        <div class="guide-placeholder"><div><h3>Extended palette</h3><p>Secondary colors and print specifications to be defined.</p></div><span class="placeholder-label">Placeholder</span></div>
+      </section>
+      <section class="guide-section" id="graphic-elements" aria-labelledby="elements-title">
+        <p class="guide-label">04 / Graphic elements</p><h2 id="elements-title">Small, deliberate gestures</h2>
+        <div class="asset-grid">
+          <div><div class="asset-sample"><img class="asset-arrow" src="../assets/arrow.svg" alt="Thin horizontal arrow"></div><h3>Directional arrow</h3><p class="guide-caption">Navigation and calls to action.</p><a href="../assets/arrow.svg" download>Download SVG</a></div>
+          <div><div class="asset-sample"><img class="asset-end" src="../assets/end-mark.svg" alt="Descending lines ending in a diamond"></div><h3>End mark</h3><p class="guide-caption">Section endings and citation markers.</p><a href="../assets/end-mark.svg" download>Download SVG</a></div>
+          <div><div class="asset-sample"><img class="asset-margin" src="../assets/margin-mark.svg" alt="Geometric vertical margin ornament"></div><h3>Margin ornament</h3><p class="guide-caption">A quiet frame around editorial content.</p><a href="../assets/margin-mark.svg" download>Download SVG</a></div>
+        </div>
+      </section>
+      <section class="guide-section" id="citations" aria-labelledby="citations-title">
+        <p class="guide-label">05 / Citations</p><h2 id="citations-title">Sources beside the thought</h2><p class="section-intro">The end mark and a number open a source note beside the passage. On a small screen, the note sits below it. Select the marker to try it.</p>
+        <div class="guide-citation-demo"><div class="citation-row"><p>Public goods at the point of formation.<a class="citation-ref" id="guide-citation-ref" href="#guide-citation-one" aria-label="Example citation 1" aria-controls="guide-citation-one"><img src="../assets/end-mark.svg" width="13" height="20" alt=""><span>1</span></a></p><div class="citation-notes"><aside class="citation-note" id="guide-citation-one" aria-label="Example citation"><p class="citation-label">01 / Example format</p><h3 class="citation-title">Author, Publication title</h3><p class="citation-pending">Year · Page or section<br>Source URL<br>Illustrative placeholder.</p><button class="citation-close" type="button">Close note</button></aside></div></div></div>
+        <p class="guide-caption"><a href="../dynamic-equity/#settlement">See citations in the white paper</a></p>
+      </section>
+      <section class="guide-section" id="imagery" aria-labelledby="imagery-title">
+        <p class="guide-label">06 / Imagery &amp; motion</p><h2 id="imagery-title">Complexity, quietly alive</h2>
+        <div class="guide-illustration"><figure><img src="../emergence/reference.png" width="1536" height="1024" loading="lazy" alt="An intricate botanical sculpture with dark green tendrils and a small red flower."><figcaption class="guide-caption">Emergence / Current homepage illustration</figcaption></figure><div><p>Dark botanical greens, fine natural detail and a single red flower.</p><p>The composition stays anchored. Selected tendrils respond to the pointer with slow, flexible movement.</p><a href="../">View the living illustration</a></div></div>
+        <div class="guide-placeholder"><div><h3>Additional imagery</h3><p>Photography, alternate illustrations and image-use guidance to be supplied.</p></div><span class="placeholder-label">Placeholder</span></div>
+      </section>
+    </div>
+    <footer class="guide-footer"><a href="../">Back to Kalium</a><a href="../dynamic-equity/">Read the white paper</a><a href="#top">Back to top ↑</a></footer>
+  </main>
+</body>
+</html>

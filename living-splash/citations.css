@@ -1,0 +1,19 @@
+.citation-row{position:relative;margin-bottom:24px;display:grid;grid-template-columns:minmax(0,1fr)}
+.paper-content .citation-row>p{margin:0}
+.citation-ref{display:inline-flex;align-items:center;gap:3px;vertical-align:middle;min-width:32px;min-height:30px;margin:0 2px;padding:2px 5px;color:#52644b;text-decoration:none;border-radius:2px;scroll-margin-top:32px}
+.citation-ref img{display:block;width:13px;height:20px;object-fit:contain}
+.citation-ref span{font-size:12px;font-weight:400;line-height:1}
+.citation-ref:hover,.citation-ref[aria-expanded="true"]{background:#edf1e9;color:#263b24}
+.citation-ref:focus-visible,.citation-close:focus-visible{outline:1px solid #597253;outline-offset:3px}
+.citation-notes{display:grid;align-content:start;gap:18px;margin-top:16px}
+.citation-note{border-left:1px solid #c8d0c1;padding-left:16px;scroll-margin-top:32px;font-size:14px;line-height:1.5;color:#62695e;overflow-wrap:anywhere}
+.citation-note:target{border-left-color:#455d42}
+.citation-note .citation-label{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#52644b;margin:0 0 8px}
+.citation-note .citation-title{font:400 14px/1.4 'Glass Meridian',Arial,sans-serif;color:#292e29;margin:0 0 8px}
+.citation-note .citation-pending{font-size:14px;margin:0}
+.citation-close{font:inherit;color:#52644b;text-underline-offset:4px;background:none;border:0;padding:8px 0;cursor:pointer;text-decoration:underline;display:none}
+.citations-ready .citation-close{display:inline-block}
+.citation-notes:has(.citation-note):not(:has(.citation-note:not([hidden]))){display:none}
+.citation-status{font-size:12px;line-height:1.5;color:#62695e;margin-top:14px}
+@media(min-width:1180px){.paper .citation-row{grid-template-columns:minmax(0,630px) 150px;gap:25px;margin-right:-175px}.paper .citation-notes{margin-top:0}}
+@media(pointer:coarse){.citation-ref{min-width:44px;min-height:44px}.citation-close{min-height:44px}}
