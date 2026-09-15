@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../citations.css">
   <link rel="stylesheet" href="./guide.css">
-  <script src="../citations.js" defer></script>
   <script src="./guide.js" defer></script>
 </head>
 <body>
@@ -53,13 +52,13 @@
         <p class="guide-label">04 / Graphic elements</p><h2 id="elements-title">Small, deliberate gestures</h2>
         <div class="asset-grid">
           <div><div class="asset-sample"><img class="asset-arrow" src="../assets/arrow.svg" alt="Thin horizontal arrow"></div><h3>Directional arrow</h3><p class="guide-caption">Navigation and calls to action.</p><a href="../assets/arrow.svg" download>Download SVG</a></div>
-          <div><div class="asset-sample"><img class="asset-end" src="../assets/end-mark.svg" alt="Descending lines ending in a diamond"></div><h3>End mark</h3><p class="guide-caption">Section endings and citation markers.</p><a href="../assets/end-mark.svg" download>Download SVG</a></div>
+          <div><div class="asset-sample"><img class="asset-end" src="../assets/end-mark.svg" alt="Descending lines ending in a diamond"></div><h3>End mark</h3><p class="guide-caption">Section endings.</p><a href="../assets/end-mark.svg" download>Download SVG</a></div>
           <div><div class="asset-sample"><img class="asset-margin" src="../assets/margin-mark.svg" alt="Geometric vertical margin ornament"></div><h3>Margin ornament</h3><p class="guide-caption">A quiet frame around editorial content.</p><a href="../assets/margin-mark.svg" download>Download SVG</a></div>
         </div>
       </section>
       <section class="guide-section" id="citations" aria-labelledby="citations-title">
-        <p class="guide-label">05 / Citations</p><h2 id="citations-title">Sources beside the thought</h2><p class="section-intro">The end mark and a number open a source note beside the passage. On a small screen, the note sits below it. Select the marker to try it.</p>
-        <div class="guide-citation-demo"><div class="citation-row"><p>Public goods at the point of formation.<a class="citation-ref" id="guide-citation-ref" href="#guide-citation-one" aria-label="Example citation 1" aria-controls="guide-citation-one"><img src="../assets/end-mark.svg" width="13" height="20" alt=""><span>1</span></a></p><div class="citation-notes"><aside class="citation-note" id="guide-citation-one" aria-label="Example citation"><p class="citation-label">01 / Example format</p><h3 class="citation-title">Author, Publication title</h3><p class="citation-pending">Year · Page or section<br>Source URL<br>Illustrative placeholder.</p><button class="citation-close" type="button">Close note</button></aside></div></div></div>
+        <p class="guide-label">05 / Citations</p><h2 id="citations-title">Numbered references</h2><p class="section-intro">A small raised number links to its citation at the bottom of the page. Sources are set in small text.</p>
+        <div class="guide-citation-demo"><p>Public goods at the point of formation.<a class="citation-ref" id="guide-citation-ref" href="#guide-citation-one" role="doc-noteref" aria-label="Example citation 1">1</a></p></div>
         <p class="guide-caption"><a href="../dynamic-equity/#settlement">See citations in the white paper</a></p>
       </section>
       <section class="guide-section" id="imagery" aria-labelledby="imagery-title">
@@ -68,6 +67,7 @@
         <div class="guide-placeholder"><div><h3>Additional imagery</h3><p>Photography, alternate illustrations and image-use guidance to be supplied.</p></div><span class="placeholder-label">Placeholder</span></div>
       </section>
     </div>
+    <section class="references" role="doc-endnotes" aria-labelledby="guide-references-title"><h2 id="guide-references-title">Citations</h2><ol><li id="guide-citation-one">Author, <em>Publication title</em>, year, page. Source URL. <span class="source-pending">Illustrative placeholder.</span> <a class="citation-back" href="#guide-citation-ref" role="doc-backlink" aria-label="Return to example citation">↩</a></li></ol></section>
     <footer class="guide-footer"><a href="../">Back to Kalium</a><a href="../dynamic-equity/">Read the white paper</a><a href="#top">Back to top ↑</a></footer>
   </main>
 </body>
