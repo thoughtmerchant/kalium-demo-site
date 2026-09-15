@@ -5,3 +5,7 @@
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 
 .paper-footer-links{flex-wrap:wrap}.paper-footer .back-top{font-size:14px}
+
+.result-illustration{position:relative;width:min(100%,460px);aspect-ratio:4/3;margin:0 auto 32px;overflow:hidden;mix-blend-mode:multiply}
+/* Center the artwork bounds within the supplied image's uneven white margins. */
+.result-illustration img{position:absolute;left:50%;top:50%;width:174.5%;height:auto;max-width:none;transform:translate(-48.8539%,-46.7405%)}
