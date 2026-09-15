@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M360 0H0V360H360V0Z" fill="white"/>
+<g id="Group_2">
+<path id="Vector_2" d="M180 72C208.643 72 236.114 83.3785 256.368 103.632C276.621 123.886 288 151.357 288 180" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" opacity="0.55" d="M72 180C72 151.357 83.3785 123.886 103.632 103.632C123.886 83.3785 151.357 72 180 72" stroke="#111111" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" opacity="0.55" d="M180 288C151.357 288 123.886 276.621 103.632 256.368C83.3785 236.114 72 208.643 72 180" stroke="#111111" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M216.77 216.77C226.521 207.018 232 193.791 232 180C232 166.209 226.521 152.982 216.77 143.23C207.018 133.479 193.791 128 180 128C166.209 128 152.982 133.479 143.23 143.23C133.479 152.982 128 166.209 128 180C128 193.791 133.479 207.018 143.23 216.77C152.982 226.521 166.209 232 180 232C193.791 232 207.018 226.521 216.77 216.77Z" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M180 186C183.314 186 186 183.314 186 180C186 176.686 183.314 174 180 174C176.686 174 174 176.686 174 180C174 183.314 176.686 186 180 186Z" fill="#111111"/>
+<path id="Vector_7" opacity="0.35" d="M48 180H312M180 48V312" stroke="#111111" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+</g>
+</g>
+</svg>
