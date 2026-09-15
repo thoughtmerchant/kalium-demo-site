@@ -1,4 +1,4 @@
-.citation-ref,.paper .citation-ref{font-size:12px;line-height:0;vertical-align:super;font-weight:400;margin-left:2px;padding:2px;color:#52644b;text-decoration:none;scroll-margin-top:40px}
+.citation-ref,.paper .citation-ref{font-size:10px;line-height:0;vertical-align:super;font-weight:400;margin-left:2px;padding:2px;color:#52644b;text-decoration:none;scroll-margin-top:40px}
 .citation-ref:hover{text-decoration:underline}
 .citation-ref:focus-visible,.citation-back:focus-visible{outline:1px solid #597253;outline-offset:3px}
 .references{max-width:630px;margin:50px auto 60px;padding-top:24px;border-top:1px solid #d9ddd5;color:#62695e;font-size:13px;line-height:1.6}
