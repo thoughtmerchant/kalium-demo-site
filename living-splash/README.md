@@ -1,11 +1,9 @@
-# Kalium client preview
+# Kalium client site
 
-The current Kalium homepage, Dynamic Equity white paper, and brand style guide.
+Kalium homepage, Dynamic Equity white paper, and style guide.
 
-The homepage uses a transparent botanical illustration with a sequential entrance and a short fade before internal navigation. Contact: caroline@kalium.co. The style guide includes downloadable logos, botanical assets, and supplied fonts. The white paper includes diagrams and the supplied citations.
+The style guide includes downloadable logos, fonts, botanical artwork, and a 37-slide brand strategy with a downloadable PDF. Exported strategy headlines use sentence case and the original brand fonts.
 
-Published at https://thoughtmerchant.github.io/kalium-demo-site/living-splash/.
+Contact: caroline@kalium.co
 
-This is the static GitHub Pages edition of the Kalium project. Build with `npm run build:pages` in that project, then update this directory with the generated `pages/` output. The editor and server endpoints are not part of this client preview.
-
-Source snapshot: 7645cb3993399b3e32d86d9673184a95fedaa9b0.
+Publish from the Kalium source project using scripts/build-pages.mjs, then copy pages/ into this living-splash/ folder. Keep the surrounding repository intact.
