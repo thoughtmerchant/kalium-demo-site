@@ -10,3 +10,11 @@ a.arrow-link{text-decoration:none}
 .home-page>.header>.wordmark{flex-shrink:0}.home-page>.header>.motto{flex:1 1 auto;min-width:0;max-width:none;white-space:normal;text-align:right}
 
 .editorial-label{font-family:'Glass Meridian',Arial,sans-serif;font-weight:300;font-size:20px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:var(--color-editorial-red);text-align:center}
+
+/* Keep the two resource links reachable at the bottom of every main page. */
+body:has(.viewport-footer){padding-bottom:70px}
+html:has(.viewport-footer){scroll-padding-bottom:80px}
+.viewport-footer{position:fixed;z-index:20;left:0;right:0;bottom:0;margin:0;padding:10px max(28px,calc((100vw - 980px)/2)) max(10px,env(safe-area-inset-bottom));min-height:48px;gap:24px;border:0;background:#fdfdfd;font-size:12px;line-height:1.5;flex-wrap:nowrap}
+.viewport-footer a{display:inline-flex;align-items:center;min-height:28px;white-space:nowrap}
+body:has(.home-page)>.viewport-footer{padding-left:max(7%,calc((100vw - 1440px)/2 + 125.6px))}
+@media(max-width:720px){.viewport-footer{padding-left:28px;padding-right:28px;min-height:54px}.viewport-footer a{min-height:34px}}
