@@ -106,6 +106,11 @@ window.addEventListener('scroll', layout, { passive: true });
 window.addEventListener('pagehide', finish);
 document.addEventListener('visibilitychange', () => { previous = undefined; });
 resize();
-// Warm the frames without starting a visit or interrupting the homepage entrance.
-if ('requestIdleCallback' in window) requestIdleCallback(() => { ready().catch(() => {}); }, { timeout: 2000 });
-else setTimeout(() => { ready().catch(() => {}); }, 1000);
+// Preparing the wing/head frames is expensive on phones; leave the entrance clear.
+function warmFrames() {
+  if ('requestIdleCallback' in window) requestIdleCallback(() => { ready().catch(() => {}); }, { timeout: 2000 });
+  else setTimeout(() => { ready().catch(() => {}); }, 1000);
+}
+if (document.documentElement.matches('.home-intro-pending,.home-intro-playing')) {
+  window.addEventListener('kalium:intro-complete', warmFrames, { once: true });
+} else warmFrames();

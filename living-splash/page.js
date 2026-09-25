@@ -5,6 +5,16 @@ if (home) {
   let leaving = false;
   let restored = false;
   let departure;
+  let introComplete = false;
+  function finishIntro() {
+    root.classList.remove('home-intro-pending', 'home-intro-playing');
+    if (introComplete) return;
+    introComplete = true;
+    window.dispatchEvent(new Event('kalium:intro-complete'));
+  }
+  home.querySelector('.home-details').addEventListener('animationend', event => {
+    if (event.animationName === 'home-copy-focus-in') finishIntro();
+  });
 
   // Reveal only after the artwork and fonts are ready, never while leaving.
   const image = home.querySelector('.botanical-image');
@@ -12,10 +22,12 @@ if (home) {
     Promise.allSettled([image.decode(), document.fonts.ready]),
     new Promise(resolve => setTimeout(resolve, 4000))
   ]).then(() => {
-    root.classList.remove('home-intro-pending');
-    if (leaving || restored) return;
+    if (leaving || restored || reducedMotion.matches) { finishIntro(); return; }
+    // Switch states together, preserving opacity until the first animation frame.
     root.classList.add('home-intro-playing');
-    setTimeout(() => root.classList.remove('home-intro-playing'), 3300);
+    root.classList.remove('home-intro-pending');
+    // Fallback for browsers that suppress animationend in background tabs.
+    setTimeout(finishIntro, 6000);
   });
 
   home.addEventListener('click', event => {
@@ -44,6 +56,6 @@ if (home) {
     restored = true;
     leaving = false;
     departure?.cancel();
-    root.classList.remove('home-intro-pending', 'home-intro-playing');
+    finishIntro();
   });
 }

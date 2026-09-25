@@ -7,7 +7,9 @@
 .references li{padding:3px 0 3px 4px;margin-bottom:9px;scroll-margin-top:40px;overflow-wrap:anywhere}
 .references li:target{background:#edf1e9}
 .references .references-status{font-size:13px;line-height:1.6;margin:0 0 16px;color:#62695e}
-.citation-back{font-size:13px;white-space:nowrap;color:#52644b;text-decoration:none;padding:3px}
-.citation-back:hover{text-decoration:underline}
+.citation-back{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:32px;vertical-align:middle;white-space:nowrap;color:#52644b;text-decoration:none;padding:4px;margin-left:2px;line-height:1}
+.citation-back img{display:block;width:28px;height:20px;max-width:none;flex:none}
+.citation-back:hover{opacity:.7}
+@media(pointer:coarse){.citation-back{min-width:44px;min-height:44px}}
 .guide .references{max-width:none}
 .guide .guide-citation-demo p{margin:0}
