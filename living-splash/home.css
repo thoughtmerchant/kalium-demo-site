@@ -4,6 +4,13 @@
 .home-page>.header>.wordmark{font-size:clamp(20.377px,2.1934vw,31.6px);letter-spacing:.22em;line-height:1.2}
 .home-page>.sculpture{flex:1;min-height:320px;width:94.3%;margin:0 3.87% 0 1.83%;position:relative}
 .home-page .botanical-image{position:absolute;top:0;left:50%;transform:translateX(-50%);display:block;width:100%;max-width:860px;height:100%;object-fit:contain}
+.home-page>.sculpture,.home-page .botanical-image{outline:none;border:0;box-shadow:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.home-page .botanical-image{-webkit-user-drag:none;pointer-events:none}
+.flower-invite{appearance:none;-webkit-appearance:none;position:absolute;z-index:3;width:48px;height:48px;transform:translate(-50%,-50%);padding:0;margin:0;border:0;border-radius:50%;outline:none;box-shadow:none;background:transparent;cursor:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.flower-invite:hover,.flower-invite:active,.flower-invite:focus,.flower-invite:focus-visible{background:transparent;border:0;outline:none;box-shadow:none}
+.flower-invite:focus-visible::after{content:'Invite hummingbird';position:absolute;top:100%;left:50%;transform:translateX(-50%);font:300 12px/1.4 'Glass Meridian',sans-serif;color:#455d42;white-space:nowrap}
+.hummingbird-flight{position:fixed;inset:0;z-index:4;width:100%;height:100%;display:block;pointer-events:none;outline:none;border:0;box-shadow:none}
+.flower-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .home-details{display:grid;grid-template-columns:minmax(0,439fr) minmax(0,342fr);column-gap:calc(var(--home-unit)*3.33);row-gap:0;margin:16px 3.87% 0 8.72%;align-items:start;position:relative;flex-shrink:0}
 .home-page .statement{grid-column:1;grid-row:1;font-size:clamp(12px,1.2918vw,18.6px);line-height:1.5;letter-spacing:.05em}
 .home-page .statement p{margin:0 0 1.2em}

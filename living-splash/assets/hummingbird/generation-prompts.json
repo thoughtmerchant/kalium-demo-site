@@ -1,0 +1,22 @@
+{
+  "tool": "Built-in image generation",
+  "reference": "Approved three-quarter hummingbird concept",
+  "frames": [
+    {
+      "file": "wing-up.png",
+      "note": "Approved reference pose"
+    },
+    {
+      "file": "wing-middle.png",
+      "prompt": "Edit the attached hummingbird into the NEXT ANIMATION KEYFRAME. This is a registered sprite sequence, not a new composition. Preserve the exact canvas dimensions and transparency, camera, scale, body position, head angle, beak position and endpoints, eye, tail position, tucked feet, body silhouette, feather colors, lighting, and three-quarter back view facing RIGHT. Keep the green back visible and the eye small; do not rotate or move the bird. Change ONLY the TWO WINGS, bending from the same shoulder attachment points. WING POSE: middle of the DOWNSTROKE, near wing extended almost HORIZONTALLY to the LEFT from its shoulder, feather tips reaching left and very slightly down. The far wing is foreshortened and partly hidden behind the body, a narrower sweep toward upper-left. Wings should be clearly lower than the high raised wings in the reference. Anatomically natural rapid hummingbird hover with a little translucent motion softness at feather tips, detailed feather structure near shoulders. Do not change or regenerate the body, head, beak or tail. Keep the same bird identity. ONE full bird only, on a truly transparent alpha background. No flower, text, labels, borders, motion lines, extra limbs or duplicate poses. Beak endpoint, tail endpoint and head must align with the supplied reference when overlaid."
+    },
+    {
+      "file": "wing-down.png",
+      "prompt": "Edit this hummingbird to make a registered animation keyframe. Preserve the exact image canvas dimensions, transparent alpha background, framing, scale, head, beak endpoints, eye, torso, feet and tail coordinates from the reference. Same natural forest-green and cream hummingbird, same three-quarter BACK view facing RIGHT, same soft lighting. Absolutely no camera change or body motion. Change ONLY BOTH WINGS at their existing shoulder attachments. WING POSE: LOWEST POINT OF THE DOWNSTROKE. The near wing now sweeps DOWN and to the LEFT, its long primary feathers extending toward the lower-left side of the body, visibly below the shoulder and to the LEFT of the tail, with a narrow naturally fanned silhouette. This is a flying hummingbird, not a perched bird: wing is extended in the air, NOT folded flat against the body. Far wing also swept down, mostly occluded by the body. Keep body feathers and long tail unchanged. Hummingbird wing anatomy, subtle translucent motion softness only at the feather tips. Same beak points right and gently into the scene. One bird only. Fully transparent background. No scenery, flower, text, symbols, extra feathers or duplicate pose. The purpose is a wingbeat loop whose body stays completely still while only the wing positions change."
+    },
+    {
+      "file": "wing-return.png",
+      "prompt": "Edit the attached hummingbird to create a registered animation sprite, the UPSTROKE RECOVERY keyframe. Preserve the exact transparent canvas, framing, size, camera and three-quarter back-facing-RIGHT body pose. Keep every part of the head, green back, torso, eye, horizontal right-pointing beak, tucked feet, and tail in exactly the same position as the reference. ONLY THE TWO WINGS CHANGE. Wing pose: coming UP from the lowest point, wing surfaces rotate edge-on for the return stroke. Near wing extends out to the LEFT and slightly upwards from the shoulder but is foreshortened into a NARROW blade-like sweep, about one-third the apparent wing width of the reference, with slim visible overlapping primary feathers. Far wing is a short soft narrow blur behind the upper shoulder. This must look like a fleeting real hummingbird recovery stroke, clearly distinct from both a broad open raised wing and a broad horizontal wing. Soft translucent motion at tips only, keep body perfectly crisp. Do not move the bird or alter the silhouette of its beak, face, chest or tail. Same detailed natural feathers and subdued forest-green, cream and tiny ruby coloring. One bird on a truly transparent alpha background, whole wings and tail within frame. No scenery, flower, extra birds, labels, text, painted checkerboard or opaque background."
+    }
+  ]
+}

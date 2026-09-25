@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fdfdfd"><meta name="robots" content="noindex">
+<title>Hummingbird motion study — Kalium</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="./preview.css">
+<script src="./preview.js" type="module"></script>
+</head>
+<body>
+<main class="bird-study">
+<header><a class="wordmark" href="../">KALIUM</a><span>Motion study / 01</span></header>
+<div class="study-heading"><h1>A small visitor.</h1><div class="view-switch" role="group" aria-label="Preview view"><button type="button" data-view="hover" aria-pressed="false">Wingbeat</button><button type="button" data-view="visit" aria-pressed="true">Flower visit</button></div></div>
+<div class="stage" aria-label="Animated hummingbird preview">
+<canvas id="bird-canvas" role="img" aria-label="A small hummingbird arrives from the right, dips its head to sip nectar, pauses, backs away, and continues left."></canvas>
+<button id="flower-target" type="button" aria-label="Invite the hummingbird to the flower"></button>
+<p id="loading" role="status">Preparing the wingbeat…</p>
+</div>
+<div class="playback"><p id="view-note">Tap the red flower to invite it back.</p><div class="playback-actions"><button type="button" id="slow" aria-pressed="false">Slow motion</button><button type="button" id="play" disabled>Pause</button><button type="button" id="replay">Replay visit <span aria-hidden="true">↗</span></button></div></div>
+<section class="frames" aria-label="Wing positions">
+<button type="button" data-frame="0"><img src="../assets/hummingbird/wing-up.png" width="1254" height="1254" alt="Wings raised"><span>01 <span>Upstroke</span></span></button>
+<button type="button" data-frame="1"><img src="../assets/hummingbird/wing-middle.png" width="1254" height="1254" alt="Wings extended horizontally"><span>02 <span>Downstroke</span></span></button>
+<button type="button" data-frame="2"><img src="../assets/hummingbird/wing-down.png" width="1254" height="1254" alt="Wings swept downward"><span>03 <span>Low point</span></span></button>
+<button type="button" data-frame="3"><img src="../assets/hummingbird/wing-return.png" width="1254" height="1254" alt="Wings edge-on on the return stroke"><span>04 <span>Return</span></span></button>
+</section>
+<footer><span>Tap a frame to inspect it.</span><a href="../assets/hummingbird/hummingbird-frames.zip" download>Download frames <span aria-hidden="true">↓</span></a></footer>
+</main>
+</body></html>

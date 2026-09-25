@@ -24,7 +24,8 @@
       <h1 class="wordmark">KALIUM</h1>
     </header>
     <figure class="sculpture">
-      <img class="botanical-image" src="./assets/botanicals/home-transparent.png" width="1536" height="1024" alt="An intricate floating tangle of dark green moss, leaves and fine tendrils, with a single red flower." fetchpriority="high">
+      <img class="botanical-image" draggable="false" src="./assets/botanicals/home-transparent.png" width="1536" height="1024" alt="An intricate floating tangle of dark green moss, leaves and fine tendrils, with a single red flower." fetchpriority="high">
+      <button class="flower-invite" type="button" aria-label="Invite a hummingbird to the red flower" hidden></button>
     </figure>
     <div class="home-details">
       <section class="statement" aria-label="Our approach">
@@ -38,6 +39,9 @@
         <nav class="home-resources" aria-label="Site resources"><a href="./style-guide/">Style guide</a><a href="./dynamic-equity/">White paper</a></nav>
     </div>
   </main>
+  <canvas class="hummingbird-flight" aria-hidden="true" hidden></canvas>
+  <span class="flower-status" role="status"></span>
   <script type="module" src="./page.js"></script>
+  <script type="module" src="./home-hummingbird.js"></script>
 </body>
 </html>
